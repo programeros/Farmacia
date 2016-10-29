@@ -13,9 +13,9 @@ public class ConexaoBD {
             Class.forName("org.apache.derby.jdbc.ClientDataSource");
 
             conexao = DriverManager.getConnection(
-                    "jdbc:derby://localhost:1527/sgf;SecurityMechanism=3",
+                    "jdbc:derby://localhost:1527/SGF;SecurityMechanism=3",
                     "sgf", 
-                    "sgf");            
+                    "sgf@123");            
         } catch (ClassNotFoundException | SQLException e) {
         }
 
