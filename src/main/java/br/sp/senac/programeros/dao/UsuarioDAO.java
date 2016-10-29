@@ -131,9 +131,9 @@ Connection conexao;
 
     }   
     
-    public boolean verificar(String login, String senha){
+    public String verificar(String login, String senha){
         ConexaoBD conn = new ConexaoBD();
-        boolean ret = false;
+        String ret = null;
         String user = null;
         String pass = null;
        
@@ -148,7 +148,7 @@ Connection conexao;
                 pass = rs.getString("SENHA");
 
                 if(login.equals(user) && senha.equals(pass)){
-                    ret = true;
+                    ret = rs.getString("NOME");
                 }
             }
         }catch(Exception e){
