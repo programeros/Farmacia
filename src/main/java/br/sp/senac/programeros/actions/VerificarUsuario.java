@@ -11,6 +11,7 @@ import java.sql.Connection;
 /**
  * @author willian.carvalho
  */
+
 public class VerificarUsuario extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
