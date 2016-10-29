@@ -29,9 +29,9 @@ public class VerificarUsuario extends HttpServlet {
         conn.fecharConexao();
         
         if(ok){
-            response.getWriter().print("Logado");
+            response.getWriter().print("Logado!");
         }else{
-            response.getWriter().print("Não Logado");
+            response.getWriter().print("Não Logado!");
         }
     }
 
