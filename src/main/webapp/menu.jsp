@@ -4,7 +4,6 @@
     Author     : willian.carvalho
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,10 +22,10 @@
                         <li><a href="#">Produtos</a></li>                  
                         <li><a href="#">Almoxarifados</a></li> 
                         <li><a href="#">Filiais</a></li> 
-                        <li><a href="#">Usu√°rios</a></li> 
+                        <li><a href="#">Usu·rios</a></li> 
                     </ul>
                 </li>
-                <li><a href="#">Atualiza√ß√µes</a>
+                <li><a href="#">AtualizaÁıes</a>
                     <ul>
                         <li><a href="#">Vendas</a></li>
                         <li><a href="#">Compras</a></li>
@@ -45,7 +44,7 @@
                 <li><a href="#">Sobre</a>
                 </li>
                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Usu√°rio: ${nome}</a></li>
+                        Usu·rio: ${nome}</a></li>
             </ul>
         </nav>
         

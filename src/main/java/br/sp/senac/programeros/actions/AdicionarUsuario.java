@@ -1,7 +1,7 @@
 package br.sp.senac.programeros.actions;
 
-import br.sp.senac.programeros.dao.ConexaoBD;
-import br.sp.senac.programeros.dao.Senhas;
+import br.sp.senac.programeros.connection.ConexaoBD;
+import br.sp.senac.programeros.connection.Senhas;
 import br.sp.senac.programeros.dao.UsuarioDAO;
 import br.sp.senac.programeros.model.Usuario;
 import java.io.IOException;

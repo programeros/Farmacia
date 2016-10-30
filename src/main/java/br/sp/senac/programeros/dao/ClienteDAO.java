@@ -1,6 +1,7 @@
 package br.sp.senac.programeros.dao;
 
 
+import br.sp.senac.programeros.connection.ConexaoBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

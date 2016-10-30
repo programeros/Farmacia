@@ -1,4 +1,4 @@
-package br.sp.senac.programeros.dao;
+package br.sp.senac.programeros.connection;
 
 /**
  * @author willian.carvalho

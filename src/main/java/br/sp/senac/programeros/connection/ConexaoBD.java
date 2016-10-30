@@ -1,4 +1,4 @@
-package br.sp.senac.programeros.dao;
+package br.sp.senac.programeros.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
