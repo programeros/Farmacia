@@ -17,6 +17,7 @@
     <body>
         <h1>Lista de Usuários</h1>
         <button onclick= "window.location.href = 'adicionarUsuario.jsp'">Adicionar</button>
+        <button onclick= "window.location.href = 'menu.jsp'">Sair</button>
         <hr />
         
         <%
@@ -31,7 +32,7 @@
 
         %>
         
-        <table id="tblContatos" border="1" cellPadding ="10">         
+        <table id="tblUsuarios" border="1" cellPadding ="5">         
             <tr>
                 <th>Codigo</th>
                 <th>Login</th>
@@ -45,7 +46,8 @@
                 <td><%= c.getCodigo()%></td>
                 <td><%= c.getLogin()%></td>
                 <td><%= c.getNome() %></td>
-                <td type="password"><%= c.getSenha() %></td>               
+                <td><%= "********" %></td>
+                </td>
                 <td> <a href="ExcluirUsuario?id=<%=c.getCodigo()%>">Excluir</a></td>
                 <td> <a href="AlterarUsuario?id=<%=c.getCodigo()%>&nome=<%=c.getNome() %>
                         &login=<%= c.getLogin()%>&senha=<%= c.getSenha() %>">
