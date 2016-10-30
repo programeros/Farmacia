@@ -40,7 +40,7 @@ public class VerificarUsuario extends HttpServlet {
         if(nome != null){
             response.sendRedirect("menu.jsp");
         }else{
-            response.getWriter().print("Não Logado!");
+            response.sendRedirect("index.html");
         }
     }
 
