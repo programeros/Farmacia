@@ -68,7 +68,7 @@ Connection conexao;
             p.setString(8, cliente.getTelefone());
             p.setString(9, cliente.getCelular());
             p.setInt(10, cliente.getConvenio());
-            p.setString(11, cliente.getAtivo());
+            p.setString(11, String.valueOf(cliente.getAtivo()));
             p.setInt(12, cliente.getCodigo());
 
             p.execute();
@@ -101,8 +101,8 @@ Connection conexao;
                 String celular = rs.getString("CELULAR");
                 Date cadastro = rs.getDate("CADASTRO");
                 int convenio = rs.getInt("CONVENIOS_CODIGO");
-                String ativo = rs.getString("ATIVO");
-                String deletado = rs.getString("DELETADO");
+                char ativo = rs.getString("ATIVO").charAt(0);
+                char deletado = rs.getString("DELETADO").charAt(0);
                 
                 
                 cliente.setCodigo(codigo);
@@ -154,8 +154,8 @@ Connection conexao;
                 cliente.setCelular(rs.getString("CELULAR"));
                 cliente.setCadastro(rs.getDate("CADASTRO"));
                 cliente.setConvenio(rs.getInt("CONVENIOS_CODIGO"));
-                cliente.setAtivo(rs.getString("ATIVO"));
-                cliente.setDeletado(rs.getString("DELETADO"));            
+                cliente.setAtivo(rs.getString("ATIVO").charAt(0));
+                cliente.setDeletado(rs.getString("DELETADO").charAt(0));            
         }catch(Exception e){
             e.printStackTrace();
         }

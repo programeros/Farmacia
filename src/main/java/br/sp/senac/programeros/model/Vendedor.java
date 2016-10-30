@@ -1,4 +1,3 @@
-
 package br.sp.senac.programeros.model;
 
 import java.sql.Date;
@@ -6,7 +5,8 @@ import java.sql.Date;
 /**
  * @author willian.carvalho
  */
-public class Cliente {
+
+public class Vendedor {
     private int codigo;
     private String nome;
     private String endereco;
@@ -14,11 +14,9 @@ public class Cliente {
     private String estado;
     private String cidade;
     private String cep;
-    private char sexo;
     private String telefone;
     private String celular;
     private Date cadastro;
-    private int convenio;
     private char ativo;
     private char deletado;
 
@@ -78,14 +76,6 @@ public class Cliente {
         this.cep = cep;
     }
 
-    public char getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(char sexo) {
-        this.sexo = sexo;
-    }
-
     public String getTelefone() {
         return telefone;
     }
@@ -110,14 +100,6 @@ public class Cliente {
         this.cadastro = cadastro;
     }
 
-    public int getConvenio() {
-        return convenio;
-    }
-
-    public void setConvenio(int convenio) {
-        this.convenio = convenio;
-    }
-
     public char getAtivo() {
         return ativo;
     }
@@ -133,5 +115,6 @@ public class Cliente {
     public void setDeletado(char deletado) {
         this.deletado = deletado;
     }
+
 
 }

@@ -6,7 +6,7 @@ import java.sql.Date;
 /**
  * @author willian.carvalho
  */
-public class Cliente {
+public class Fornecedor {
     private int codigo;
     private String nome;
     private String endereco;
@@ -14,13 +14,11 @@ public class Cliente {
     private String estado;
     private String cidade;
     private String cep;
-    private char sexo;
     private String telefone;
     private String celular;
     private Date cadastro;
-    private int convenio;
-    private char ativo;
-    private char deletado;
+    private String ativo;
+    private String deletado;
 
     public int getCodigo() {
         return codigo;
@@ -54,14 +52,6 @@ public class Cliente {
         this.bairro = bairro;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
     public String getCidade() {
         return cidade;
     }
@@ -76,14 +66,6 @@ public class Cliente {
 
     public void setCep(String cep) {
         this.cep = cep;
-    }
-
-    public char getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(char sexo) {
-        this.sexo = sexo;
     }
 
     public String getTelefone() {
@@ -102,6 +84,30 @@ public class Cliente {
         this.celular = celular;
     }
 
+    public String getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(String ativo) {
+        this.ativo = ativo;
+    }
+
+    public String getDeletado() {
+        return deletado;
+    }
+
+    public void setDeletado(String deletado) {
+        this.deletado = deletado;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     public Date getCadastro() {
         return cadastro;
     }
@@ -109,29 +115,4 @@ public class Cliente {
     public void setCadastro(Date cadastro) {
         this.cadastro = cadastro;
     }
-
-    public int getConvenio() {
-        return convenio;
-    }
-
-    public void setConvenio(int convenio) {
-        this.convenio = convenio;
-    }
-
-    public char getAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(char ativo) {
-        this.ativo = ativo;
-    }
-
-    public char getDeletado() {
-        return deletado;
-    }
-
-    public void setDeletado(char deletado) {
-        this.deletado = deletado;
-    }
-
 }

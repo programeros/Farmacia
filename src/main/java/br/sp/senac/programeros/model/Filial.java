@@ -1,24 +1,19 @@
-
 package br.sp.senac.programeros.model;
-
-import java.sql.Date;
 
 /**
  * @author willian.carvalho
  */
-public class Cliente {
+
+public class Filial {
     private int codigo;
     private String nome;
     private String endereco;
     private String bairro;
-    private String estado;
     private String cidade;
+    private String estado;
     private String cep;
-    private char sexo;
     private String telefone;
-    private String celular;
-    private Date cadastro;
-    private int convenio;
+    private String email;
     private char ativo;
     private char deletado;
 
@@ -54,20 +49,20 @@ public class Cliente {
         this.bairro = bairro;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
     public String getCidade() {
         return cidade;
     }
 
     public void setCidade(String cidade) {
         this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public String getCep() {
@@ -78,14 +73,6 @@ public class Cliente {
         this.cep = cep;
     }
 
-    public char getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(char sexo) {
-        this.sexo = sexo;
-    }
-
     public String getTelefone() {
         return telefone;
     }
@@ -94,28 +81,12 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public String getCelular() {
-        return celular;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
-    public Date getCadastro() {
-        return cadastro;
-    }
-
-    public void setCadastro(Date cadastro) {
-        this.cadastro = cadastro;
-    }
-
-    public int getConvenio() {
-        return convenio;
-    }
-
-    public void setConvenio(int convenio) {
-        this.convenio = convenio;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public char getAtivo() {
@@ -133,5 +104,4 @@ public class Cliente {
     public void setDeletado(char deletado) {
         this.deletado = deletado;
     }
-
 }
