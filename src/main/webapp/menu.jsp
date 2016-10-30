@@ -12,6 +12,7 @@
         <title>Menu do SGF</title>
     </head>
     <body>
+        
         <nav>
             <ul class="menu">
                 <li><a href="#">Cadastros</a>
@@ -42,8 +43,11 @@
                     </ul>
                 </li>
                 <li><a href="#">Sobre</a>
-                </li>                
+                </li>
+                <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Usuário: ${nome}</a></li>
             </ul>
         </nav>
+        
     </body>
 </html>

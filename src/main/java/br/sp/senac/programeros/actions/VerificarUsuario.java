@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import br.sp.senac.programeros.dao.*;
 import java.sql.Connection;
-import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author willian.carvalho
@@ -17,6 +17,7 @@ public class VerificarUsuario extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession sessao = request.getSession();
         
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
@@ -27,13 +28,15 @@ public class VerificarUsuario extends HttpServlet {
         Connection conexao = conn.obterConexao();
 
         UsuarioDAO dao = new UsuarioDAO(conexao);
-        String nome = dao.verificar(login, senha);
+
+        sessao.setAttribute("nome", dao.verificar(login, senha));
+        
+        String nome = (String) sessao.getAttribute("nome");
         
         conn.fecharConexao();
         
         if(nome != null){
-            RequestDispatcher r = request.getRequestDispatcher("menu.jsp");
-            r.forward( request, response );
+            response.sendRedirect("menu.jsp");
         }else{
             response.getWriter().print("Não Logado!");
         }
