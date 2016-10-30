@@ -2,6 +2,7 @@ package br.sp.senac.programeros.dao;
 
 
 import br.sp.senac.programeros.connection.ConexaoBD;
+import br.sp.senac.programeros.connection.Senhas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -75,11 +76,12 @@ Connection conexao;
                 int codigo = rs.getInt("CODIGO");
                 String login = rs.getString("LOGIN");
                 String nome = rs.getString("NOME");
-                String senha = rs.getString("SENHA");
+                String senha = Senhas.Descriptografar(rs.getString("SENHA"));
                 
                 usuario.setCodigo(codigo);
                 usuario.setLogin(login);
                 usuario.setNome(nome);
+                usuario.setSenha(senha);
                 usuarios.add(usuario);
             }
             

@@ -22,7 +22,7 @@
                         <li><a href="#">Produtos</a></li>                  
                         <li><a href="#">Almoxarifados</a></li> 
                         <li><a href="#">Filiais</a></li> 
-                        <li><a href="#">Usuários</a></li> 
+                        <li><a href="usuario.jsp">Usuários</a></li> 
                     </ul>
                 </li>
                 <li><a href="#">Atualizações</a>

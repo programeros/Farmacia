@@ -9,7 +9,6 @@ public class Senhas {
         int contador, tamanho,codigoASCII;
         String senhaCriptografada = "";
         tamanho = senha.length();
-        senha = senha.toUpperCase();
         contador = 0;
         while(contador <tamanho){
                 codigoASCII = senha.charAt(contador)+130;
@@ -24,7 +23,6 @@ public class Senhas {
         int contador, tamanho,codigoASCII;
         String senhaCriptografada = "";
         tamanho = senha.length();
-        senha = senha.toUpperCase();
         contador = 0;
         while(contador <tamanho){
                 codigoASCII = senha.charAt(contador)-130;
