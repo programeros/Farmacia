@@ -46,6 +46,7 @@
                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         Usuário: ${nome}</a></li>
             </ul>
+            <div class="imagem"></div>
         </nav>
         
     </body>
