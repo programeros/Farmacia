@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@page import="br.sp.senac.programeros.model.Usuario"%>
 <html>
@@ -14,5 +15,7 @@
             <input type="submit" value="Gravar" />
             <input type="button" value="Voltar" onClick="history.go(-1)"> 
         </form>
+        
+        <c:import url="rodape.jsp"/>
     </body>
 </html>

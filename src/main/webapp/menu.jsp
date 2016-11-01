@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="menu.css"/>
+        
         <title>Menu do SGF</title>
     </head>
     <body>

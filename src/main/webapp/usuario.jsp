@@ -4,6 +4,7 @@
     Author     : willian.carvalho
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="br.sp.senac.programeros.connection.Senhas"%>
 <%@page import="java.util.List"%>
 <%@page import="br.sp.senac.programeros.dao.UsuarioDAO"%>
@@ -12,9 +13,11 @@
 <%@page import="br.sp.senac.programeros.model.Usuario"%>
 <html>
     <head>
+        
         <title>Usuários do SGF</title>    
     </head>
     <body>
+        <c:import url="cabecalho.jsp"/>
         <h1>Lista de Usuários</h1>
         <button onclick= "window.location.href = 'adicionarUsuario.jsp'">Adicionar</button>
         <button onclick= "window.location.href = 'menu.jsp'">Sair</button>
@@ -55,6 +58,7 @@
             </tr>              
             <%} %>
 
-        </table>     
+        </table> 
+            <c:import url="rodape.jsp"/>
     </body>
 </html>
