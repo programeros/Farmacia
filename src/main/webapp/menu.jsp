@@ -12,6 +12,8 @@
     </head>
     <body>
         
+        <c:import url="cabecalho.jsp"/>
+        
         <nav>
             <ul class="menu">
                 <li><a href="#">Cadastros</a>
@@ -47,6 +49,8 @@
                         Usuário: ${nome}</a></li>
             </ul>
         </nav>
+            
+            <c:import url="rodape.jsp"/>
         
     </body>
 </html>
