@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>AdicionarUsuario</servlet-name>
-        <servlet-class>br.sp.senac.programeros.actions.AdicionarUsuario</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>VerificarUsuario</servlet-name>
         <servlet-class>br.sp.senac.programeros.actions.VerificarUsuario</servlet-class>
     </servlet>
-    <servlet-mapping>
+    <servlet>
         <servlet-name>AdicionarUsuario</servlet-name>
-        <url-pattern>/AdicionarUsuario</url-pattern>
-    </servlet-mapping>
+        <servlet-class>br.sp.senac.programeros.actions.AdicionarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerificarUsuario</servlet-name>
         <url-pattern>/VerificarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdicionarUsuario</servlet-name>
+        <url-pattern>/AdicionarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

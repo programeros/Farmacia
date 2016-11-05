@@ -23,14 +23,18 @@ Connection conexao;
 
     @Override
     public void inserir(Usuario usuario) {
-        String sql = "INSERT INTO USUARIOS "
-            + "(LOGIN, NOME, SENHA) VALUES (?, ?, ?)";
+        
+        String sql = "insert into usuarios "
+            + "(login, nome, senha, ativo) VALUES (?, ?, ?, ?)";
         PreparedStatement p;
+             
+        
         try {
             p = this.conexao.prepareStatement(sql);
             p.setString(1, usuario.getLogin());
             p.setString(2, usuario.getNome());
             p.setString(3, usuario.getSenha());            
+            p.setString(4, usuario.getAtivo());
             
             p.execute();
             
@@ -44,9 +48,9 @@ Connection conexao;
     public void alterar(Usuario usuario) {
         
         try {
-            String sql = "UPDATE USUARIOS "
-                + " SET NOME = ?, SENHA = ?, "
-                + " WHERE LOGIN = ?";
+            String sql = "UPDATE usuarios "
+                + " SET nome = ?, senha = ?, "
+                + " WHERE login = ?";
 
             PreparedStatement p;            
             p = this.conexao.prepareStatement(sql);
@@ -66,17 +70,17 @@ Connection conexao;
         List<Usuario> usuarios = new ArrayList<Usuario>();
         
         try{
-            String sql = "SELECT * FROM USUARIOS";
+            String sql = "SELECT * FROM usuarios";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql); 
                         
             while(rs.next()){
                 Usuario usuario = new Usuario();
                 
-                int codigo = rs.getInt("CODIGO");
-                String login = rs.getString("LOGIN");
-                String nome = rs.getString("NOME");
-                String senha = Senhas.Descriptografar(rs.getString("SENHA"));
+                int codigo = rs.getInt("codigo");
+                String login = rs.getString("login");
+                String nome = rs.getString("nome");
+                String senha = Senhas.Descriptografar(rs.getString("senha"));
                 
                 usuario.setCodigo(codigo);
                 usuario.setLogin(login);
@@ -97,16 +101,16 @@ Connection conexao;
         Usuario usuario = new Usuario();
         ConexaoBD conn = new ConexaoBD();
        
-        String sql = "SELECT * FROM USUARIOS WHERE CODIGO= "+codigo;
+        String sql = "SELECT * FROM usuarios WHERE codigo= "+codigo;
         
         try{
             Statement stmt = (Statement) conn.obterConexao().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
                 usuario.setCodigo(codigo);
-                usuario.setLogin(rs.getString("LOGIN"));
-                usuario.setNome(rs.getString("NOME"));
-                usuario.setSenha(rs.getString("SENHA")); 
+                usuario.setLogin(rs.getString("login"));
+                usuario.setNome(rs.getString("nome"));
+                usuario.setSenha(rs.getString("senha")); 
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -118,7 +122,7 @@ Connection conexao;
     @Override
     public Usuario Remove(int codigo){
 
-        String sql = "DELETE FROM USUARIOS WHERE CODIGO=?";
+        String sql = "DELETE FROM usuarios WHERE codigo=?";
 
         PreparedStatement p;
         try {
@@ -140,18 +144,18 @@ Connection conexao;
         String user = null;
         String pass = null;
        
-        String sql = "SELECT * FROM USUARIOS WHERE LOGIN= '"+login+"'";
+        String sql = "SELECT * FROM usuarios WHERE login= '"+login+"'";
         
         try{
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql); 
 
             while(rs.next()){
-                user = rs.getString("LOGIN");
-                pass = rs.getString("SENHA");
+                user = rs.getString("login");
+                pass = rs.getString("senha");
 
                 if(login.equals(user) && senha.equals(pass)){
-                    ret = rs.getString("NOME");
+                    ret = rs.getString("nome");
                 }
             }
         }catch(Exception e){

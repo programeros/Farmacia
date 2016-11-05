@@ -19,7 +19,7 @@
     <body>
         <c:import url="cabecalho.jsp"/>
         <h1>Lista de Usuários</h1>
-        <button onclick= "window.location.href = 'adicionarUsuario.jsp'">Adicionar</button>
+        <button onclick= "window.location.href = 'usersAdd.jsp'">Adicionar</button>
         <button onclick= "window.location.href = 'menu.jsp'">Sair</button>
         <hr />
         

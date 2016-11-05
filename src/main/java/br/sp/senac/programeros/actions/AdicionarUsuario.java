@@ -18,6 +18,29 @@ public class AdicionarUsuario extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    
+        String login = request.getParameter("login");
+        String nome = request.getParameter("nome");
+        String senha = request.getParameter("senha");
+        char ativo = 'S';
+        
+        senha = Senhas.Criptografar(senha);
+
+        Usuario novoUsuario = new Usuario();
+        novoUsuario.setLogin(login);
+        novoUsuario.setNome(nome);
+        novoUsuario.setSenha(senha);
+        novoUsuario.setAtivo(Character.toString(ativo));
+        
+        ConexaoBD conn = new ConexaoBD();
+        Connection conexao = conn.obterConexao();
+
+        UsuarioDAO dao = new UsuarioDAO(conexao);
+        dao.inserir(novoUsuario);
+        
+        conn.fecharConexao();
+        
+        response.sendRedirect("logado.jsp");       
     }
 
     @Override
@@ -29,27 +52,6 @@ public class AdicionarUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    
-        String login = request.getParameter("login");
-        String nome = request.getParameter("nome");
-        String senha = request.getParameter("senha");
-        
-        senha = Senhas.Criptografar(senha);
-
-        Usuario novoUsuario = new Usuario();
-        novoUsuario.setLogin(login);
-        novoUsuario.setNome(nome);
-        novoUsuario.setSenha(senha);
-
-        ConexaoBD conn = new ConexaoBD();
-        Connection conexao = conn.obterConexao();
-
-        UsuarioDAO dao = new UsuarioDAO(conexao);
-        dao.inserir(novoUsuario);
-        
-        conn.fecharConexao();
-        
-        response.sendRedirect("logado.jsp");
     }
 
     @Override

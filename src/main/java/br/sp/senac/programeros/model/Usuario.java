@@ -6,21 +6,25 @@ public class Usuario {
     private String login;
     private String nome;
     private String senha;
+    private String ativo;
+    private String deletado;
 
     public Usuario() {
     }
 
-    public Usuario(String login, String nome, String senha) {
+    public Usuario(String login, String nome, String senha, String ativo) {
         this.login = login;
         this.nome = nome;
         this.senha = senha;
+        this.ativo = ativo;
     }
 
-    public Usuario(int codigo, String login, String nome, String senha) {
+    public Usuario(int codigo, String login, String nome, String senha, String ativo) {
         this.codigo = codigo;
         this.login = login;
         this.nome = nome;
         this.senha = senha;
+        this.ativo = ativo;
     }
 
     public int getCodigo() {
@@ -53,5 +57,21 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(String ativo) {
+        this.ativo = ativo;
+    }
+
+    public String getDeletado() {
+        return deletado;
+    }
+
+    public void setDeletado(String deletado) {
+        this.deletado = deletado;
     }
 }
