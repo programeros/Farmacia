@@ -1,6 +1,5 @@
 package br.sp.senac.programeros.dao;
 
-
 import br.sp.senac.programeros.connection.ConexaoBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,14 +13,19 @@ import java.util.logging.Logger;
 import br.sp.senac.programeros.model.Cliente;
 import java.sql.Date;
 
-public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInterface{
-Connection conexao;
+public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInterface {
+
+    Connection conexao;
+    
+    public ClienteDAO(Connection conexao) {
+        this.conexao = conexao;
+    }
     
     public void cliente(Cliente cliente) {
         String sql = "INSERT INTO clientes "
-            + "(nome, endereco, bairro, cidade,estado,cep,sexo,telefone,celular,"
-            + "cadastro,convenios_codigo,ativo) VALUES "
-            + "(?,?,?,?,?,?,?,?,?,?,?,?)";
+                + "(nome, endereco, bairro, cidade,estado,cep,sexo,telefone,celular,"
+                + "cadastro,convenios_codigo,ativo) VALUES "
+                + "(?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement p;
         try {
             p = this.conexao.prepareStatement(sql);
@@ -37,26 +41,26 @@ Connection conexao;
             p.setInt(10, cliente.getConvenio());
             p.setDate(11, new java.sql.Date(System.currentTimeMillis()));
             p.setString(12, "S");
-                       
+
             p.execute();
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     @Override
     public void alterar(Cliente cliente) {
-        
+
         try {
             String sql = "UPDATE clientes "
-                + " SET nome = ?, endereco = ?, bairro = ?, cidade = ?, "
-                + " estado = ?, cep = ?, sexo = ?, telefone = ?, celular = ?,"
-                + " convenios_codigo = ?, ativo = ?"
-                + " WHERE codigo = ?";
+                    + " SET nome = ?, endereco = ?, bairro = ?, cidade = ?, "
+                    + " estado = ?, cep = ?, sexo = ?, telefone = ?, celular = ?,"
+                    + " convenios_codigo = ?, ativo = ?"
+                    + " WHERE codigo = ?";
 
-            PreparedStatement p;            
+            PreparedStatement p;
             p = this.conexao.prepareStatement(sql);
             p.setString(1, cliente.getNome());
             p.setString(2, cliente.getEndereco());
@@ -72,23 +76,23 @@ Connection conexao;
             p.setInt(12, cliente.getCodigo());
 
             p.execute();
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-    }    
-    
+        }
+    }
+
     public List<Cliente> listarClientes() {
         List<Cliente> clientes = new ArrayList<Cliente>();
-        
-        try{
+
+        try {
             String sql = "SELECT * FROM clientes";
             java.sql.Statement stmt = conexao.createStatement();
-            ResultSet rs = stmt.executeQuery(sql); 
-                        
-            while(rs.next()){
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
                 Cliente cliente = new Cliente();
-                
+
                 int codigo = rs.getInt("codigo");
                 String nome = rs.getString("nome");
                 String endereco = rs.getString("endereco");
@@ -103,8 +107,7 @@ Connection conexao;
                 int convenio = rs.getInt("convenios_codigo");
                 char ativo = rs.getString("ativo").charAt(0);
                 char deletado = rs.getString("deletado").charAt(0);
-                
-                
+
                 cliente.setCodigo(codigo);
                 cliente.setNome(nome);
                 cliente.setEndereco(endereco);
@@ -119,69 +122,69 @@ Connection conexao;
                 cliente.setConvenio(convenio);
                 cliente.setAtivo(ativo);
                 cliente.setDeletado(deletado);
-                
+
                 clientes.add(cliente);
             }
-            
-        }catch(Exception e){
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return clientes;
     }
-    
+
     @Override
-    public Cliente selecionar(int codigo){
-       
+    public Cliente selecionar(int codigo) {
+
         Cliente cliente = new Cliente();
         ConexaoBD conn = new ConexaoBD();
-       
-        String sql = "SELECT * FROM clientes WHERE codigo= "+codigo;
-        
-        try{
+
+        String sql = "SELECT * FROM clientes WHERE codigo= " + codigo;
+
+        try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
-            
-                cliente.setCodigo(codigo);
-                cliente.setNome(rs.getString("nome"));
-                cliente.setEndereco(rs.getString("endereco"));
-                cliente.setBairro(rs.getString("bairro"));
-                cliente.setCidade(rs.getString("cidade"));
-                cliente.setEstado(rs.getString("estado"));
-                cliente.setCep(rs.getString("cep"));
-                cliente.setSexo(rs.getString("sexo").charAt(0));
-                cliente.setTelefone(rs.getString("telefone"));
-                cliente.setCelular(rs.getString("celular"));
-                cliente.setCadastro(rs.getDate("cadastro"));
-                cliente.setConvenio(rs.getInt("convenios_codigo"));
-                cliente.setAtivo(rs.getString("ativo").charAt(0));
-                cliente.setDeletado(rs.getString("deletado").charAt(0));            
-        }catch(Exception e){
+
+            cliente.setCodigo(codigo);
+            cliente.setNome(rs.getString("nome"));
+            cliente.setEndereco(rs.getString("endereco"));
+            cliente.setBairro(rs.getString("bairro"));
+            cliente.setCidade(rs.getString("cidade"));
+            cliente.setEstado(rs.getString("estado"));
+            cliente.setCep(rs.getString("cep"));
+            cliente.setSexo(rs.getString("sexo").charAt(0));
+            cliente.setTelefone(rs.getString("telefone"));
+            cliente.setCelular(rs.getString("celular"));
+            cliente.setCadastro(rs.getDate("cadastro"));
+            cliente.setConvenio(rs.getInt("convenios_codigo"));
+            cliente.setAtivo(rs.getString("ativo").charAt(0));
+            cliente.setDeletado(rs.getString("deletado").charAt(0));
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         return cliente;
 
-    }       
-    
+    }
+
     @Override
-    public Cliente Remove(int codigo){
+    public Cliente Remove(int codigo) {
 
         String sql = "DELETE FROM clientes WHERE codigo=?";
 
         PreparedStatement p;
         try {
             p = this.conexao.prepareStatement(sql);
-            p.setInt(1,codigo);
+            p.setInt(1, codigo);
 
             p.execute();
 
-        } catch (SQLException e) {            
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
 
-    }   
+    }
 
     @Override
     public void inserir(Cliente cliente) {
