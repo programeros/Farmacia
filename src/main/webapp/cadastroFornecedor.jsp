@@ -14,7 +14,11 @@
     <body>
         <nav>
             <ul class="menu">                
-                <li><a href="fornecedor.jsp">Pesquisar</a></li>                
+                <li><a href="#">Pesquisar</a>
+                    <ul>
+                        <li><a href="fornecedor.jsp">Fornecedores Cadastrados</a></li>                        
+                    </ul>
+                </li> 
                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         Usuário: ${nome}</a></li>
             </ul>
