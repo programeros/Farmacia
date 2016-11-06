@@ -14,10 +14,11 @@
     <body>
         <nav>
             <ul class="menu">
-                <li><a href="#">Inserir</a></li>
-                <li><a href="#">Pesquisar</a></li>
-                <li><a href="#">Alterar</a></li>
-                <li><a href="#">Excluir</a></li>
+                <li><a href="#">Pesquisar</a>
+                    <ul>
+                        <li><a href="almoxarifado.jsp">Almoxarifados Cadastrados</a></li>                        
+                    </ul>
+                </li> 
                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         Usuário: ${nome}</a></li>
             </ul>
