@@ -19,12 +19,12 @@
             <ul class="menu">
                 <li><a href="#">Cadastros</a>
                     <ul>
-                        <li><a href="#">Clientes</a></li>
-                        <li><a href="#">Fornecedores</a></li>
-                        <li><a href="#">Vendedores</a></li>   
-                        <li><a href="#">Produtos</a></li>                  
-                        <li><a href="#">Almoxarifados</a></li> 
-                        <li><a href="#">Filiais</a></li> 
+                        <li><a href="cliente.jsp">Clientes</a></li>
+                        <li><a href="fornecedor.jsp">Fornecedores</a></li>
+                        <li><a href="vendedor.jsp">Vendedores</a></li>   
+                        <li><a href="produto.jsp">Produtos</a></li>                  
+                        <li><a href="almoxarifado.jsp">Almoxarifados</a></li> 
+                        <li><a href="filial.jsp">Filiais</a></li> 
                         <li><a href="usuario.jsp">Usuários</a></li> 
                     </ul>
                 </li>
@@ -49,6 +49,7 @@
                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         Usuário: ${nome}</a></li>
             </ul>
+            <div class="imagem"></div>
         </nav>
             
             <c:import url="rodape.jsp"/>
