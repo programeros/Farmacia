@@ -10,7 +10,7 @@ import java.util.List;
 public interface ClienteInterface {
     public void inserir(Cliente cliente);
     public void alterar(Cliente cliente);
-    public List<Cliente> listarUsuarios();
+    public List<Cliente> listarClientes();
     public Cliente selecionar(int id);
     public Cliente Remove(int id);
 }

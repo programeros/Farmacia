@@ -15,7 +15,7 @@ import java.util.List;
 public interface ProdutoInterface {
     public void inserir(Produto produto);
     public void alterar(Produto produto);
-    public List<Produto> listarUsuarios();
+    public List<Produto> listarProdutos();
     public Produto selecionar(String id);
     public Produto Remove(String id);
 }

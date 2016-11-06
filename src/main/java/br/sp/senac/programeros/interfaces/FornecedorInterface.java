@@ -8,7 +8,7 @@ import java.util.List;
 public interface FornecedorInterface {
     public void inserir(Fornecedor fornecedor);
     public void alterar(Fornecedor fornecedor);
-    public List<Fornecedor> listarUsuarios();
+    public List<Fornecedor> listarFornecedores();
     public Fornecedor selecionar(int id);
     public Fornecedor Remove(int id);
 }

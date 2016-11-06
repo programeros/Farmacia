@@ -11,7 +11,7 @@ import java.util.List;
 public interface VendedorInterface {
     public void inserir(Vendedor vendedor);
     public void alterar(Vendedor vendedor);
-    public List<Vendedor> listarUsuarios();
+    public List<Vendedor> listarVendedores();
     public Vendedor selecionar(int id);
     public Vendedor Remove(int id);
 }
