@@ -25,7 +25,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
     }
 
     public void fornecedor(Fornecedor fornecedor) {
-        String sql = "INSERT INTO CLIENTES "
+        String sql = "INSERT INTO FORNECEDORES"
                 + "(NOME, ENDERECO, BAIRRO, CIDADE,ESTADO,CEP,TELEFONE,CELULAR,"
                 + "CADASTRO,ATIVO) VALUES "
                 + "(?,?,?,?,?,?,?,?,?,?)";
@@ -55,7 +55,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
     public void alterar(Fornecedor fornecedor) {
 
         try {
-            String sql = "UPDATE USUARIOS "
+            String sql = "UPDATE FORNECEDORES "
                     + " SET NOME = ?, ENDERECO = ?, BAIRRO = ?, CIDADE = ?, "
                     + " ESTADO = ?, CEP = ?, TELEFONE = ?, CELULAR = ?,"
                     + " ATIVO = ?"

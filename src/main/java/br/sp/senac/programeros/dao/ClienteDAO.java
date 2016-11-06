@@ -55,7 +55,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
     public void alterar(Cliente cliente) {
 
         try {
-            String sql = "UPDATE USUARIOS "
+            String sql = "UPDATE CLIENTES "
                     + " SET NOME = ?, ENDERECO = ?, BAIRRO = ?, CIDADE = ?, "
                     + " ESTADO = ?, CEP = ?, SEXO = ?, TELEFONE = ?, CELULAR = ?,"
                     + " CONVENIOS_CODIGO = ?, ATIVO = ?"
