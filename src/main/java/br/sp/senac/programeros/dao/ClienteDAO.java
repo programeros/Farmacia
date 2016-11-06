@@ -83,6 +83,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
         }
     }
 
+    @Override
     public List<Cliente> listarClientes() {
         List<Cliente> clientes = new ArrayList<Cliente>();
 
@@ -192,8 +193,4 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public List<Cliente> listarUsuarios() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

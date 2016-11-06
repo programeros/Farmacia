@@ -49,26 +49,27 @@ public class ProdutoDAO implements br.sp.senac.programeros.interfaces.ProdutoInt
 
         try {
             String sql = "UPDATE PRODUTOS "
-                    + " SET CODIGO = ?, DESCRICAO = ?, PRECO = ?, MARCA = ?, "
+                    + " SET DESCRICAO = ?, PRECO = ?, MARCA = ?, "
                     + " CATEGORIAS_CODIGO = ?, FORNECEDORES_CODIGO = ?, UNIDADES_CODIGO = ?"                   
                     + " WHERE CODIGO = ?";
 
             PreparedStatement p;
-            p = this.conexao.prepareStatement(sql);
-            p.setString(1, produto.getCodigo());
-            p.setString(2, produto.getDescricao());
-            p.setFloat(3, produto.getPreco());
-            p.setString(4, produto.getMarca());
-            p.setInt(5, produto.getCategoria());
-            p.setInt(6, produto.getFornecedor());            
-            p.setInt(7, produto.getUnidade());            
-
+            p = this.conexao.prepareStatement(sql);            
+            p.setString(1, produto.getDescricao());
+            p.setFloat(2, produto.getPreco());
+            p.setString(3, produto.getMarca());
+            p.setInt(4, produto.getCategoria());
+            p.setInt(5, produto.getFornecedor());            
+            p.setInt(6, produto.getUnidade());            
+            p.setString(7, produto.getCodigo());
+            
             p.execute();
 
         } catch (SQLException ex) {
             Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    @Override
     public List<Produto> listarProdutos() {
         List<Produto> produtos = new ArrayList<Produto>();
 
@@ -156,11 +157,6 @@ public class ProdutoDAO implements br.sp.senac.programeros.interfaces.ProdutoInt
     @Override
     public void inserir(Produto produto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Produto> listarUsuarios() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    }    
     
 }

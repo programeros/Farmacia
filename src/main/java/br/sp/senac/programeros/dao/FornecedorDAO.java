@@ -41,7 +41,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
             p.setString(7, fornecedor.getTelefone());
             p.setString(8, fornecedor.getCelular());
             p.setDate(9, new java.sql.Date(System.currentTimeMillis()));
-            p.setString(10, String.valueOf(fornecedor.getAtivo()));
+            p.setString(10, "S");
 
             p.execute();
 
@@ -81,6 +81,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
         }
     }
 
+    @Override
     public List<Fornecedor> listarFornecedores() {
         List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
 
@@ -184,8 +185,4 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public List<Fornecedor> listarUsuarios() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

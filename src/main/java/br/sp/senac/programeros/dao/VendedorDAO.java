@@ -45,7 +45,7 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
             p.setString(7, vendedor.getTelefone());
             p.setString(8, vendedor.getCelular());
             p.setDate(9, new java.sql.Date(System.currentTimeMillis()));
-            p.setString(10, String.valueOf(vendedor.getAtivo()));
+            p.setString(10, "S");
 
             p.execute();
 
@@ -84,6 +84,7 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
         }
     }
 
+    @Override
     public List<Vendedor> listarVendedores() {
         List<Vendedor> vendedores = new ArrayList<Vendedor>();
 
@@ -184,11 +185,6 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
 
     @Override
     public void inserir(Vendedor vendedor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Vendedor> listarUsuarios() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
