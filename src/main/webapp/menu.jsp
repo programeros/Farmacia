@@ -19,9 +19,9 @@
                         <li><a href="cadastroCliente.jsp">Clientes</a></li>
                         <li><a href="cadastroFornecedor.jsp">Fornecedores</a></li>
                         <li><a href="cadastroVendedor.jsp">Vendedores</a></li>   
-                        <li><a href="#">Produtos</a></li>                  
-                        <li><a href="#">Almoxarifados</a></li> 
-                        <li><a href="#">Filiais</a></li> 
+                        <li><a href="cadastroProduto.jsp">Produtos</a></li>                  
+                        <li><a href="cadastroAlmoxarifado.jsp">Almoxarifados</a></li> 
+                        <li><a href="cadastroFilial.jsp">Filiais</a></li> 
                         <li><a href="usuario.jsp">Usuários</a></li> 
                     </ul>
                 </li>
