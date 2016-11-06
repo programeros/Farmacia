@@ -1,11 +1,8 @@
 package br.sp.senac.programeros.actions;
 
 import br.sp.senac.programeros.connection.ConexaoBD;
-import br.sp.senac.programeros.connection.Senhas;
 import br.sp.senac.programeros.dao.UsuarioDAO;
-import br.sp.senac.programeros.model.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -36,6 +33,7 @@ public class ExcluirUsuario extends HttpServlet {
         UsuarioDAO dao = new UsuarioDAO(conexao);
         dao.Remove(id);
         
+        System.out.println("2");
         conn.fecharConexao();
         
         response.sendRedirect("usuario.jsp");            
