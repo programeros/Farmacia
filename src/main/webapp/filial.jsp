@@ -9,7 +9,6 @@
 <%@page import="java.util.List"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -45,7 +44,7 @@
                     <tr>
                         <th>Codigo</th>
                         <th>Nome</th>
-                        <th>EndereÃ§o</th>
+                        <th>Endereço</th>
                         <th>Bairro</th>
                         <th>Cidade</th>
                         <th>Estado</th>

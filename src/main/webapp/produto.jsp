@@ -9,7 +9,7 @@
 <%@page import="br.sp.senac.programeros.model.Produto"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,8 +44,8 @@
                 <table id="tblProduto" border="1" cellPadding ="5">         
                     <tr>
                         <th>Codigo</th>
-                        <th>DescriÃ§Ã£o</th>
-                        <th>PreÃ§o</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
                         <th>Marca</th>
                         <th>Categoria_Cod</th>
                         <th>Fornecedor_Cod</th>

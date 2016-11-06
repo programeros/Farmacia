@@ -9,6 +9,9 @@
 <%@page import="br.sp.senac.programeros.dao.VendedorDAO"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="cadastro.css"/>
@@ -43,7 +46,7 @@
                     <tr>
                         <th>Codigo</th>
                         <th>Nome</th>
-                        <th>Endereço</th>
+                        <th>EndereÃ§o</th>
                         <th>Bairro</th>
                         <th>Cidade</th>
                         <th>Estado</th>

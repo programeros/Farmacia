@@ -10,6 +10,8 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
 <%@page import="br.sp.senac.programeros.model.Usuario"%>
+
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="cadastro.css"/>

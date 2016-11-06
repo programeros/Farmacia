@@ -4,7 +4,6 @@
     Author     : Michael Facul
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,7 +19,7 @@
                     </ul>
                 </li>                 
                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Usu√°rio: ${nome}</a></li>
+                        Usu·rio: ${nome}</a></li>
             </ul>
             <div class="imagem"></div>
         </nav>
@@ -30,7 +29,7 @@
                     <legend><h2>Dados Pessoais do Vendedor</h2></legend>
                 <form class="formulario" action ="AdicionarCliente" method="post">
                     Nome: <input type="text" size="40" name="nome" />
-                    Endere√ßo: <input type="text" size="30" name="endereco" /><br/>
+                    EndereÁo: <input type="text" size="30" name="endereco" /><br/>
                     Bairro: <input type="text" name="bairro" />
                     Cidade: <input type="text" name="cidade" />
                     Estado: <input type="text" name="estado" /><br/>

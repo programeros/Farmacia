@@ -4,7 +4,6 @@
     Author     : Michael Facul
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,7 +19,7 @@
                     </ul>
                 </li> 
                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Usu√°rio: ${nome}</a></li>
+                        Usu·rio: ${nome}</a></li>
             </ul>
             <div class="imagem"></div>
         </nav>
@@ -29,9 +28,9 @@
                 <fieldset>
                     <legend><h2>Dados do Produto</h2></legend>
                 <form class="formulario" action ="AdicionarProduto" method="post">
-                    C√≥digo: <input type="text" size="40" name="codigo" />
-                    Descri√ß√£o: <input type="text" size="60" name="descricao" /><br/>
-                    Pre√ßo: <input type="float" placeholder="0,00" name="preco" />
+                    CÛdigo: <input type="text" size="40" name="codigo" />
+                    DescriÁ„o: <input type="text" size="60" name="descricao" /><br/>
+                    PreÁo: <input type="float" placeholder="0,00" name="preco" />
                     Marca: <input type="text" size="40" name="marca" /><br/>                    
                     Categoria: <select name="categoria">                            
                           </select>

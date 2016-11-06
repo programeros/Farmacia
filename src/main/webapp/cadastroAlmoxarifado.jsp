@@ -4,7 +4,6 @@
     Author     : Michael Facul
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,7 +19,7 @@
                     </ul>
                 </li> 
                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Usu√°rio: ${nome}</a></li>
+                        Usu·rio: ${nome}</a></li>
             </ul>
             <div class="imagem"></div>
         </nav>
@@ -29,8 +28,8 @@
                 <fieldset>
                     <legend><h2>Dados do Almoxarifado</h2></legend>
                 <form class="formulario" action ="AdicionarAlmoxarifado" method="post">
-                    C√≥digo: <input type="text" size="40" name="codigo" />
-                    Descri√ß√£o: <input type="text" size="60" name="descricao" /><br/>                    
+                    CÛdigo: <input type="text" size="40" name="codigo" />
+                    DescriÁ„o: <input type="text" size="60" name="descricao" /><br/>                    
                     Unidade: <select name="unidade">                            
                           </select><br/><br/>                                                    
                 </fieldset>
