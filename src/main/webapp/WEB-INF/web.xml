@@ -8,6 +8,14 @@
         <servlet-name>AdicionarUsuario</servlet-name>
         <servlet-class>br.sp.senac.programeros.actions.AdicionarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExcluirUsuario</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.ExcluirUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarUsuario</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AlterarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerificarUsuario</servlet-name>
         <url-pattern>/VerificarUsuario</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>AdicionarUsuario</servlet-name>
         <url-pattern>/AdicionarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirUsuario</servlet-name>
+        <url-pattern>/ExcluirUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarUsuario</servlet-name>
+        <url-pattern>/AlterarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

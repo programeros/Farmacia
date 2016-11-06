@@ -3,7 +3,7 @@
     Created on : 30/10/2016, 00:58:03
     Author     : willian.carvalho
 --%>
-
+ 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="br.sp.senac.programeros.connection.Senhas"%>
 <%@page import="java.util.List"%>
@@ -19,7 +19,7 @@
     <body>
         <c:import url="cabecalho.jsp"/>
         <h1>Lista de Usuários</h1>
-        <button onclick= "window.location.href = 'usersAdd.jsp'">Adicionar</button>
+        <button onclick= "window.location.href = 'usuarioAdicionar.jsp'">Adicionar</button>
         <button onclick= "window.location.href = 'menu.jsp'">Sair</button>
         <hr />
         
@@ -35,7 +35,7 @@
 
         %>
         
-        <table id="tblUsuarios" border="1" cellPadding ="5">         
+        <table id="tblUsuarios" border="2" cellPadding ="3">         
             <tr>
                 <th>Codigo</th>
                 <th>Login</th>
@@ -49,12 +49,12 @@
                 <td><%= c.getCodigo()%></td>
                 <td><%= c.getLogin()%></td>
                 <td><%= c.getNome() %></td>
-                <td><%= "********" %></td>
+                <td><%= "******" %></td>
                 </td>
-                <td> <a href="ExcluirUsuario?id=<%=c.getCodigo()%>">Excluir</a></td>
-                <td> <a href="AlterarUsuario?id=<%=c.getCodigo()%>&nome=<%=c.getNome() %>
-                        &login=<%= c.getLogin()%>&senha=<%= c.getSenha() %>">
-                        Alterar</a></td>
+                <td> <a href="ExcluirUsuario?id=<%=c.getCodigo()%>" title="Excluir">
+                    <img src="IMAGES/excluir.jpg"/> </a></td>
+                <td> <a href="AlterarUsuario?id=<%=c.getCodigo()%>" title="Alterar">
+                        <img src="IMAGES/alterar.jpg"/> </a></td>
             </tr>              
             <%} %>
 

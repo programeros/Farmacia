@@ -81,11 +81,14 @@ Connection conexao;
                 String login = rs.getString("login");
                 String nome = rs.getString("nome");
                 String senha = Senhas.Descriptografar(rs.getString("senha"));
+                String ativo = rs.getString("ativo");
                 
                 usuario.setCodigo(codigo);
                 usuario.setLogin(login);
                 usuario.setNome(nome);
                 usuario.setSenha(senha);
+                usuario.setAtivo(ativo);
+                
                 usuarios.add(usuario);
             }
             
@@ -111,6 +114,7 @@ Connection conexao;
                 usuario.setLogin(rs.getString("login"));
                 usuario.setNome(rs.getString("nome"));
                 usuario.setSenha(rs.getString("senha")); 
+                usuario.setAtivo(rs.getString("ativo"));
         }catch(Exception e){
             e.printStackTrace();
         }

@@ -9,6 +9,7 @@
     <head>
         
         <title>Menu do SGF</title>
+        <link href="menu.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
         
