@@ -41,7 +41,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             p.setInt(10, cliente.getConvenio());
             p.setDate(11, new java.sql.Date(System.currentTimeMillis()));
             p.setString(12, "S");
-                       
+              System.out.println("");         
             p.execute();
             
         } catch (SQLException ex) {
