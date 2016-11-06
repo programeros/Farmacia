@@ -11,9 +11,7 @@
         <title>Menu do SGF</title>
         <link href="menu.css" type="text/css" rel="stylesheet" />
     </head>
-    <body>
-        
-        <c:import url="cabecalho.jsp"/>
+    <body>                
         
         <nav>
             <ul class="menu">
@@ -50,9 +48,7 @@
                         Usuário: ${nome}</a></li>
             </ul>
             <div class="imagem"></div>
-        </nav>
-            
-            <c:import url="rodape.jsp"/>
-        
+        </nav>                               
     </body>
 </html>
+
