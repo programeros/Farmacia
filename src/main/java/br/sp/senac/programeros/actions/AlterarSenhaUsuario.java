@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author willian.carvalho
  */
 
-public class AlterarUsuario extends HttpServlet {
+public class AlterarSenhaUsuario extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -28,28 +28,27 @@ public class AlterarUsuario extends HttpServlet {
         String id = request.getParameter("id");
         request.setAttribute("id", id);
         
-        request.getRequestDispatcher("usuarioAlterar.jsp").forward(request, response);  
+        request.getRequestDispatcher("usuarioSenhaAlterar.jsp").forward(request, response);  
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        String nome = request.getParameter("nome");
-        String login = request.getParameter("login");
-        String ativo =  request.getParameter("ativo");
-       
+        String senha = request.getParameter("senha"); 
+        
+        senha = Senhas.Criptografar(senha);
+
+        
         Usuario usuario = new Usuario();
         usuario.setCodigo(id);
-        usuario.setLogin(login);
-        usuario.setNome(nome);
-        usuario.setAtivo(ativo);
+        usuario.setSenha(senha);
         
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
 
         UsuarioDAO dao = new UsuarioDAO(conexao);
-        dao.alterar(usuario);
+        dao.alterarSenha(usuario);
         
         conn.fecharConexao();
         

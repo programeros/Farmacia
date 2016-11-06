@@ -49,21 +49,40 @@ Connection conexao;
         
         try {
             String sql = "UPDATE usuarios "
-                + " SET nome = ?, senha = ?, "
-                + " WHERE login = ?";
+                + " SET nome = ?, ativo = ? "
+                + " WHERE codigo = ?";
 
             PreparedStatement p;            
             p = this.conexao.prepareStatement(sql);
             p.setString(1, usuario.getNome());
-            p.setString(2, usuario.getSenha());
-            p.setString(3, usuario.getLogin());
+            p.setString(2, usuario.getAtivo());
+            p.setInt(3, usuario.getCodigo());
+            p.execute();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }   
+    
+    @Override
+    public void alterarSenha(Usuario usuario) {
+        
+        try {
+            String sql = "UPDATE usuarios "
+                + " SET senha = ? "
+                + " WHERE codigo = ?";
+
+            PreparedStatement p;            
+            p = this.conexao.prepareStatement(sql);
+            p.setString(1, usuario.getSenha());
+            p.setInt(2, usuario.getCodigo());
             p.execute();
             
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }    
+    }  
     
     @Override
     public List<Usuario> listarUsuarios() {

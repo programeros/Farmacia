@@ -30,29 +30,12 @@
 
         %>        
         
-        <h1>Alteração de Usuario</h1>
+        <h1>Alteração de Senha</h1>
         <hr />
-        <form action ="AlterarUsuario" method="post">
-            Código: <input type="text" name="id" value="<%=usuario.getCodigo()%>" size="6" disabled="disabled" /><br/>
+        <form action ="AlterarSenhaUsuario" method="post">
+            Código: <input type="text" name="codigo" value="<%=usuario.getCodigo()%>" size="6" disabled="disabled" /><br/>
             Login: <input type="text" name="login" value="<%=usuario.getLogin()%>" size="25" disabled="disabled" /><br />
-            Nome: <input type="text" name="nome" value="<%=usuario.getNome()%>" size="50" /><br />
-            Senha: <input type="password" name="senha" value="<%=senha%>" size="10" disabled="disabled"/><br/>
-            
-            Ativo: <select name="ativo" id="selectAtivo">
-                <option value = "1">Sim</option>
-                <option value = "2">Não</option>
-                    <script type="text/javascript">
-                            var selected = document.getElementById("selectAtivo");
-                            switch ("<%=usuario.getAtivo()%>") {
-                                case '1':
-                                    selected.selectedIndex = 0;
-                                    break;
-                                case '2':
-                                    selected.selectedIndex = 1;
-                                    break;                   
-                            }   
-                    </script>                 
-            </select><br/><br/>
+            Senha: <input type="password" name="senha" value="<%=senha%>" size="10" /><br/>
             <input type="submit" value="Confirmar" />
             <input type="reset" value="Limpar" />
             <input type="button" value="Voltar" onClick="history.go(-1)"> 
