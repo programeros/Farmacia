@@ -15,7 +15,11 @@ import br.sp.senac.programeros.model.Cliente;
 import java.sql.Date;
 
 public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInterface{
-Connection conexao;
+    Connection conexao;
+    
+    public ClienteDAO(Connection conexao){
+        this.conexao = conexao;
+    }
     
     public void cliente(Cliente cliente) {
         String sql = "INSERT INTO clientes "
