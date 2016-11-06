@@ -32,9 +32,7 @@ public class ExcluirUsuario extends HttpServlet {
 
         UsuarioDAO dao = new UsuarioDAO(conexao);
         dao.Remove(id);
-        
-        System.out.println("23");
-        System.out.println("1");
+
         conn.fecharConexao();
         
         response.sendRedirect("usuario.jsp");            
