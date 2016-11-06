@@ -14,14 +14,11 @@
     <body>
         <nav>
             <ul class="menu">
-                <li><a href="#">Inserir</a>
+                <li><a href="#">Pesquisar</a>
                     <ul>
-                        <li><a href="#">Novo Cliente</a></li>                        
+                        <li><a href="cliente.jsp">Clientes Cadastrados</a></li>                        
                     </ul>
-                </li>
-                <li><a href="#">Pesquisar</a></li>
-                <li><a href="#">Alterar</a></li>
-                <li><a href="#">Excluir</a></li>
+                </li>              
                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         Usuário: ${nome}</a></li>
             </ul>
@@ -44,7 +41,7 @@
                           </select><br />
                     Tel.: <input type="text" name="telefone" />
                     Cel.: <input type="text" name="celular" /><br/>
-                    Convenio: <input type="text" name="convenio" />
+                    Convenio: <select name="convenio"></select>
                     Data de Cadastro: <input type="date" name="data" />                   
                     Ativo: <input type="checkbox" name="ativo" /><br /><br/>
                 </fieldset>

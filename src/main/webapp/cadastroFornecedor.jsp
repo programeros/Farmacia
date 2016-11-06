@@ -13,15 +13,8 @@
     </head>
     <body>
         <nav>
-            <ul class="menu">
-                <li><a href="#">Inserir</a>
-                    <ul>
-                        <li><a href="#">Novo Fornecedor</a></li>                        
-                    </ul>
-                </li>
-                <li><a href="#">Pesquisar</a></li>
-                <li><a href="#">Alterar</a></li>
-                <li><a href="#">Excluir</a></li>
+            <ul class="menu">                
+                <li><a href="fornecedor.jsp">Pesquisar</a></li>                
                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         Usuário: ${nome}</a></li>
             </ul>
@@ -37,14 +30,9 @@
                     Bairro: <input type="text" name="bairro" />
                     Cidade: <input type="text" name="cidade" />
                     Estado: <input type="text" name="estado" /><br/>
-                    CEP: <input type="text" name="cep" />
-                    Sexo: <select name="sexo">
-                            <option value="m">Masculino</option>
-                            <option value="f">Feminino</option>
-                          </select><br />
+                    CEP: <input type="text" name="cep" />                    
                     Tel.: <input type="text" name="telefone" />
-                    Cel.: <input type="text" name="celular" /><br/>
-                    Convenio: <input type="text" name="convenio" />
+                    Cel.: <input type="text" name="celular" /><br/>                    
                     Data de Cadastro: <input type="date" name="data" />                   
                     Ativo: <input type="checkbox" name="ativo" /><br /><br/>
                 </fieldset>
