@@ -50,7 +50,7 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
             p.execute();
 
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VendedorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -80,7 +80,7 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
             p.execute();
 
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VendedorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

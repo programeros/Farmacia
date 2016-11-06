@@ -46,7 +46,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
             p.execute();
 
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FornecedorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -77,7 +77,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
             p.execute();
 
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FornecedorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
