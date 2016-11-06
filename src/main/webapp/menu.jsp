@@ -16,8 +16,8 @@
             <ul class="menu">
                 <li><a href="#">Cadastros</a>
                     <ul>
-                        <li><a href="cadastroCliente.jsp">Clientes</a></li>
-                        <li><a href="cadastroFornecedor.jsp">Fornecedores</a></li>
+                        <li><a href="cliente.jsp">Clientes</a></li>
+                        <li><a href="fornecedor.jsp">Fornecedores</a></li>
                         <li><a href="cadastroVendedor.jsp">Vendedores</a></li>   
                         <li><a href="cadastroProduto.jsp">Produtos</a></li>                  
                         <li><a href="cadastroAlmoxarifado.jsp">Almoxarifados</a></li> 
