@@ -40,7 +40,7 @@ public class AdicionarUsuario extends HttpServlet {
         
         conn.fecharConexao();
         
-        response.sendRedirect("logado.jsp");       
+        response.sendRedirect("usuario.jsp");       
     }
 
     @Override
