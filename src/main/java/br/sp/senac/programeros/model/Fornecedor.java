@@ -17,8 +17,8 @@ public class Fornecedor {
     private String telefone;
     private String celular;
     private Date cadastro;
-    private String ativo;
-    private String deletado;
+    private char ativo;
+    private char deletado;
 
     public int getCodigo() {
         return codigo;
@@ -84,19 +84,19 @@ public class Fornecedor {
         this.celular = celular;
     }
 
-    public String getAtivo() {
+    public char getAtivo() {
         return ativo;
     }
 
-    public void setAtivo(String ativo) {
+    public void setAtivo(char ativo) {
         this.ativo = ativo;
     }
 
-    public String getDeletado() {
+    public char getDeletado() {
         return deletado;
     }
 
-    public void setDeletado(String deletado) {
+    public void setDeletado(char deletado) {
         this.deletado = deletado;
     }
 
