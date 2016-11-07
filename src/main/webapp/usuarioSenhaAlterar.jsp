@@ -33,8 +33,9 @@
         <h1>Alteração de Senha</h1>
         <hr />
         <form action ="AlterarSenhaUsuario" method="post">
-            Código: <input type="text" name="codigo" value="<%=usuario.getCodigo()%>" size="6" disabled="disabled" /><br/>
-            Login: <input type="text" name="login" value="<%=usuario.getLogin()%>" size="25" disabled="disabled" /><br />
+            Código: <input type="text" name="codigo" value="<%=usuario.getCodigo()%>" size="6" disabled="disabled" />
+            <input type="hidden" name="id" value="<%=usuario.getCodigo()%>" size="6"  /><br/>
+            Login: <input type="text" name="login" value="<%=usuario.getLogin()%>" size="25" disabled="disabled"  /><br />
             Senha: <input type="password" name="senha" value="<%=senha%>" size="10" /><br/>
             <input type="submit" value="Confirmar" />
             <input type="reset" value="Limpar" />

@@ -58,7 +58,7 @@
                 <td> <a href="AlterarUsuario?id=<%=c.getCodigo()%>" title="Alterar">
                         <img src="IMAGES/alterar.jpg"/> </a></td>
                 <td> <a href="AlterarSenhaUsuario?id=<%=c.getCodigo()%>" title="Alterar Senha">
-                        <img src="IMAGES/alterar.jpg"/> </a></td>                                                
+                        <img src="IMAGES/senha.jpg"/> </a></td>                                                
             </tr>              
             <%} %>
 
