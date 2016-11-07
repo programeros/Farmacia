@@ -28,11 +28,11 @@
                 </li>
                 <li><a href="#">Atualizações</a>
                     <ul>
-                        <li><a href="#">Vendas</a></li>
-                        <li><a href="#">Compras</a></li>
-                        <li><a href="#">Recebimentos</a></li>                    
-                        <li><a href="#">Pagamentos</a></li>
-                        <li><a href="#">Transferencias</a></li>	                
+                        <li><a href="vendas.jsp">Vendas</a></li>
+                        <li><a href="compras.jsp">Compras</a></li>
+                        <li><a href="recebimentos.jsp">Recebimentos</a></li>                    
+                        <li><a href="pagamentos.jsp">Pagamentos</a></li>
+                        <li><a href="transferencias.jsp">Transferencias</a></li>	                
                     </ul>
                 </li>
                 <li><a href="#">Relatorios</a>
@@ -42,7 +42,7 @@
                         <li><a href="#">Relatorio3</a></li>                    
                     </ul>
                 </li>
-                <li><a href="#">Sobre</a>
+                <li><a href="sobreSGF.jsp">Sobre</a>
                 </li>
                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         Usuário: ${nome}</a></li>
