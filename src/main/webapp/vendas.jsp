@@ -4,6 +4,7 @@
     Author     : Michael Facul
 --%>
 
+<%@page import="br.sp.senac.programeros.dao.VendaDAO"%>
 <%@page import="br.sp.senac.programeros.model.Venda"%>
 <%@page import="java.util.List"%>
 <%@page import="com.mysql.jdbc.Connection"%>
@@ -31,7 +32,7 @@
                     ConexaoBD conn = new ConexaoBD();
                     Connection conexao = conn.obterConexao();
 
-                    VendasDAO dao = new VendasDAO(conexao);
+                    VendaDAO dao = new VendaDAO(conexao);
 
                     List<Venda> venda = dao.listarVendas();
 
@@ -45,7 +46,7 @@
                         <th>Data</th>
                         <th>Cliente_Cod</th>                        
                         <th>Vendedor_Cod</th>
-                        <th>Produto_Cod</th>
+                        <th>Produto</th>
                         <th>Almoxarifado_Cod</th>
                         <th>Qtde</th>
                     </tr>
