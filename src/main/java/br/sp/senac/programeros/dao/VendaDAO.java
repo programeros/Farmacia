@@ -50,7 +50,7 @@ public class VendaDAO implements br.sp.senac.programeros.interfaces.VendaInterfa
 
             PreparedStatement p;
             p = this.conexao.prepareStatement(sql);
-            p.setDate(1, venda.getData());
+            p.setDate(1, new java.sql.Date(System.currentTimeMillis()));
             p.setFloat(2, venda.getQuantidade());            
             p.setInt(3, venda.getCodigo());
 
