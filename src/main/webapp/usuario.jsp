@@ -21,8 +21,8 @@
     <body>
         <nav>
             <ul class="menu">
-                <li><a onclick= "window.location.href = 'usuarioAdicionar.jsp'">Adicionar</a>                    
-                </li>
+                <li><a onclick= "window.location.href = 'usuarioAdicionar.jsp'">Adicionar</a></li>
+                <li><a onclick= "window.location.href = 'menu.jsp'">Voltar</a></li>       
                 <li><a onclick= "window.location.href = 'index.html'">Sair</a></li>                
             </ul>
             <div class="imagem"></div>
