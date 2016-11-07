@@ -18,7 +18,7 @@
     <body>
         <nav>
             <ul class="menu">
-                <li><a onclick= "window.location.href = 'cadastroFornecedor.jsp'">Adicionar</a></li>
+                <li><a onclick= "window.location.href = '#'">Adicionar</a></li>
                 <li><a onclick= "window.location.href = 'menu.jsp'">Voltar</a></li>                
                 <li><a onclick= "window.location.href = 'index.html'">Sair</a></li>                
             </ul>
@@ -65,9 +65,7 @@
                         <td> <a href="ExcluirUsuario?id=<%=c.getCodigo()%>" title="Excluir">
                                 <img src="IMAGES/excluir.jpg"/> </a></td>
                         <td> <a href="AlterarUsuario?id=<%=c.getCodigo()%>" title="Alterar">
-                                <img src="IMAGES/alterar.jpg"/> </a></td>
-                        <td> <a href="AlterarSenhaUsuario?id=<%=c.getCodigo()%>" title="Alterar Senha">
-                                <img src="IMAGES/alterar.jpg"/> </a></td>                                                
+                                <img src="IMAGES/alterar.jpg"/> </a></td>                                                                      
                     </tr>              
                     <%}%>
             </div>
