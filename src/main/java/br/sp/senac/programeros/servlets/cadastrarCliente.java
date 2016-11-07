@@ -8,6 +8,7 @@ package br.sp.senac.programeros.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author smarangoni
  */
+
+@WebServlet("/AdicionarCliente")
 public class cadastrarCliente extends HttpServlet {
 
     /**
@@ -35,7 +38,7 @@ public class cadastrarCliente extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet cadastrarCliente</title>");            
+            out.println("<title>Cadastro de Cliente</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet cadastrarCliente at " + request.getContextPath() + "</h1>");
@@ -57,6 +60,19 @@ public class cadastrarCliente extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        String nome = request.getParameter("nome");
+        String endereco = request.getParameter("endereco");
+        String bairro = request.getParameter("bairro");
+        String cidade = request.getParameter("cidade");
+        String estado = request.getParameter("estado");
+        String cep = request.getParameter("cep");
+        String sexo = request.getParameter("sexo");
+        String telefone = request.getParameter("telefone");
+        String celular = request.getParameter("celular");
+        String convenio = request.getParameter("convenio");
+                
+        
     }
 
     /**
