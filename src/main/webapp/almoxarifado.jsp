@@ -56,11 +56,10 @@
                         <td><%= a.getDescricao()%></td>
                         <td><%= a.getUnidade()%></td>                        
                         </td>
-                        <td> <a href="ExcluirUsuario?id=<%=a.getCodigo()%>">Excluir</a></td>
+                        <td> <a href="ExcluirUsuario?id=<%=a.getCodigo()%>">Excluir</a>                        
                         <td> <a href="AlterarUsuario?id=<%=a.getCodigo()%>&descricao=<%=a.getDescricao()%>
-                                &unidade=<%= a.getUnidade()%>
-                                Alterar</a></td>
-                    </tr>              
+                                &unidade=<%= a.getUnidade()%>">Alterar</a></td>
+                    </tr>  
                     <%}%>
                 </table>                 
             </div>
