@@ -73,8 +73,8 @@
                         <td><%= v.getCadastro()%></td>                                                
                         <td><%= v.getAtivo()%></td>                        
                         </td>
-                        <td> <a href="ExcluirUsuario?id=<%=v.getCodigo()%>">Excluir</a></td>
-                        <td> <a href="AlterarUsuario?id=<%=v.getCodigo()%>&nome=<%=v.getNome()%>
+                        <td> <a href="ExcluirVendedor?id=<%=v.getCodigo()%>">Excluir</a></td>
+                        <td> <a href="AlterarVendedor?id=<%=v.getCodigo()%>&nome=<%=v.getNome()%>
                                 &endereco=<%= v.getEndereco()%>&bairro=<%= v.getBairro()%>
                                 &cidade=<%= v.getCidade()%>&estado=<%= v.getEstado()%>
                                 &cep=<%= v.getCep()%>&telefone=<%= v.getTelefone()%>&celular=<%= v.getCelular()%>

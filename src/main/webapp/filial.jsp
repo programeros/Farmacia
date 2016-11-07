@@ -70,8 +70,8 @@
                         <td><%= f.getAtivo()%></td>
                         <td><%= f.getDeletado()%></td>
                         </td>
-                        <td> <a href="ExcluirUsuario?id=<%=f.getCodigo()%>">Excluir</a></td>
-                        <td> <a href="AlterarUsuario?id=<%=f.getCodigo()%>&nome=<%=f.getNome()%>
+                        <td> <a href="ExcluirFilial?id=<%=f.getCodigo()%>">Excluir</a></td>
+                        <td> <a href="AlterarFilial?id=<%=f.getCodigo()%>&nome=<%=f.getNome()%>
                                 &endereco=<%= f.getEndereco()%>&bairro=<%= f.getBairro()%>
                                 &cidade=<%= f.getCidade()%>&estado=<%= f.getEstado()%>
                                 &cep=<%= f.getCep()%>&telefone=<%= f.getTelefone()%>

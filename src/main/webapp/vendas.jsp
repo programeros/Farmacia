@@ -62,9 +62,9 @@
                         <td><%= c.getAlmoxarifado()%></td>
                         <td><%= c.getQuantidade()%></td>
                         </td>
-                        <td> <a href="ExcluirUsuario?id=<%=c.getCodigo()%>" title="Excluir">
+                        <td> <a href="ExcluirVendas?id=<%=c.getCodigo()%>" title="Excluir">
                                 <img src="IMAGES/excluir.jpg"/> </a></td>
-                        <td> <a href="AlterarUsuario?id=<%=c.getCodigo()%>" title="Alterar">
+                        <td> <a href="AlterarVendas?id=<%=c.getCodigo()%>" title="Alterar">
                                 <img src="IMAGES/alterar.jpg"/> </a></td>                                                                      
                     </tr>              
                     <%}%>

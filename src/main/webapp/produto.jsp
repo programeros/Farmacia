@@ -63,8 +63,8 @@
                         <td><%= p.getFornecedor()%></td>
                         <td><%= p.getUnidade()%></td>                                                                      
                         </td>
-                        <td> <a href="ExcluirUsuario?id=<%=p.getCodigo()%>">Excluir</a></td>
-                        <td> <a href="AlterarUsuario?id=<%=p.getCodigo()%>&descricao=<%=p.getDescricao()%>
+                        <td> <a href="ExcluirProduto?id=<%=p.getCodigo()%>">Excluir</a></td>
+                        <td> <a href="AlterarProduto?id=<%=p.getCodigo()%>&descricao=<%=p.getDescricao()%>
                                 &preco=<%= p.getPreco()%>&marca=<%= p.getMarca()%>
                                 &categoria=<%= p.getCategoria()%>&fornecedor=<%= p.getFornecedor()%>
                                 &unidade=<%= p.getUnidade()%>">                               
