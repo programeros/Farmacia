@@ -16,7 +16,6 @@
         <header>
             <%--<img src="http://placehold.it/150x150"> --%>
             <img src="imagem/logo.png" height="60" width="60">
-            <h1>Sistema Gerenciador de Farmacias</h1>
         </header>
         
     </body>
