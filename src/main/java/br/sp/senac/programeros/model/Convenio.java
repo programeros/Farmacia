@@ -5,14 +5,17 @@ package br.sp.senac.programeros.model;
  */
 
 public class Convenio {
+    
+    //Atributos
     private int codigo;
     private String nome;
     private String telefone;
     private String responsavel;
     private String email;
-    private String ativo;
-    private String delatado;
-
+    private char ativo;
+    private char delatado;
+    
+    //GET - SET Codigo    
     public int getCodigo() {
         return codigo;
     }
@@ -20,7 +23,8 @@ public class Convenio {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-
+    
+    //GET - SET Nome    
     public String getNome() {
         return nome;
     }
@@ -29,6 +33,7 @@ public class Convenio {
         this.nome = nome;
     }
 
+    //GET - SET Telefone    
     public String getTelefone() {
         return telefone;
     }
@@ -37,6 +42,7 @@ public class Convenio {
         this.telefone = telefone;
     }
 
+    //GET - SET Responsavel    
     public String getResponsavel() {
         return responsavel;
     }
@@ -45,6 +51,7 @@ public class Convenio {
         this.responsavel = responsavel;
     }
 
+    //GET - SET Email    
     public String getEmail() {
         return email;
     }
@@ -53,19 +60,21 @@ public class Convenio {
         this.email = email;
     }
 
-    public String getAtivo() {
+    //GET - SET Ativo    
+    public char getAtivo() {
         return ativo;
     }
 
-    public void setAtivo(String ativo) {
+    public void setAtivo(char ativo) {
         this.ativo = ativo;
     }
 
-    public String getDelatado() {
+    //GET - SET Deletado
+    public char getDelatado() {
         return delatado;
     }
 
-    public void setDelatado(String delatado) {
+    public void setDelatado(char delatado) {
         this.delatado = delatado;
     }
 }

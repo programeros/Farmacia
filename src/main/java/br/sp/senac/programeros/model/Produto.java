@@ -12,6 +12,8 @@ public class Produto {
     private int categoria;
     private int fornecedor;
     private int unidade;
+    private char ativo;
+    private char deletado;
 
     public String getCodigo() {
         return codigo;
@@ -67,5 +69,20 @@ public class Produto {
 
     public void setUnidade(int unidade) {
         this.unidade = unidade;
+    }
+    public char getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(char ativo) {
+        this.ativo = ativo;
+    }
+
+    public char getDeletado() {
+        return deletado;
+    }
+
+    public void setDeletado(char deletado) {
+        this.deletado = deletado;
     }
 }
