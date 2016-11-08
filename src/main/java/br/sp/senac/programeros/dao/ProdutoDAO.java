@@ -24,19 +24,16 @@ public class ProdutoDAO implements br.sp.senac.programeros.interfaces.ProdutoInt
     }
 
     public void produto(Produto produto) {
-        String sql = "INSERT INTO PRODUTOS "
-                + "(CODIGO, DESCRICAO, PRECO, MARCA,CATEGORIAS_CODIGO,FORNECEDORES_CODIGO,UNIDADES_CODIGO) VALUES "
-                + "(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO produtos "
+                + "(descricao,preco,marca,ativo) VALUES "
+                + "(?,?,?,?)";
         PreparedStatement p;
         try {
-            p = this.conexao.prepareStatement(sql);
-            p.setString(1, produto.getCodigo());
-            p.setString(2, produto.getDescricao());
-            p.setFloat(3, produto.getPreco());
-            p.setString(4, produto.getMarca());
-            p.setInt(5, produto.getCategoria());
-            p.setInt(6, produto.getFornecedor());            
-            p.setInt(7, produto.getUnidade());            
+            p = this.conexao.prepareStatement(sql);            
+            p.setString(1, produto.getDescricao());
+            p.setFloat(2, produto.getPreco());
+            p.setString(3, produto.getMarca());            
+            p.setInt(4, produto.getAtivo());            
 
             p.execute();
 
@@ -48,20 +45,17 @@ public class ProdutoDAO implements br.sp.senac.programeros.interfaces.ProdutoInt
     public void alterar(Produto produto) {
 
         try {
-            String sql = "UPDATE PRODUTOS "
-                    + " SET DESCRICAO = ?, PRECO = ?, MARCA = ?, "
-                    + " CATEGORIAS_CODIGO = ?, FORNECEDORES_CODIGO = ?, UNIDADES_CODIGO = ?"                   
-                    + " WHERE CODIGO = ?";
+            String sql = "UPDATE produtos "
+                    + " SET descricao = ?, preco = ?, marca = ?, ativo = ?"                    
+                    + " WHERE codigo = ?";
 
             PreparedStatement p;
             p = this.conexao.prepareStatement(sql);            
             p.setString(1, produto.getDescricao());
             p.setFloat(2, produto.getPreco());
-            p.setString(3, produto.getMarca());
-            p.setInt(4, produto.getCategoria());
-            p.setInt(5, produto.getFornecedor());            
-            p.setInt(6, produto.getUnidade());            
-            p.setString(7, produto.getCodigo());
+            p.setString(3, produto.getMarca());                       
+            p.setInt(4, produto.getAtivo());            
+            p.setString(5, produto.getCodigo());
             
             p.execute();
 
@@ -74,28 +68,30 @@ public class ProdutoDAO implements br.sp.senac.programeros.interfaces.ProdutoInt
         List<Produto> produtos = new ArrayList<Produto>();
 
         try {
-            String sql = "SELECT * FROM PRODUTOS";
+            String sql = "SELECT * FROM produtos";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
                 Produto produto = new Produto();
 
-                String codigo = rs.getString("CODIGO");
-                String descricao = rs.getString("DESCRICAO");
-                float preco = rs.getFloat("PRECO");
-                String marca = rs.getString("MARCA");
-                int categoria = rs.getInt("CATEGORIAS_CODIGO");                
-                int fornecedor = rs.getInt("FORNECEDORES_CODIGO");
-                int unidade = rs.getInt("UNIDADES_CODIGO");
-
+                String codigo = rs.getString("codigo");
+                String descricao = rs.getString("descricao");
+                float preco = rs.getFloat("preco");
+                String marca = rs.getString("marca");
+                int categoria = rs.getInt("categoria_codigo");                
+                int fornecedor = rs.getInt("fornecedor_codigo");               
+                char ativo = rs.getString("ativo").charAt(0);
+                char deletado = rs.getString("deletado").charAt(0);
+                
                 produto.setCodigo(codigo);
                 produto.setDescricao(descricao);
                 produto.setPreco(preco);
                 produto.setMarca(marca);
                 produto.setCategoria(categoria);
                 produto.setFornecedor(fornecedor);
-                produto.setUnidade(unidade);
+                produto.setAtivo(ativo);
+                produto.setDeletado(deletado);
                 
                 produtos.add(produto);
             }
@@ -112,7 +108,7 @@ public class ProdutoDAO implements br.sp.senac.programeros.interfaces.ProdutoInt
         Produto produto = new Produto();
         ConexaoBD conn = new ConexaoBD();
 
-        String sql = "SELECT * FROM PRODUTOS WHERE CODIGO= " + codigo;
+        String sql = "SELECT * FROM produtos WHERE codigo = " + codigo;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
@@ -120,12 +116,13 @@ public class ProdutoDAO implements br.sp.senac.programeros.interfaces.ProdutoInt
             rs.next();
 
             produto.setCodigo(codigo);
-            produto.setDescricao(rs.getString("DESCRICAO"));
-            produto.setPreco(rs.getFloat("PRECO"));
-            produto.setMarca(rs.getString("MARCA"));
-            produto.setCategoria(rs.getInt("CATEGORIAS_CODIGO"));
-            produto.setFornecedor(rs.getInt("FORNECEDORES_CODIGO"));
-            produto.setUnidade(rs.getInt("UNIDADES_CODIGO"));
+            produto.setDescricao(rs.getString("descricao"));
+            produto.setPreco(rs.getFloat("preco"));
+            produto.setMarca(rs.getString("marca"));
+            produto.setCategoria(rs.getInt("categoria_codigo"));
+            produto.setFornecedor(rs.getInt("fornecedor_codigo"));
+            produto.setAtivo(rs.getString("ativo").charAt(0));
+            produto.setDeletado(rs.getString("deletado").charAt(0));
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,7 +135,7 @@ public class ProdutoDAO implements br.sp.senac.programeros.interfaces.ProdutoInt
     @Override
     public Produto Remove(String codigo) {
 
-        String sql = "DELETE FROM PRODUTOS WHERE CODIGO=?";
+        String sql = "DELETE FROM produtos WHERE codigo =?";
 
         PreparedStatement p;
         try {

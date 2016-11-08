@@ -24,7 +24,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
     public void cliente(Cliente cliente) {
         String sql = "INSERT INTO clientes "
                 + "(nome, endereco, bairro, cidade,estado,cep,sexo,telefone,celular,"
-                + "cadastro,convenios_codigo,ativo) VALUES "
+                + "cadastro,ativo) VALUES "
                 + "(?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement p;
         try {
@@ -37,10 +37,9 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             p.setString(6, cliente.getCep());
             p.setString(7, String.valueOf(cliente.getSexo()));
             p.setString(8, cliente.getTelefone());
-            p.setString(9, cliente.getCelular());
-            p.setInt(10, cliente.getConvenio());
-            p.setDate(11, new java.sql.Date(System.currentTimeMillis()));
-            p.setString(12, "S");
+            p.setString(9, cliente.getCelular());            
+            p.setDate(10, new java.sql.Date(System.currentTimeMillis()));
+            p.setString(11, "S");
 
             p.execute();
 
@@ -57,7 +56,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             String sql = "UPDATE clientes "
                     + " SET nome = ?, endereco = ?, bairro = ?, cidade = ?, "
                     + " estado = ?, cep = ?, sexo = ?, telefone = ?, celular = ?,"
-                    + " convenios_codigo = ?, ativo = ?"
+                    + " convenio_codigo = ?, ativo = ?, deletado = ?"
                     + " WHERE codigo = ?";
 
             PreparedStatement p;
@@ -73,7 +72,8 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             p.setString(9, cliente.getCelular());
             p.setInt(10, cliente.getConvenio());
             p.setString(11, String.valueOf(cliente.getAtivo()));
-            p.setInt(12, cliente.getCodigo());
+            p.setString(12, String.valueOf(cliente.getDeletado()));
+            p.setInt(13, cliente.getCodigo());
 
             p.execute();
 
@@ -104,7 +104,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
                 String telefone = rs.getString("telefone");
                 String celular = rs.getString("celular");
                 Date cadastro = rs.getDate("cadastro");
-                int convenio = rs.getInt("convenios_codigo");
+                int convenio = rs.getInt("convenio_codigo");
                 char ativo = rs.getString("ativo").charAt(0);
                 char deletado = rs.getString("deletado").charAt(0);
 
@@ -156,7 +156,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             cliente.setTelefone(rs.getString("telefone"));
             cliente.setCelular(rs.getString("celular"));
             cliente.setCadastro(rs.getDate("cadastro"));
-            cliente.setConvenio(rs.getInt("convenios_codigo"));
+            cliente.setConvenio(rs.getInt("convenio_codigo"));
             cliente.setAtivo(rs.getString("ativo").charAt(0));
             cliente.setDeletado(rs.getString("deletado").charAt(0));
         } catch (Exception e) {

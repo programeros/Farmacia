@@ -25,9 +25,9 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
     }
 
     public void fornecedor(Fornecedor fornecedor) {
-        String sql = "INSERT INTO FORNECEDORES"
-                + "(NOME, ENDERECO, BAIRRO, CIDADE,ESTADO,CEP,TELEFONE,CELULAR,"
-                + "CADASTRO,ATIVO) VALUES "
+        String sql = "INSERT INTO fornecedores"
+                + "(nome,endereco,bairro,cidade,estado,cep,telefone,celular,"
+                + "cadastro,ativo) VALUES "
                 + "(?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement p;
         try {
@@ -55,11 +55,11 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
     public void alterar(Fornecedor fornecedor) {
 
         try {
-            String sql = "UPDATE FORNECEDORES "
-                    + " SET NOME = ?, ENDERECO = ?, BAIRRO = ?, CIDADE = ?, "
-                    + " ESTADO = ?, CEP = ?, TELEFONE = ?, CELULAR = ?,"
-                    + " ATIVO = ?"
-                    + " WHERE CODIGO = ?";
+            String sql = "UPDATE fornecedores "
+                    + " SET nome = ?, endereco = ?, bairro = ?, cidade = ?, "
+                    + " estado = ?, cep = ?, telefone = ?, celular = ?,"
+                    + " ativo = ?"
+                    + " WHERE codigo = ?";
 
             PreparedStatement p;
             p = this.conexao.prepareStatement(sql);
@@ -86,25 +86,25 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
         List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
 
         try {
-            String sql = "SELECT * FROM FORNECEDORES";
+            String sql = "SELECT * FROM fornecedores";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
                 Fornecedor fornecedor = new Fornecedor();
 
-                int codigo = rs.getInt("CODIGO");
-                String nome = rs.getString("NOME");
-                String endereco = rs.getString("ENDERECO");
-                String bairro = rs.getString("BAIRRO");
-                String cidade = rs.getString("CIDADE");
-                String estado = rs.getString("ESTADO");
-                String cep = rs.getString("CEP");
-                String telefone = rs.getString("TELEFONE");
-                String celular = rs.getString("CELULAR");
-                Date cadastro = rs.getDate("CADASTRO");
-                char ativo = rs.getString("ATIVO").charAt(0);
-                char deletado = rs.getString("DELETADO").charAt(0);
+                int codigo = rs.getInt("codigo");
+                String nome = rs.getString("nome");
+                String endereco = rs.getString("endereco");
+                String bairro = rs.getString("bairro");
+                String cidade = rs.getString("cidade");
+                String estado = rs.getString("estado");
+                String cep = rs.getString("cep");
+                String telefone = rs.getString("telefone");
+                String celular = rs.getString("celular");
+                Date cadastro = rs.getDate("cadastro");
+                char ativo = rs.getString("ativo").charAt(0);
+                char deletado = rs.getString("deletado").charAt(0);
 
                 fornecedor.setCodigo(codigo);
                 fornecedor.setNome(nome);
@@ -134,7 +134,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
         Fornecedor fornecedor = new Fornecedor();
         ConexaoBD conn = new ConexaoBD();
 
-        String sql = "SELECT * FROM FORNECEDORES WHERE CODIGO= " + codigo;
+        String sql = "SELECT * FROM fornecedores WHERE codigo = " + codigo;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
@@ -142,17 +142,17 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
             rs.next();
 
             fornecedor.setCodigo(codigo);
-            fornecedor.setNome(rs.getString("NOME"));
-            fornecedor.setEndereco(rs.getString("ENDERECO"));
-            fornecedor.setBairro(rs.getString("BAIRRO"));
-            fornecedor.setCidade(rs.getString("CIDADE"));
-            fornecedor.setEstado(rs.getString("ESTADO"));
-            fornecedor.setCep(rs.getString("CEP"));
-            fornecedor.setTelefone(rs.getString("TELEFONE"));
-            fornecedor.setCelular(rs.getString("CELULAR"));
-            fornecedor.setCadastro(rs.getDate("CADASTRO"));
-            fornecedor.setAtivo(rs.getString("ATIVO").charAt(0));
-            fornecedor.setDeletado(rs.getString("DELETADO").charAt(0));
+            fornecedor.setNome(rs.getString("nome"));
+            fornecedor.setEndereco(rs.getString("endereco"));
+            fornecedor.setBairro(rs.getString("bairro"));
+            fornecedor.setCidade(rs.getString("cidade"));
+            fornecedor.setEstado(rs.getString("estado"));
+            fornecedor.setCep(rs.getString("cep"));
+            fornecedor.setTelefone(rs.getString("telefone"));
+            fornecedor.setCelular(rs.getString("celular"));
+            fornecedor.setCadastro(rs.getDate("cadastro"));
+            fornecedor.setAtivo(rs.getString("ativo").charAt(0));
+            fornecedor.setDeletado(rs.getString("deletado").charAt(0));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -164,7 +164,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
     @Override
     public Fornecedor Remove(int codigo) {
 
-        String sql = "DELETE FROM FORNECEDORES WHERE CODIGO=?";
+        String sql = "DELETE FROM fornecedores WHERE codigo = ?";
 
         PreparedStatement p;
         try {

@@ -24,9 +24,9 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
         this.conexao = conexao;
     }
     public void filial(Filial filial) {
-        String sql = "INSERT INTO UNIDADES "
-                + "(NOME, ENDERECO, BAIRRO, CIDADE,ESTADO,CEP,TELEFONE,EMAIL,"
-                + "ATIVO) VALUES "
+        String sql = "INSERT INTO filiais "
+                + "(nome,endereco,bairro,cidade,estado,cep,telefone,email,"
+                + "ativo) VALUES "
                 + "(?,?,?,?,?,?,?,?,?)";
         PreparedStatement p;
         try {
@@ -38,7 +38,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
             p.setString(5, filial.getEstado());
             p.setString(6, filial.getCep());            
             p.setString(7, filial.getTelefone());
-            p.setString(8, filial.getEmail());
+            p.setString(8, filial.getEmail());                        
             p.setString(9, "S");          
 
             p.execute();
@@ -51,9 +51,9 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
     public void alterar(Filial filial) {
 
         try {
-            String sql = "UPDATE UNIDADES "
-                    + " SET NOME = ?, ENDERECO = ?, BAIRRO = ?, CIDADE = ?, "
-                    + " ESTADO = ?, CEP = ?, TELEFONE = ?, EMAIL = ?, ATIVO = ? "                    
+            String sql = "UPDATE filiais "
+                    + " SET nome = ?, endereco = ?, bairro = ?, cidade = ?, "
+                    + " estado = ?, cep = ?, telefone = ?, email = ?, ativo = ?, deletado = ? "                    
                     + " WHERE CODIGO = ?";
 
             PreparedStatement p;
@@ -67,7 +67,8 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
             p.setString(7, filial.getTelefone());
             p.setString(8, filial.getEmail());            
             p.setString(9, String.valueOf(filial.getAtivo()));
-            p.setInt(10, filial.getCodigo());
+            p.setString(10, String.valueOf(filial.getDeletado()));
+            p.setInt(11, filial.getCodigo());
 
             p.execute();
 
@@ -80,24 +81,24 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
         List<Filial> filiais = new ArrayList<Filial>();
 
         try {
-            String sql = "SELECT * FROM UNIDADES";
+            String sql = "SELECT * FROM filiais";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
                 Filial filial = new Filial();
 
-                int codigo = rs.getInt("CODIGO");
-                String nome = rs.getString("NOME");
-                String endereco = rs.getString("ENDERECO");
-                String bairro = rs.getString("BAIRRO");
-                String cidade = rs.getString("CIDADE");
-                String estado = rs.getString("ESTADO");
-                String cep = rs.getString("CEP");                
-                String telefone = rs.getString("TELEFONE");
-                String email = rs.getString("EMAIL");                
-                char ativo = rs.getString("ATIVO").charAt(0);
-                char deletado = rs.getString("DELETADO").charAt(0);
+                int codigo = rs.getInt("codigo");
+                String nome = rs.getString("nome");
+                String endereco = rs.getString("endereco");
+                String bairro = rs.getString("bairro");
+                String cidade = rs.getString("cidade");
+                String estado = rs.getString("estado");
+                String cep = rs.getString("cep");                
+                String telefone = rs.getString("telefone");
+                String email = rs.getString("email");                
+                char ativo = rs.getString("ativo").charAt(0);
+                char deletado = rs.getString("deletado").charAt(0);
 
                 filial.setCodigo(codigo);
                 filial.setNome(nome);
@@ -126,7 +127,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
         Filial filial = new Filial();
         ConexaoBD conn = new ConexaoBD();
 
-        String sql = "SELECT * FROM UNIDADES WHERE CODIGO= " + codigo;
+        String sql = "SELECT * FROM filiais WHERE codigo= " + codigo;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
@@ -134,16 +135,16 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
             rs.next();
 
             filial.setCodigo(codigo);
-            filial.setNome(rs.getString("NOME"));
-            filial.setEndereco(rs.getString("ENDERECO"));
-            filial.setBairro(rs.getString("BAIRRO"));
-            filial.setCidade(rs.getString("CIDADE"));
-            filial.setEstado(rs.getString("ESTADO"));
-            filial.setCep(rs.getString("CEP"));           
-            filial.setTelefone(rs.getString("TELEFONE"));
-            filial.setEmail(rs.getString("EMAIL"));           
-            filial.setAtivo(rs.getString("ATIVO").charAt(0));
-            filial.setDeletado(rs.getString("DELETADO").charAt(0));
+            filial.setNome(rs.getString("nome"));
+            filial.setEndereco(rs.getString("endereco"));
+            filial.setBairro(rs.getString("bairro"));
+            filial.setCidade(rs.getString("cidade"));
+            filial.setEstado(rs.getString("estado"));
+            filial.setCep(rs.getString("cep"));           
+            filial.setTelefone(rs.getString("telefone"));
+            filial.setEmail(rs.getString("email"));           
+            filial.setAtivo(rs.getString("ativo").charAt(0));
+            filial.setDeletado(rs.getString("deletado").charAt(0));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -155,7 +156,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
     @Override
     public Filial Remove(int codigo) {
 
-        String sql = "DELETE FROM UNIDADES WHERE CODIGO=?";
+        String sql = "DELETE FROM filiais WHERE codigo=?";
 
         PreparedStatement p;
         try {
