@@ -3,7 +3,7 @@
     Created on : 05/11/2016, 23:28:41
     Author     : Michael Facul
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="br.sp.senac.programeros.model.Cliente"%>
 <%@page import="br.sp.senac.programeros.dao.ClienteDAO"%>
 <%@page import="java.util.List"%>
@@ -32,7 +32,7 @@
                 <%
                     ConexaoBD conn = new ConexaoBD();
                     Connection conexao = conn.obterConexao();
-                    
+
                     ClienteDAO dao = new ClienteDAO(conexao);
 
                     List<Cliente> cliente = dao.listarClientes();
@@ -41,7 +41,7 @@
 
                 %>
 
-                <table id="tblClientes" border="1" cellPadding ="5">         
+                <table id="tblClientes" border="2" cellPadding ="3">         
                     <tr>
                         <th>Codigo</th>
                         <th>Nome</th>
@@ -77,13 +77,15 @@
                         <td><%= c.getAtivo()%></td>
                         <td><%= c.getDeletado()%></td>
                         </td>
-                        <td> <a href="ExcluirCliente?id=<%=c.getCodigo()%>">Excluir</a></td>
-                        <td> <a href="AlterarCliente?id=<%=c.getCodigo()%>">                               
-                                Alterar</a></td>
+                        <td> <a href="ExcluirCliente?id=<%=c.getCodigo()%>" title="Excluir">
+                                <img src="IMAGES/excluir.jpg"/> </a></td>
+                        <td> <a href="AlterarCliente?id=<%=c.getCodigo()%>" title="Alterar">
+                                <img src="IMAGES/alterar.jpg"/> </a></td>
                     </tr>              
                     <%}%>
-                </table>                 
+
             </div>
         </aside> 
-    </body>
+    </table>   
+</body>
 </html>
