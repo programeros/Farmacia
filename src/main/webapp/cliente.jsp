@@ -78,12 +78,7 @@
                         <td><%= c.getDeletado()%></td>
                         </td>
                         <td> <a href="ExcluirCliente?id=<%=c.getCodigo()%>">Excluir</a></td>
-                        <td> <a href="AlterarCliente?id=<%=c.getCodigo()%>&nome=<%=c.getNome()%>
-                                &endereco=<%= c.getEndereco()%>&bairro=<%= c.getBairro()%>
-                                &cidade=<%= c.getCidade()%>&estado=<%= c.getEstado()%>
-                                &cep=<%= c.getCep()%>&sexo=<%= c.getSexo()%>
-                                &telefone=<%= c.getTelefone()%>&celular=<%= c.getCelular()%>
-                                &convenios_codigo=<%= c.getConvenio()%>&ativo=<%= c.getAtivo()%>">                               
+                        <td> <a href="AlterarCliente?id=<%=c.getCodigo()%>">                               
                                 Alterar</a></td>
                     </tr>              
                     <%}%>

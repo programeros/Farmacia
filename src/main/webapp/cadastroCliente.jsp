@@ -3,7 +3,7 @@
     Created on : 03/11/2016, 12:59:31
     Author     : Michael Facul
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,9 +25,9 @@
         </nav>
         <aside>
             <div>
-                <fieldset>
+                
                     <legend><h2>Dados Pessoais do Cliente</h2></legend>
-                <form class="formulario" action ="AdicionarCliente" method="post">
+                <form action ="AdicionarCliente" method="get">
                     Nome: <input type="text" size="40" name="nome" />
                     Endereço: <input type="text" size="30" name="endereco" /><br/>
                     Bairro: <input type="text" name="bairro" />
@@ -35,15 +35,12 @@
                     Estado: <input type="text" name="estado" /><br/>
                     CEP: <input type="text" name="cep" />
                     Sexo: <select name="sexo">
-                            <option value="m">Masculino</option>
-                            <option value="f">Feminino</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Feminino</option>
                           </select><br />
                     Tel.: <input type="text" name="telefone" />
-                    Cel.: <input type="text" name="celular" /><br/>
-                    Convenio: <select name="convenio"></select>
-                    Data de Cadastro: <input type="date" name="data" />                   
-                    Ativo: <input type="checkbox" name="ativo" /><br /><br/>
-                </fieldset>
+                    Cel.: <input type="text" name="celular" /><br/>                                                                      
+                
                     <br/><input type="submit" value="Gravar" />
                     <input type="reset" value="Limpar" />                    
                     <input type="button" value="Voltar" onClick="history.go(-1)"> 
