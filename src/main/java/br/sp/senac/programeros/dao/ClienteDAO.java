@@ -20,7 +20,6 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
     public ClienteDAO(Connection conexao){
         this.conexao = conexao;
     }
-    
     @Override
     public void inserir(Cliente cliente) {
         String sql = "INSERT INTO clientes "
@@ -83,6 +82,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
         }
     }
 
+    @Override
     public List<Cliente> listarClientes() {
         List<Cliente> clientes = new ArrayList<Cliente>();
 
