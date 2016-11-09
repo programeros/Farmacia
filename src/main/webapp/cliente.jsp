@@ -33,7 +33,9 @@
                     ConexaoBD conn = new ConexaoBD();
                     Connection conexao = conn.obterConexao();
                     
-                    ClienteDAO dao = new ClienteDAO(conexao);
+                    ClienteDAO dao = new ClienteDAO();
+                    
+                    //ClienteDAO dao = new ClienteDAO(conexao);
 
                     List<Cliente> cliente = dao.listarClientes();
 

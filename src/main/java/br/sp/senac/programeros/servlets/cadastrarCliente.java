@@ -5,8 +5,10 @@
  */
 package br.sp.senac.programeros.servlets;
 
+import br.sp.senac.programeros.dao.ClienteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author smarangoni
  */
 
-@WebServlet("/AdicionarCliente")
+@WebServlet(name = "CadastrarCliente", urlPatterns = {"/AdicionarCliente"})
 public class cadastrarCliente extends HttpServlet {
 
     /**
@@ -61,17 +63,6 @@ public class cadastrarCliente extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-        String nome = request.getParameter("nome");
-        String endereco = request.getParameter("endereco");
-        String bairro = request.getParameter("bairro");
-        String cidade = request.getParameter("cidade");
-        String estado = request.getParameter("estado");
-        String cep = request.getParameter("cep");
-        String sexo = request.getParameter("sexo");
-        String telefone = request.getParameter("telefone");
-        String celular = request.getParameter("celular");
-        String convenio = request.getParameter("convenio");
-                
         
     }
 
@@ -87,6 +78,41 @@ public class cadastrarCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        ClienteDAO cliente = new ClienteDAO();
+        
+        
+        //Cadastro de novo cliente
+        String nome = request.getParameter("nome");
+        String endereco = request.getParameter("endereco");
+        String bairro = request.getParameter("bairro");
+        String cidade = request.getParameter("cidade");
+        String estado = request.getParameter("estado");
+        String cep = request.getParameter("cep");
+        String sexo = request.getParameter("sexo");
+        String telefone = request.getParameter("telefone");
+        String celular = request.getParameter("celular");
+        String convenio = request.getParameter("convenio");
+        
+        //Preparar para repassar os atributos ao banco de dados 
+        
+        
+        request.setAttribute("nome", nome);
+        request.setAttribute("endereco", endereco);
+        request.setAttribute("bairro", bairro);
+        request.setAttribute("cidade", cidade);
+        request.setAttribute("estado", estado);
+        request.setAttribute("cep", cep);
+        request.setAttribute("sexo", sexo);
+        request.setAttribute("telefone", telefone);
+        request.setAttribute("celular", celular);
+        request.setAttribute("convenio", convenio);
+        
+        
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("cliente.jsp");
+        
+        dispatcher.forward(request, response);
     }
 
     /**
