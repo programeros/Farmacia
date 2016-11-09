@@ -17,15 +17,16 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
 
     Connection conexao;
     
-    public ClienteDAO(Connection conexao) {
+    public ClienteDAO(Connection conexao){
         this.conexao = conexao;
     }
     
-    public void cliente(Cliente cliente) {
+    @Override
+    public void inserir(Cliente cliente) {
         String sql = "INSERT INTO clientes "
                 + "(nome, endereco, bairro, cidade,estado,cep,sexo,telefone,celular,"
                 + "cadastro,ativo) VALUES "
-                + "(?,?,?,?,?,?,?,?,?,?,?,?)";
+                + "(?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement p;
         try {
             p = this.conexao.prepareStatement(sql);
@@ -186,8 +187,8 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
 
     }
 
-    @Override
-    public void inserir(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public void inserir(Cliente cliente) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }
