@@ -24,7 +24,8 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
         this.conexao = conexao;
     }
 
-    public void fornecedor(Fornecedor fornecedor) {
+    @Override
+    public void inserir(Fornecedor fornecedor) {
         String sql = "INSERT INTO fornecedores"
                 + "(nome,endereco,bairro,cidade,estado,cep,telefone,celular,"
                 + "cadastro,ativo) VALUES "
@@ -180,9 +181,6 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
 
     }
 
-    @Override
-    public void inserir(Fornecedor fornecedor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
 }
