@@ -16,10 +16,11 @@ import java.sql.Date;
 public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInterface {
 
     Connection conexao;
-    
-    public ClienteDAO(Connection conexao){
+
+    public ClienteDAO(Connection conexao) {
         this.conexao = conexao;
     }
+
     @Override
     public void inserir(Cliente cliente) {
         String sql = "INSERT INTO clientes "
@@ -37,8 +38,9 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             p.setString(6, cliente.getCep());
             p.setString(7, String.valueOf(cliente.getSexo()));
             p.setString(8, cliente.getTelefone());
-            p.setString(9, cliente.getCelular());            
+            p.setString(9, cliente.getCelular());
             p.setDate(10, new java.sql.Date(System.currentTimeMillis()));
+            
             p.setString(11, "S");
 
             p.execute();
@@ -106,8 +108,8 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
                 String celular = rs.getString("celular");
                 Date cadastro = rs.getDate("cadastro");
                 int convenio = rs.getInt("convenio_codigo");
-                char ativo = rs.getString("ativo").charAt(0);
-                char deletado = rs.getString("deletado").charAt(0);
+                String ativo = rs.getString("ativo");
+                String deletado = rs.getString("deletado");
 
                 cliente.setCodigo(codigo);
                 cliente.setNome(nome);
@@ -158,8 +160,8 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             cliente.setCelular(rs.getString("celular"));
             cliente.setCadastro(rs.getDate("cadastro"));
             cliente.setConvenio(rs.getInt("convenio_codigo"));
-            cliente.setAtivo(rs.getString("ativo").charAt(0));
-            cliente.setDeletado(rs.getString("deletado").charAt(0));
+            cliente.setAtivo(rs.getString("ativo"));
+            cliente.setDeletado(rs.getString("deletado"));
         } catch (Exception e) {
             e.printStackTrace();
         }

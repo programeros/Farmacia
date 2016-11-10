@@ -103,8 +103,8 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
                 String telefone = rs.getString("telefone");
                 String celular = rs.getString("celular");
                 Date cadastro = rs.getDate("cadastro");
-                char ativo = rs.getString("ativo").charAt(0);
-                char deletado = rs.getString("deletado").charAt(0);
+                String ativo = rs.getString("ativo");
+                String deletado = rs.getString("deletado");
 
                 fornecedor.setCodigo(codigo);
                 fornecedor.setNome(nome);
@@ -151,8 +151,8 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
             fornecedor.setTelefone(rs.getString("telefone"));
             fornecedor.setCelular(rs.getString("celular"));
             fornecedor.setCadastro(rs.getDate("cadastro"));
-            fornecedor.setAtivo(rs.getString("ativo").charAt(0));
-            fornecedor.setDeletado(rs.getString("deletado").charAt(0));
+            fornecedor.setAtivo(rs.getString("ativo"));
+            fornecedor.setDeletado(rs.getString("deletado"));
         } catch (Exception e) {
             e.printStackTrace();
         }

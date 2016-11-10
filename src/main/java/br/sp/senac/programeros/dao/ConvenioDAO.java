@@ -52,7 +52,7 @@ public class ConvenioDAO implements br.sp.senac.programeros.interfaces.ConvenioI
         try {
             //Comando do banco
             String sql = "update convenios "
-                    + " set nome = ?, telefone = ?, resposavel = ?,"
+                    + " set nome = ?, telefone = ?, responsavel = ?,"
                     + " email = ?, ativo = ?"
                     + " where codigo = ?";
 
