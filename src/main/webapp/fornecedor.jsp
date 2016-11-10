@@ -26,7 +26,7 @@
         </nav>
         <aside>
             <div>               
-                <h1>Lista de Fornecedores</h1>                
+                <h1>Lista de Fornecedores</h1>  <br/>              
                 <hr />
 
                 <%
@@ -69,7 +69,8 @@
                         <td><%= f.getTelefone()%></td>
                         <td><%= f.getCelular()%></td>
                         <td><%= f.getCadastro()%></td>                                                
-                        <td><%= f.getAtivo()%></td>                        
+                        <td><%= f.getAtivo()%></td>  
+                        <td><%= f.getDeletado()%></td>  
                         </td>
                         <td> <a href="ExcluirFornecedor?id=<%=f.getCodigo()%>" title="Excluir">
                                 <img src="IMAGES/excluir.jpg"/> </a></td>
