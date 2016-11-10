@@ -10,6 +10,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="cadastro.css"/>

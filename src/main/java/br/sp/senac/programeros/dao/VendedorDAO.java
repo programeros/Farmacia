@@ -28,7 +28,8 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
     public VendedorDAO(Connection conexao) {
         this.conexao = conexao;
     }
-    public void vendedor(Vendedor vendedor) {
+    @Override
+    public void inserir(Vendedor vendedor) {
         String sql = "INSERT INTO vendedores"
                 + "(nome,endereco,bairro,cidade,estado,cep,telefone,celular,cadastro,ativo) VALUES"              
                 + "(?,?,?,?,?,?,?,?,?,?)";
@@ -105,8 +106,8 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
                 String telefone = rs.getString("telefone");
                 String celular = rs.getString("celular");
                 Date cadastro = rs.getDate("cadastro");
-                char ativo = rs.getString("ativo").charAt(0);
-                char deletado = rs.getString("deletado").charAt(0);
+                String ativo = rs.getString("ativo");
+                String deletado = rs.getString("deletado");
 
                 vendedor.setCodigo(codigo);
                 vendedor.setNome(nome);
@@ -153,8 +154,8 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
             vendedor.setTelefone(rs.getString("telefone"));
             vendedor.setCelular(rs.getString("celular"));
             vendedor.setCadastro(rs.getDate("cadastro"));
-            vendedor.setAtivo(rs.getString("ativo").charAt(0));
-            vendedor.setDeletado(rs.getString("deletado").charAt(0));
+            vendedor.setAtivo(rs.getString("ativo"));
+            vendedor.setDeletado(rs.getString("deletado"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -182,8 +183,8 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
 
     }
 
-    @Override
-    public void inserir(Vendedor vendedor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public void inserir(Vendedor vendedor) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }

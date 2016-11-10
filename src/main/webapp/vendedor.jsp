@@ -3,13 +3,12 @@
     Created on : 06/11/2016, 10:48:49
     Author     : Michael Facul
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="br.sp.senac.programeros.model.Vendedor"%>
 <%@page import="java.util.List"%>
 <%@page import="br.sp.senac.programeros.dao.VendedorDAO"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -42,11 +41,11 @@
                     conn.fecharConexao();
 
                 %>
-                <table id="tblVendedor" border="1" cellPadding ="5">         
+                <table id="tblVendedor" border="2" cellPadding ="3">         
                     <tr>
                         <th>Codigo</th>
                         <th>Nome</th>
-                        <th>EndereÃ§o</th>
+                        <th>Endereço</th>
                         <th>Bairro</th>
                         <th>Cidade</th>
                         <th>Estado</th>
@@ -71,15 +70,13 @@
                         <td><%= v.getTelefone()%></td>
                         <td><%= v.getCelular()%></td>
                         <td><%= v.getCadastro()%></td>                                                
-                        <td><%= v.getAtivo()%></td>                        
+                        <td><%= v.getAtivo()%></td> 
+                        <td><%= v.getDeletado()%></td> 
                         </td>
-                        <td> <a href="ExcluirVendedor?id=<%=v.getCodigo()%>">Excluir</a></td>
-                        <td> <a href="AlterarVendedor?id=<%=v.getCodigo()%>&nome=<%=v.getNome()%>
-                                &endereco=<%= v.getEndereco()%>&bairro=<%= v.getBairro()%>
-                                &cidade=<%= v.getCidade()%>&estado=<%= v.getEstado()%>
-                                &cep=<%= v.getCep()%>&telefone=<%= v.getTelefone()%>&celular=<%= v.getCelular()%>
-                                &ativo=<%= v.getAtivo()%>">                               
-                                Alterar</a></td>
+                        <td> <a href="ExcluirVendedor?id=<%=v.getCodigo()%>" title="Excluir">
+                                <img src="IMAGES/excluir.jpg"/> </a></td>
+                        <td> <a href="AlterarVendedor?id=<%=v.getCodigo()%>" title="Alterar">
+                                <img src="IMAGES/alterar.jpg"/> </a></td>
                     </tr>              
                     <%}%>
                 </table>                 
