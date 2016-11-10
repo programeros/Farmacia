@@ -19,8 +19,8 @@ public class Cliente {
     private String celular;
     private Date cadastro;
     private int convenio;
-    private char ativo;
-    private char deletado;
+    private String ativo;
+    private String deletado;
 
     public int getCodigo() {
         return codigo;
@@ -118,19 +118,19 @@ public class Cliente {
         this.convenio = convenio;
     }
 
-    public char getAtivo() {
+    public String getAtivo() {
         return ativo;
     }
 
-    public void setAtivo(char ativo) {
+    public void setAtivo(String ativo) {
         this.ativo = ativo;
     }
 
-    public char getDeletado() {
+    public String getDeletado() {
         return deletado;
     }
 
-    public void setDeletado(char deletado) {
+    public void setDeletado(String deletado) {
         this.deletado = deletado;
     }
 
