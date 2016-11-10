@@ -3,6 +3,7 @@
     Created on : 06/11/2016, 00:50:25
     Author     : Michael Facul
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="br.sp.senac.programeros.model.Fornecedor"%>
 <%@page import="br.sp.senac.programeros.dao.FornecedorDAO"%>
 <%@page import="java.util.List"%>
@@ -27,7 +28,7 @@
             <div>               
                 <h1>Lista de Fornecedores</h1>                
                 <hr />
-                
+
                 <%
                     ConexaoBD conn = new ConexaoBD();
                     Connection conexao = conn.obterConexao();
@@ -39,7 +40,7 @@
                     conn.fecharConexao();
 
                 %>
-                <table id="tblFornecedores" border="1" cellPadding ="5">         
+                <table id="tblFornecedores" border="2" cellPadding ="3">         
                     <tr>
                         <th>Codigo</th>
                         <th>Nome</th>
@@ -70,17 +71,16 @@
                         <td><%= f.getCadastro()%></td>                                                
                         <td><%= f.getAtivo()%></td>                        
                         </td>
-                        <td> <a href="ExcluirFornecedor?id=<%=f.getCodigo()%>">Excluir</a></td>
-                        <td> <a href="AlterarFornecedor?id=<%=f.getCodigo()%>&nome=<%=f.getNome()%>
-                                &endereco=<%= f.getEndereco()%>&bairro=<%= f.getBairro()%>
-                                &cidade=<%= f.getCidade()%>&estado=<%= f.getEstado()%>
-                                &cep=<%= f.getCep()%>&telefone=<%= f.getTelefone()%>&celular=<%= f.getCelular()%>
-                                &ativo=<%= f.getAtivo()%>">                               
-                                Alterar</a></td>
+                        <td> <a href="ExcluirFornecedor?id=<%=f.getCodigo()%>" title="Excluir">
+                                <img src="IMAGES/excluir.jpg"/> </a></td>
+                        <td> <a href="AlterarFornecedor?id=<%=f.getCodigo()%>" title="Alterar">
+                                <img src="IMAGES/alterar.jpg"/> </a></td>
+
                     </tr>              
                     <%}%>
-                </table>                 
+
             </div>
         </aside> 
-    </body>
+    </table> 
+</body>
 </html>

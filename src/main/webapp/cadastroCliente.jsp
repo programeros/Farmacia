@@ -3,6 +3,10 @@
     Created on : 03/11/2016, 12:59:31
     Author     : Michael Facul
 --%>
+<%@page import="br.sp.senac.programeros.model.Convenio"%>
+<%@page import="com.mysql.jdbc.Connection"%>
+<%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
+<%@page import="br.sp.senac.programeros.dao.ConvenioDAO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -11,6 +15,7 @@
         <title>Cadastro de Cliente</title>
     </head>
     <body>
+             
         <nav>
             <ul class="menu">
                 <li><a href="#">Pesquisar</a>
@@ -40,7 +45,11 @@
                           </select><br />
                     Tel.: <input type="text" name="telefone" />
                     Cel.: <input type="text" name="celular" /><br/>                                                                      
-                
+                    Convenio: <select name="convenio" id="selectConvenio">
+                            <option value="1">Amil</option>
+                            <option value="2">Allians</option>
+                            <option value="3">Bradesco Saude</option>                              
+                          </select><br />
                     <br/><input type="submit" value="Gravar" />
                     <input type="reset" value="Limpar" />                    
                     <input type="button" value="Voltar" onClick="history.go(-1)"> 
