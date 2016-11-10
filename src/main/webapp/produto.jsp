@@ -3,7 +3,7 @@
     Created on : 06/11/2016, 11:52:37
     Author     : Michael Facul
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.List"%>
 <%@page import="br.sp.senac.programeros.dao.ProdutoDAO"%>
 <%@page import="br.sp.senac.programeros.model.Produto"%>
@@ -41,15 +41,14 @@
                     conn.fecharConexao();
 
                 %>
-                <table id="tblProduto" border="1" cellPadding ="5">         
+                <table id="tblProduto" border="2" cellPadding ="3">         
                     <tr>
                         <th>Codigo</th>
                         <th>Descrição</th>
                         <th>Preço</th>
                         <th>Marca</th>
                         <th>Categoria_Cod</th>
-                        <th>Fornecedor_Cod</th>
-                        <th>Unidade_Cod</th>                                                
+                        <th>Fornecedor_Cod</th>                                                                   
                     </tr>
 
                     <% for (Produto p : produto) {
@@ -60,15 +59,12 @@
                         <td><%= p.getPreco()%></td>
                         <td><%= p.getMarca()%></td>
                         <td><%= p.getCategoria()%></td>
-                        <td><%= p.getFornecedor()%></td>
-                        <td><%= p.getUnidade()%></td>                                                                      
+                        <td><%= p.getFornecedor()%></td>                                                                                         
                         </td>
-                        <td> <a href="ExcluirProduto?id=<%=p.getCodigo()%>">Excluir</a></td>
-                        <td> <a href="AlterarProduto?id=<%=p.getCodigo()%>&descricao=<%=p.getDescricao()%>
-                                &preco=<%= p.getPreco()%>&marca=<%= p.getMarca()%>
-                                &categoria=<%= p.getCategoria()%>&fornecedor=<%= p.getFornecedor()%>
-                                &unidade=<%= p.getUnidade()%>">                               
-                                Alterar</a></td>
+                        <td> <a href="ExcluirProduto?id=<%=p.getCodigo()%>" title="Excluir">
+                                <img src="IMAGES/excluir.jpg"/> </a></td>
+                        <td> <a href="AlterarProduto?id=<%=p.getCodigo()%>" title="Alterar">
+                                <img src="IMAGES/alterar.jpg"/> </a></td>
                     </tr>              
                     <%}%>
                 </table>                 

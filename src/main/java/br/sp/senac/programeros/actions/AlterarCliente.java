@@ -38,7 +38,7 @@ public class AlterarCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("codigo"));
+        int id = Integer.parseInt(request.getParameter("id"));
         String nome = request.getParameter("nome");
         String endereco = request.getParameter("endereco");
         String bairro = request.getParameter("bairro");

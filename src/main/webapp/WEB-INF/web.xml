@@ -52,6 +52,18 @@
         <servlet-name>AlterarVendedor</servlet-name>
         <servlet-class>br.sp.senac.programeros.actions.AlterarVendedor</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdicionarProduto</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AdicionarProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarProduto</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AlterarProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirProduto</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.ExcluirProduto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerificarUsuario</servlet-name>
         <url-pattern>/VerificarUsuario</url-pattern>
@@ -103,6 +115,18 @@
     <servlet-mapping>
         <servlet-name>AlterarVendedor</servlet-name>
         <url-pattern>/AlterarVendedor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdicionarProduto</servlet-name>
+        <url-pattern>/AdicionarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarProduto</servlet-name>
+        <url-pattern>/AlterarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirProduto</servlet-name>
+        <url-pattern>/ExcluirProduto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

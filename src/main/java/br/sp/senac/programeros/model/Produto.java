@@ -12,8 +12,8 @@ public class Produto {
     private int categoria;
     private int fornecedor;
     private int unidade;
-    private char ativo;
-    private char deletado;
+    private String ativo;
+    private String deletado;
 
     public String getCodigo() {
         return codigo;
@@ -70,19 +70,19 @@ public class Produto {
     public void setUnidade(int unidade) {
         this.unidade = unidade;
     }
-    public char getAtivo() {
+    public String getAtivo() {
         return ativo;
     }
 
-    public void setAtivo(char ativo) {
+    public void setAtivo(String ativo) {
         this.ativo = ativo;
     }
 
-    public char getDeletado() {
+    public String getDeletado() {
         return deletado;
     }
 
-    public void setDeletado(char deletado) {
+    public void setDeletado(String deletado) {
         this.deletado = deletado;
     }
 }

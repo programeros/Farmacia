@@ -23,17 +23,19 @@ public class ProdutoDAO implements br.sp.senac.programeros.interfaces.ProdutoInt
         this.conexao = conexao;
     }
 
-    public void produto(Produto produto) {
+    @Override
+    public void inserir(Produto produto) {
         String sql = "INSERT INTO produtos "
-                + "(descricao,preco,marca,ativo) VALUES "
-                + "(?,?,?,?)";
+                + "(codigo,descricao,preco,marca,ativo) VALUES "
+                + "(?,?,?,?,?)";
         PreparedStatement p;
         try {
-            p = this.conexao.prepareStatement(sql);            
-            p.setString(1, produto.getDescricao());
-            p.setFloat(2, produto.getPreco());
-            p.setString(3, produto.getMarca());            
-            p.setInt(4, produto.getAtivo());            
+            p = this.conexao.prepareStatement(sql);
+            p.setString(1, produto.getCodigo());
+            p.setString(2, produto.getDescricao());
+            p.setFloat(3, produto.getPreco());
+            p.setString(4, produto.getMarca());            
+            p.setString(5, produto.getAtivo());            
 
             p.execute();
 
@@ -54,7 +56,7 @@ public class ProdutoDAO implements br.sp.senac.programeros.interfaces.ProdutoInt
             p.setString(1, produto.getDescricao());
             p.setFloat(2, produto.getPreco());
             p.setString(3, produto.getMarca());                       
-            p.setInt(4, produto.getAtivo());            
+            p.setString(4, produto.getAtivo());            
             p.setString(5, produto.getCodigo());
             
             p.execute();
@@ -81,8 +83,8 @@ public class ProdutoDAO implements br.sp.senac.programeros.interfaces.ProdutoInt
                 String marca = rs.getString("marca");
                 int categoria = rs.getInt("categoria_codigo");                
                 int fornecedor = rs.getInt("fornecedor_codigo");               
-                char ativo = rs.getString("ativo").charAt(0);
-                char deletado = rs.getString("deletado").charAt(0);
+                String ativo = rs.getString("ativo");
+                String deletado = rs.getString("deletado");
                 
                 produto.setCodigo(codigo);
                 produto.setDescricao(descricao);
@@ -121,8 +123,8 @@ public class ProdutoDAO implements br.sp.senac.programeros.interfaces.ProdutoInt
             produto.setMarca(rs.getString("marca"));
             produto.setCategoria(rs.getInt("categoria_codigo"));
             produto.setFornecedor(rs.getInt("fornecedor_codigo"));
-            produto.setAtivo(rs.getString("ativo").charAt(0));
-            produto.setDeletado(rs.getString("deletado").charAt(0));
+            produto.setAtivo(rs.getString("ativo"));
+            produto.setDeletado(rs.getString("deletado"));
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -151,9 +153,9 @@ public class ProdutoDAO implements br.sp.senac.programeros.interfaces.ProdutoInt
 
     }
 
-    @Override
-    public void inserir(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }    
+//    @Override
+//    public void inserir(Produto produto) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }    
     
 }

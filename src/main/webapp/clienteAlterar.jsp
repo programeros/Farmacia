@@ -35,7 +35,7 @@
             <div>
 
                 <form action ="AlterarCliente" method="post">
-                    Código: <input type="text" name="codigo" value="<%=cliente.getCodigo()%>" size="6" disabled="disabled" /><br/>                    
+                    Código: <input type="text" name="id" value="<%=cliente.getCodigo()%>" size="6" disabled="disabled" /><br/>                    
                     Nome: <input type="text" size="40" name="nome" value="<%=cliente.getNome()%>"/>
                     Endereço: <input type="text" size="30" name="endereco" value="<%=cliente.getEndereco()%>"/><br/>
                     Bairro: <input type="text" name="bairro" value="<%=cliente.getBairro()%>"/>
