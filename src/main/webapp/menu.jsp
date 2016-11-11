@@ -7,12 +7,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+
         <title>Menu do SGF</title>
         <link href="menu.css" type="text/css" rel="stylesheet" />
     </head>
     <body>                
-        
+
         <nav>
             <ul class="menu">
                 <li><a href="#">Cadastros</a>
@@ -46,9 +46,13 @@
                 </li>
                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         Usuário: ${nome}</a></li>
+                        <li><a href="index.html">Sair</a></li>
             </ul>
             <div class="imagem"></div>
-        </nav>                               
-    </body>
+        </nav> 
+    <center><h1>SGF</h1></center>
+    <center><h3>Sistema de Gestão de Farmácias</h3></center>
+    <nav1></nav1>
+</body>
 </html>
 

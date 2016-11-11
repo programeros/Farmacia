@@ -58,7 +58,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             String sql = "UPDATE clientes "
                     + " SET nome = ?, endereco = ?, bairro = ?, cidade = ?, "
                     + " estado = ?, cep = ?, sexo = ?, telefone = ?, celular = ?,"
-                    + " convenio_codigo = ?, ativo = ?, deletado = ?"
+                    + " convenio_codigo = ?"
                     + " WHERE codigo = ?";
 
             PreparedStatement p;
@@ -72,9 +72,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             p.setString(7, String.valueOf(cliente.getSexo()));
             p.setString(8, cliente.getTelefone());
             p.setString(9, cliente.getCelular());
-            p.setInt(10, cliente.getConvenio());
-            p.setString(11, String.valueOf(cliente.getAtivo()));
-            p.setString(12, String.valueOf(cliente.getDeletado()));
+            p.setInt(10, cliente.getConvenio());            
             p.setInt(13, cliente.getCodigo());
 
             p.execute();

@@ -45,13 +45,9 @@
                     
                     Tel.: <input type="text" name="telefone" value="<%=cliente.getTelefone()%>"/>
                     Cel.: <input type="text" name="celular" value="<%=cliente.getCelular()%>"/><br/>                                                                      
-                    Convenio: <select name="conveino_codigo" disabled="disabled">
-                        <option value="1">Amil</option>
-                        <option value="2">Allians</option>
-                        <option value="3">Bradesco Saude</option>
-                    </select><br /><br/><br/>
                     
-                    <input type="submit" value="Confirmar" />
+                    
+              <input type="submit" value="Confirmar" />
                     <input type="reset" value="Limpar" />
                     <input type="button" value="Voltar" onClick="history.go(-1)"> 
                 </form>

@@ -36,6 +36,33 @@ nav{
     background: #000FFF;   
     border-bottom:3px solid #EA0000;
 }
+nav1{
+    position: fixed;
+    height: 20px;
+    left:0px;
+    right:0px;
+    bottom: 0px;
+    padding: 20px;
+    background: #000FFF;   
+    border-top:3px solid #EA0000;
+}
+h1{  
+    font-family:verdana;
+    font-size:xx-large;
+    color: #CCC;
+    position:absolute;
+    top:50%;
+    left:50%;
+}
+h3{
+    font-family:verdana;
+    font-size:large;
+    color: #CCC;
+    position:absolute;
+    top:58%;
+    left:36%;
+    right:30%;
+}
 
 .menu{
     position: relative;
@@ -91,6 +118,6 @@ nav{
     display:block; 	
     width: 100%;
     background-color: #fff;
-    
+
 }
 

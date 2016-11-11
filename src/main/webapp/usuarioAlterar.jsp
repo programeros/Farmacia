@@ -28,7 +28,6 @@
             conn.fecharConexao();
 
             String senha = Senhas.Descriptografar(usuario.getSenha());
-
         %>        
         <nav>
             <h1>Alteração de Usuario</h1>

@@ -45,13 +45,14 @@ public class AlterarCliente extends HttpServlet {
         String cidade = request.getParameter("cidade");
         String estado = request.getParameter("estado");
         String cep = request.getParameter("cep");
-        //String sexo = request.getParameter("sexo");
+        String sexo = request.getParameter("sexo");
         String telefone = request.getParameter("telefone");
         String celular = request.getParameter("celular");
         String convenio = request.getParameter("convenio");
         String ativo =  request.getParameter("ativo");
         
         Cliente novoCliente = new Cliente();
+        novoCliente.setCodigo(id);
         novoCliente.setNome(nome);
         novoCliente.setEndereco(endereco);
         novoCliente.setBairro(bairro);
@@ -61,7 +62,7 @@ public class AlterarCliente extends HttpServlet {
         //novoCliente.setSexo(sexo.charAt(0));
         novoCliente.setTelefone(telefone);
         novoCliente.setCelular(celular);
-        novoCliente.setConvenio(Integer.parseInt(convenio));
+        //novoCliente.setConvenio(Integer.parseInt(convenio));
         novoCliente.setAtivo(ativo);
 
         
