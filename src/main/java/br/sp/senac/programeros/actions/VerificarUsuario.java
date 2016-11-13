@@ -21,8 +21,8 @@ public class VerificarUsuario extends HttpServlet {
             throws ServletException, IOException {
         HttpSession sessao = request.getSession();
         
-        String login = request.getParameter("login");
-        String senha = request.getParameter("senha");
+        String login = request.getParameter("username");
+        String senha = request.getParameter("password");
 
         senha = Senhas.Criptografar(senha);
         
