@@ -1,0 +1,19 @@
+
+/* 
+    Created on : 13/11/2016, 16:13:41
+    Author     : willian.carvalho
+*/
+
+h1{
+    text-align: left;
+    color: whitesmoke;
+}
+
+table,th{
+    border: 3px solid royalblue; 
+           
+}
+
+td{
+    border: 1px solid royalblue;
+}

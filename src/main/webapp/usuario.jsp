@@ -14,16 +14,16 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        
+    <head>    
         <title>Usuários do SGF</title>    
     </head>
+    <link href="css/usuario.css" type="text/css" rel="stylesheet" />
     <body>
         <c:import url="cabecalho.jsp"/>
-        <h1>Lista de Usuários</h1>
+        <h1>Lista de Usuários</h1> <br/>
         <button onclick= "window.location.href = 'usuarioAdicionar.jsp'">Adicionar</button>
-        <button onclick= "window.location.href = 'menu.jsp'">Sair</button>
-        <hr />
+        <button onclick= "window.location.href = 'menu.jsp'">Sair</button><br/>
+        <hr /><br/>
         
         <%
             ConexaoBD conn = new ConexaoBD();
@@ -37,12 +37,13 @@
 
         %>
         
-        <table id="tblUsuarios" border="2" cellPadding ="3">         
+        <table>         
             <tr>
                 <th>Codigo</th>
                 <th>Login</th>
                 <th>Nome</th>
                 <th>Senha</th>
+                <th>Ações</th>
             </tr>
             
             <% for(Usuario c:usuario){
@@ -53,12 +54,14 @@
                 <td><%= c.getNome() %></td>
                 <td><%= "******" %></td>
                 </td>
-                <td> <a href="ExcluirUsuario?id=<%=c.getCodigo()%>" title="Excluir">
-                    <img src="IMAGES/excluir.jpg"/> </a></td>
-                <td> <a href="AlterarUsuario?id=<%=c.getCodigo()%>" title="Alterar">
-                        <img src="IMAGES/alterar.jpg"/> </a></td>
-                <td> <a href="AlterarSenhaUsuario?id=<%=c.getCodigo()%>" title="Alterar Senha">
-                        <img src="IMAGES/senha.jpg"/> </a></td>                                                
+                <td> 
+                    <a href="ExcluirUsuario?id=<%=c.getCodigo()%>" title="Excluir">
+                    <img src="images/trash.png" height="20" width="20"/> </a>
+                    <a href="AlterarUsuario?id=<%=c.getCodigo()%>" title="Alterar">
+                    <img src="images/edit.png" height="20" width="20"/> </a>
+                    <a href="AlterarSenhaUsuario?id=<%=c.getCodigo()%>" title="Alterar Senha">
+                    <img src="images/edit-1.png" height="20" width="20"/> </a>
+                </td>                                                
             </tr>              
             <%} %>
 

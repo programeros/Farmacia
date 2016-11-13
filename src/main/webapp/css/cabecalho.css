@@ -1,0 +1,21 @@
+/* 
+    Created on : 13/11/2016, 16:18:38
+    Author     : willian.carvalho
+*/
+
+*{ 
+    margin: 0; 
+    padding: 0;
+}
+
+body{
+    background-color:hsl(210, 93%, 67%);
+}
+
+#logo{
+    position:absolute;
+    right:15px;
+    top:0px;
+    width: 80px;
+    height: 80px;
+}

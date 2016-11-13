@@ -8,14 +8,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sistema Gerenciador de Farmacias</title>
-        <link rel="stylesheet" type="text/css" href="menu.css"/>
+        <link rel="stylesheet" type="text/css" href="css/cabecalho.css"/>
     </head>
     <body>
         <header>
-            <%--<img src="http://placehold.it/150x150"> --%>
-            <img src="imagem/logo.png" height="60" width="60">
+            <img src="images/logo.png" id="logo" height="100" width="100">
         </header>
         
     </body>

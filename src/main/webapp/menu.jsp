@@ -9,7 +9,7 @@
     <head>
         
         <title>Menu do SGF</title>
-        <link href="menu.css" type="text/css" rel="stylesheet" />
+        <link href="css/menu.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
         
@@ -46,11 +46,12 @@
                 </li>
                 <li><a href="#">Sobre</a>
                 </li>
-                <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Usuário: ${nome}</a></li>
             </ul>
+            <strong>Usuário:  ${nome}</strong>
             <div class="imagem"></div>
         </nav>
+        
+        
             
             <c:import url="rodape.jsp"/>
         
