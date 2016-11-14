@@ -12,9 +12,9 @@
         <link rel="stylesheet" type="text/css" href="css/cabecalho.css"/>
     </head>
     <body>
-        <header>
+        <div class="page-header">
             <img src="images/logo.png" id="logo" height="100" width="100">
-        </header>
+        </div>
         
     </body>
 </html>

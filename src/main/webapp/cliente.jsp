@@ -12,11 +12,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="bootstrap.css"/>
         <link rel="stylesheet" type="text/css" href="cadastro.css"/>
         <title>Clientes Cadastrados</title>    
     </head>
     <body>
-        <nav>
+        <div class="container">
+            <nav class="nav">
             <ul class="menu">
                 <li><a onclick= "window.location.href = 'cadastroCliente.jsp'">Adicionar</a></li>
                 <li><a onclick= "window.location.href = 'menu.jsp'">Voltar</a></li> 
@@ -25,7 +27,7 @@
             <div class="imagem"></div>
         </nav>
         <aside>
-            <div>               
+            <div class="form-group">               
                 <h1>Lista de Clientes</h1>                
                 <hr />
 
@@ -92,5 +94,6 @@
                 </table>                 
             </div>
         </aside> 
+       </div>
     </body>
 </html>

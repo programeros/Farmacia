@@ -6,7 +6,7 @@
 
 <%@page import="java.util.List"%>
 <%@page import="br.sp.senac.programeros.dao.ProdutoDAO"%>
-<%@page import="br.sp.senac.programeros.model.Produto"%>
+<%@page import="br.sp.senac.programeros.model.Compra"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
 
