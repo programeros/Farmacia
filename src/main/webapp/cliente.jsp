@@ -7,7 +7,7 @@
 <%@page import="br.sp.senac.programeros.model.Cliente"%>
 <%@page import="br.sp.senac.programeros.dao.ClienteDAO"%>
 <%@page import="java.util.List"%>
-<%@page import="java.sql.Connection"%>
+<%@page import="com.mysql.jdbc.Connection"%>
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
 <!DOCTYPE html>
 <html>

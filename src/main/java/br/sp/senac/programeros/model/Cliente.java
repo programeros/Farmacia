@@ -22,6 +22,40 @@ public class Cliente {
     private String ativo;
     private String deletado;
 
+    public Cliente() {
+    }
+
+    public Cliente(String nome, String endereco, String bairro, String estado, String cidade, String cep, char sexo, String telefone, String celular, Date cadastro, int convenio, String ativo) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.estado = estado;
+        this.cidade = cidade;
+        this.cep = cep;
+        this.sexo = sexo;
+        this.telefone = telefone;
+        this.celular = celular;
+        this.cadastro = cadastro;
+        this.convenio = convenio;
+        this.ativo = ativo;
+    }
+
+    public Cliente(int codigo, String nome, String endereco, String bairro, String estado, String cidade, String cep, char sexo, String telefone, String celular, Date cadastro, int convenio, String ativo) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.estado = estado;
+        this.cidade = cidade;
+        this.cep = cep;
+        this.sexo = sexo;
+        this.telefone = telefone;
+        this.celular = celular;
+        this.cadastro = cadastro;
+        this.convenio = convenio;
+        this.ativo = ativo;
+    }
+    
     public int getCodigo() {
         return codigo;
     }

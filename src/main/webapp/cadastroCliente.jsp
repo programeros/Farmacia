@@ -3,10 +3,7 @@
     Created on : 03/11/2016, 12:59:31
     Author     : Michael Facul
 --%>
-<%@page import="br.sp.senac.programeros.model.Convenio"%>
-<%@page import="com.mysql.jdbc.Connection"%>
-<%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
-<%@page import="br.sp.senac.programeros.dao.ConvenioDAO"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>

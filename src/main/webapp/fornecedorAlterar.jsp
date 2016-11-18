@@ -36,7 +36,7 @@
             <div>
 
                 <form action ="AlterarFornecedor" method="post">
-                    Código: <input type="text" name="id" value="<%=fornecedor.getCodigo()%>" size="6" disabled="disabled" /><br/>                    
+                    <input type=hidden name="id" value="<%=fornecedor.getCodigo()%>" size="6"  /><br/>                    
                     Nome: <input type="text" size="40" name="nome" value="<%=fornecedor.getNome()%>"/>
                     Endereço: <input type="text" size="30" name="endereco" value="<%=fornecedor.getEndereco()%>"/><br/>
                     Bairro: <input type="text" name="bairro" value="<%=fornecedor.getBairro()%>"/>
