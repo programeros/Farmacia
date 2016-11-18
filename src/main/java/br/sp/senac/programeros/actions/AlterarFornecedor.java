@@ -50,6 +50,7 @@ public class AlterarFornecedor extends HttpServlet {
         String ativo =  request.getParameter("ativo");
         
         Fornecedor novoCliente = new Fornecedor();
+        novoCliente.setCodigo(id);
         novoCliente.setNome(nome);
         novoCliente.setEndereco(endereco);
         novoCliente.setBairro(bairro);
