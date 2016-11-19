@@ -3,12 +3,10 @@
     Created on : 19/11/2016, 17:17:06
     Author     : willian.carvalho
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Home Page</title>
+		<title>SGF</title>
 	</head>
 	<link type="text/css" href="css/pedidosdeVenda.css" rel="stylesheet" />
 	<script src="js/pedidosdeVenda.js" type="text/javascript"></script>
@@ -18,7 +16,7 @@
 			<div class="pesquisa">
 				<label for="select">Pesquisar:</label>
 				<select name="select" id="select">
-		   Â 		<option value="pedido">Pedido</option>
+		    		<option value="pedido">Pedido</option>
 					<option value="cliente">Cliente</option>
 				</select>
 				<input type="text" name="textfield" id="textfield">
