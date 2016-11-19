@@ -47,15 +47,15 @@
                     Cel.: <input type="text" name="celular" value="<%=fornecedor.getCelular()%>"/><br/>                                                                      
                     
                     Ativo: <select name="ativo" id="selectAtivo">
-                        <option value = "1">Sim</option>
-                        <option value = "2">Não</option>
+                        <option value = "S">Sim</option>
+                        <option value = "N">Não</option>
                         <script type="text/javascript">
                             var selected = document.getElementById("selectAtivo");
                             switch ("<%=fornecedor.getAtivo()%>") {
-                                case '1':
+                                case 'S':
                                     selected.selectedIndex = 0;
                                     break;
-                                case '2':
+                                case 'N':
                                     selected.selectedIndex = 1;
                                     break;
                             }

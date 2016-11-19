@@ -37,7 +37,7 @@
             <div>
                 
                 <form action ="AlterarUsuario" method="post">
-                    Código: <input type="text" name="id" value="<%=usuario.getCodigo()%>" size="6" disabled="disabled" /><br/>
+                    <input type=hidden name="id" value="<%=usuario.getCodigo()%>" size="6" /><br/>
                     Login: <input type="text" name="login" value="<%=usuario.getLogin()%>" size="25" disabled="disabled" /><br />
                     Nome: <input type="text" name="nome" value="<%=usuario.getNome()%>" size="50" /><br />
                     Senha: <input type="password" name="senha" value="<%=senha%>" size="10" disabled="disabled"/><br/>

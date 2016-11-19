@@ -51,6 +51,7 @@ public class AlterarVendedor extends HttpServlet {
         String ativo =  request.getParameter("ativo");
         
         Vendedor novoCliente = new Vendedor();
+        novoCliente.setCodigo(id);
         novoCliente.setNome(nome);
         novoCliente.setEndereco(endereco);
         novoCliente.setBairro(bairro);

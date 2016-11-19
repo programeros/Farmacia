@@ -27,7 +27,7 @@
         </nav>
         <aside>
             <div>               
-                <h1>Lista de Vendedores</h1>                
+                <h1>Lista de Vendedores</h1><br/><br/>                
                 <hr />
                 
                 <%
@@ -53,8 +53,7 @@
                         <th>Telefone</th>
                         <th>Celular</th>
                         <th>Dta Cadastro</th>                        
-                        <th>Ativo</th>
-                        <th>Deletado</th>
+                        <th>Ativo</th>                        
                     </tr>
 
                     <% for (Vendedor v : vendedor) {
@@ -70,8 +69,7 @@
                         <td><%= v.getTelefone()%></td>
                         <td><%= v.getCelular()%></td>
                         <td><%= v.getCadastro()%></td>                                                
-                        <td><%= v.getAtivo()%></td> 
-                        <td><%= v.getDeletado()%></td> 
+                        <td><%= v.getAtivo()%></td>                          
                         </td>
                         <td> <a href="ExcluirVendedor?id=<%=v.getCodigo()%>" title="Excluir">
                                 <img src="IMAGES/excluir.jpg"/> </a></td>

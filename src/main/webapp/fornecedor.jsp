@@ -52,8 +52,7 @@
                         <th>Telefone</th>
                         <th>Celular</th>
                         <th>Dta Cadastro</th>                        
-                        <th>Ativo</th>
-                        <th>Deletado</th>
+                        <th>Ativo</th>                        
                     </tr>
 
                     <% for (Fornecedor f : fornecedor) {
@@ -69,8 +68,7 @@
                         <td><%= f.getTelefone()%></td>
                         <td><%= f.getCelular()%></td>
                         <td><%= f.getCadastro()%></td>                                                
-                        <td><%= f.getAtivo()%></td>  
-                        <td><%= f.getDeletado()%></td>  
+                        <td><%= f.getAtivo()%></td>                            
                         </td>
                         <td> <a href="ExcluirFornecedor?id=<%=f.getCodigo()%>" title="Excluir">
                                 <img src="IMAGES/excluir.jpg"/> </a></td>

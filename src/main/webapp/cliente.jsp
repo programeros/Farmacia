@@ -26,7 +26,7 @@
         </nav>
         <aside>
             <div>               
-                <h1>Lista de Clientes</h1>                
+                <h1>Lista de Clientes</h1><br/>                 
                 <hr />
 
                 <%
@@ -55,8 +55,7 @@
                         <th>Celular</th>
                         <th>Dta Cadastro</th>
                         <th>Convenio</th>
-                        <th>Ativo</th>
-                        <th>Deletado</th>
+                        <th>Ativo</th>                        
                     </tr>
 
                     <% for (Cliente c : cliente) {
@@ -74,8 +73,7 @@
                         <td><%= c.getCelular()%></td>
                         <td><%= c.getCadastro()%></td>
                         <td><%= c.getConvenio()%></td>
-                        <td><%= c.getAtivo()%></td>
-                        <td><%= c.getDeletado()%></td>
+                        <td><%= c.getAtivo()%></td>                        
                         </td>
                         <td> <a href="ExcluirCliente?id=<%=c.getCodigo()%>" title="Excluir">
                                 <img src="IMAGES/excluir.jpg"/> </a></td>

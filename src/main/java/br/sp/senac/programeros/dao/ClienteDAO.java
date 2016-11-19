@@ -25,8 +25,8 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
     public void inserir(Cliente cliente) {
         String sql = "INSERT INTO clientes "
                 + "(nome, endereco, bairro, cidade,estado,cep,sexo,telefone,celular,"
-                + "cadastro,ativo) VALUES "
-                + "(?,?,?,?,?,?,?,?,?,?,?)";
+                + "cadastro, convenio_codigo, ativo) VALUES "
+                + "(?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement p;
         try {
             p = this.conexao.prepareStatement(sql);
@@ -39,8 +39,9 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             p.setString(7, String.valueOf(cliente.getSexo()));
             p.setString(8, cliente.getTelefone());
             p.setString(9, cliente.getCelular());
-            p.setDate(10, new java.sql.Date(System.currentTimeMillis()));            
-            p.setString(11, "S");
+            p.setDate(10, new java.sql.Date(System.currentTimeMillis()));
+            p.setInt(11, cliente.getConvenio());
+            p.setString(12, "S");
 
             p.execute();
 
@@ -56,8 +57,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
         try {
             String sql = "UPDATE clientes "
                     + " SET nome = ?, endereco = ?, bairro = ?, cidade = ?, "
-                    + " estado = ?, cep = ?, telefone = ?, celular = ?, ativo = ?"
-                   
+                    + " estado = ?, cep = ?, sexo = ?,telefone = ?, celular = ?, convenio_codigo = ?, ativo = ?"                   
                     + " WHERE codigo = ?";
 
             PreparedStatement p;
@@ -68,11 +68,12 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             p.setString(4, cliente.getCidade());
             p.setString(5, cliente.getEstado());
             p.setString(6, cliente.getCep());
-            //p.setString(7, String.valueOf(cliente.getSexo()));
-            p.setString(7, cliente.getTelefone());
-            p.setString(8, cliente.getCelular());
-            p.setString(9, cliente.getAtivo());            
-            p.setInt(10, cliente.getCodigo());
+            p.setString(7, String.valueOf(cliente.getSexo()));
+            p.setString(8, cliente.getTelefone());
+            p.setString(9, cliente.getCelular());
+            p.setInt(10, cliente.getConvenio()); 
+            p.setString(11, cliente.getAtivo());             
+            p.setInt(12, cliente.getCodigo());
 
             p.execute();
 

@@ -24,11 +24,12 @@ public class ConvenioDAO implements br.sp.senac.programeros.interfaces.ConvenioI
     }
 
     //Inserir
-    public void convenio(Convenio convenio) {
+    @Override
+    public void inserir(Convenio convenio) {
         //Comando do banco
         String sql = "insert into convenios "
-                + "(nome, telefone, responsavel, email, ativo, deletado) values"
-                + "(?,?,?,?,?,?)";
+                + "(nome, telefone, responsavel, email, ativo) values"
+                + "(?,?,?,?,?)";
         PreparedStatement p;
         try {
             //Setando os valores    
@@ -152,10 +153,10 @@ public class ConvenioDAO implements br.sp.senac.programeros.interfaces.ConvenioI
         return null;
     }
 
-    //Inserir
-    @Override
-    public void inserir(Convenio convenio) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    //Inserir
+//    @Override
+//    public void inserir(Convenio convenio) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
 }

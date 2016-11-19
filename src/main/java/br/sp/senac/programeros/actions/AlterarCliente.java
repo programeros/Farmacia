@@ -30,7 +30,7 @@ public class AlterarCliente extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id = request.getParameter("id");
-        request.setAttribute("id", id);
+        request.setAttribute("id", id);        
         
         request.getRequestDispatcher("clienteAlterar.jsp").forward(request, response);  
     }
@@ -48,7 +48,7 @@ public class AlterarCliente extends HttpServlet {
         String sexo = request.getParameter("sexo");
         String telefone = request.getParameter("telefone");
         String celular = request.getParameter("celular");
-        String convenio = request.getParameter("convenio");
+        int convenio = Integer.parseInt(request.getParameter("convenio"));
         String ativo =  request.getParameter("ativo");
         
         Cliente novoCliente = new Cliente();
@@ -59,10 +59,10 @@ public class AlterarCliente extends HttpServlet {
         novoCliente.setCidade(cidade);
         novoCliente.setEstado(estado);
         novoCliente.setCep(cep);
-        //novoCliente.setSexo(sexo.charAt(0));
+        novoCliente.setSexo(sexo.charAt(0));
         novoCliente.setTelefone(telefone);
         novoCliente.setCelular(celular);
-        //novoCliente.setConvenio(Integer.parseInt(convenio));
+        novoCliente.setConvenio(convenio);
         novoCliente.setAtivo(ativo);
 
         
