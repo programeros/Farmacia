@@ -30,7 +30,7 @@
                 </li>
                 <li><a href="#">Atualizações</a>
                     <ul>
-                        <li><a href="#">Vendas</a></li>
+                        <li><a href="vendas.jsp">Vendas</a></li>
                         <li><a href="#">Compras</a></li>
                         <li><a href="#">Recebimentos</a></li>                    
                         <li><a href="#">Pagamentos</a></li>
