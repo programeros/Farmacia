@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class carrinhoCompras {
     
-    private List<Compra> compra = new ArrayList(Compra);
+   // private List<Compra> compra = new ArrayList(Compra);
     private Double subtotal =0.00;
     private Double total = 0.00;
     
