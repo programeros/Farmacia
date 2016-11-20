@@ -26,7 +26,7 @@
         %>            
             
 		<div class="cabecalho">
-			<img src="images/logo_1.png" width="75" height="71" alt=""/>
+			<img src="../images/logo_1.png" width="75" height="71" alt=""/>
 			<div class="pesquisa">
 				<label for="select">Pesquisar:</label>
 				<select name="select" id="select">
@@ -34,7 +34,7 @@
 					<option value="cliente">Cliente</option>
 				</select>
 				<input type="text" name="textfield" id="textfield">
-				<label id="pesquisa"><img src="images/search.png" width="15" height="11" alt=""/></label>
+				<label id="pesquisa"><img src="../images/search.png" width="15" height="11" alt=""/></label>
 			</div>
 		</div>
 		<div class="menu">

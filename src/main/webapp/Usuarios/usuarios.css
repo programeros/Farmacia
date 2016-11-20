@@ -1,0 +1,77 @@
+html{
+    border: 1px solid;
+}
+
+.cabecalho {
+ width: 100%;
+ border-bottom: solid;
+}
+
+.pesquisa{
+	margin-top:50px;
+	float: right;
+}
+
+.menu {
+ display: absolute;
+ width: 10%;
+ height: 300px;
+ float: left;
+ border-right: 1px solid;
+}
+
+.menu p{
+	background: gray;
+	color: white;
+	text-align: center;
+	width: 85%;
+	border-radius: 15px;
+	border: solid;
+	cursor:pointer;
+}
+
+.menu p:hover {
+	box-shadow: inset 0 2px 5px #fff, 0 2px 3px #666;
+	background: blue;
+}
+
+.tela {
+ display: inline;
+ width: 40%;
+}
+
+.tela table{
+    border: 1px;
+}
+
+table{
+	width: 89.9%;
+}
+
+#col1{
+	width:20%;
+	background: hsl(207,74%,52%);
+	color: white;
+}
+
+#col2{
+	width:25%;
+	background: hsl(207,74%,52%);
+	color: white;
+}
+
+#col3{
+	width:30%;
+	background: hsl(207,74%,52%);
+	color: white;	
+}
+
+#col4{
+	width:15%;
+	background: hsl(207,74%,52%);
+	color: white;
+}
+
+tr:hover {
+    background-color:#FF0000; 
+}

@@ -29,11 +29,11 @@
         %>            
             
 		<div class="cabecalho">
-			<img src="images/logo_1.png" width="75" height="71" alt=""/>
+			<img src="../images/logo_1.png" width="75" height="71" alt=""/>
 			<div class="pesquisa">
 				<label for="select">Pesquisar:</label>				
 				<input type="text" name="textfield" id="textfield">
-				<label id="pesquisa"><img src="images/search.png" width="15" height="11" alt=""/></label>
+				<label id="pesquisa"><img src="../images/search.png" width="15" height="11" alt=""/></label>
 			</div>
 		</div>
 		<div class="menu">
@@ -41,6 +41,7 @@
 			<p id="visualizar">Visualizar</p>
 			<p id="alterar">Alterar</p>
 			<p id="excluir">Excluir</p>
+                        <p id="sair">Sair</p>
 		</div>
 
 		<div class="tela">
