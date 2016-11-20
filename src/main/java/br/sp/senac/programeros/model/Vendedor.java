@@ -1,30 +1,39 @@
 package br.sp.senac.programeros.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
+ *
  * @author willian.carvalho
  */
 
 public class Vendedor {
-    private int codigo;
+
+    private Integer codigo;
     private String nome;
     private String endereco;
     private String bairro;
-    private String estado;
     private String cidade;
+    private String estado;
     private String cep;
     private String telefone;
     private String celular;
     private Date cadastro;
-    private char ativo;
-    private char deletado;
+    private String ativo;
+    private String deletado;
 
-    public int getCodigo() {
+    public Vendedor() {
+    }
+
+    public Vendedor(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -52,20 +61,20 @@ public class Vendedor {
         this.bairro = bairro;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
     public String getCidade() {
         return cidade;
     }
 
     public void setCidade(String cidade) {
         this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public String getCep() {
@@ -100,21 +109,19 @@ public class Vendedor {
         this.cadastro = cadastro;
     }
 
-    public char getAtivo() {
+    public String getAtivo() {
         return ativo;
     }
 
-    public void setAtivo(char ativo) {
+    public void setAtivo(String ativo) {
         this.ativo = ativo;
     }
 
-    public char getDeletado() {
+    public String getDeletado() {
         return deletado;
     }
 
-    public void setDeletado(char deletado) {
+    public void setDeletado(String deletado) {
         this.deletado = deletado;
     }
-
-
 }

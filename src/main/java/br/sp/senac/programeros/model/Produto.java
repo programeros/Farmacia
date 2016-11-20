@@ -1,17 +1,36 @@
 package br.sp.senac.programeros.model;
 
 /**
+ *
  * @author willian.carvalho
  */
 
-public class Produto {
+public class Produto{
+
+    private Integer codbar;
     private String codigo;
     private String descricao;
-    private float preco;
+    private Float preco;
     private String marca;
+    private String ativo;
+    private String deletado;
     private int categoria;
     private int fornecedor;
-    private int unidade;
+
+    public Produto() {
+    }
+
+    public Produto(Integer codbar) {
+        this.codbar = codbar;
+    }
+
+    public Integer getCodbar() {
+        return codbar;
+    }
+
+    public void setCodbar(Integer codbar) {
+        this.codbar = codbar;
+    }
 
     public String getCodigo() {
         return codigo;
@@ -29,11 +48,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public float getPreco() {
+    public Float getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(Float preco) {
         this.preco = preco;
     }
 
@@ -43,6 +62,22 @@ public class Produto {
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    public String getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(String ativo) {
+        this.ativo = ativo;
+    }
+
+    public String getDeletado() {
+        return deletado;
+    }
+
+    public void setDeletado(String deletado) {
+        this.deletado = deletado;
     }
 
     public int getCategoria() {
@@ -59,13 +94,5 @@ public class Produto {
 
     public void setFornecedor(int fornecedor) {
         this.fornecedor = fornecedor;
-    }
-
-    public int getUnidade() {
-        return unidade;
-    }
-
-    public void setUnidade(int unidade) {
-        this.unidade = unidade;
     }
 }

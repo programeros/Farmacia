@@ -5,28 +5,18 @@ package br.sp.senac.programeros.model;
  * @author willian.carvalho
  */
 
-public class Categoria{
+public class Condicaopagamento{
 
     private Integer codigo;
     private String descricao;
+    private String condicao;
     private String ativo;
     private String deletado;
 
-    public Categoria() {
-    }
-    
-    public Categoria(String descricao,String ativo) {
-        this.descricao = descricao;
-        this.ativo = ativo;
+    public Condicaopagamento() {
     }
 
-    public Categoria(int codigo,String descricao,String ativo) {
-        this.codigo = codigo;
-        this.descricao = descricao;
-        this.ativo = ativo;
-    }        
-
-    public Categoria(Integer codigo) {
+    public Condicaopagamento(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -46,6 +36,14 @@ public class Categoria{
         this.descricao = descricao;
     }
 
+    public String getCondicao() {
+        return condicao;
+    }
+
+    public void setCondicao(String condicao) {
+        this.condicao = condicao;
+    }
+
     public String getAtivo() {
         return ativo;
     }
@@ -60,5 +58,5 @@ public class Categoria{
 
     public void setDeletado(String deletado) {
         this.deletado = deletado;
-    }
+    } 
 }

@@ -1,30 +1,38 @@
-
 package br.sp.senac.programeros.model;
 
-import java.sql.Date;
-
 /**
+ *
  * @author willian.carvalho
  */
-public class Fornecedor {
-    private int codigo;
+
+public class Filiais {
+
+    private Integer codigo;
     private String nome;
     private String endereco;
     private String bairro;
-    private String estado;
     private String cidade;
+    private String estado;
     private String cep;
     private String telefone;
-    private String celular;
-    private Date cadastro;
-    private char ativo;
-    private char deletado;
+    private String fax;
+    private String responsavel;
+    private String email;
+    private String ativo;
+    private String deletado;
 
-    public int getCodigo() {
+    public Filiais() {
+    }
+
+    public Filiais(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -60,6 +68,14 @@ public class Fornecedor {
         this.cidade = cidade;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     public String getCep() {
         return cep;
     }
@@ -76,43 +92,43 @@ public class Fornecedor {
         this.telefone = telefone;
     }
 
-    public String getCelular() {
-        return celular;
+    public String getFax() {
+        return fax;
     }
 
-    public void setCelular(String celular) {
-        this.celular = celular;
+    public void setFax(String fax) {
+        this.fax = fax;
     }
 
-    public char getAtivo() {
+    public String getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAtivo() {
         return ativo;
     }
 
-    public void setAtivo(char ativo) {
+    public void setAtivo(String ativo) {
         this.ativo = ativo;
     }
 
-    public char getDeletado() {
+    public String getDeletado() {
         return deletado;
     }
 
-    public void setDeletado(char deletado) {
+    public void setDeletado(String deletado) {
         this.deletado = deletado;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public Date getCadastro() {
-        return cadastro;
-    }
-
-    public void setCadastro(Date cadastro) {
-        this.cadastro = cadastro;
     }
 }

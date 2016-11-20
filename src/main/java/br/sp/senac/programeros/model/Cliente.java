@@ -1,32 +1,73 @@
-
 package br.sp.senac.programeros.model;
 
 import java.sql.Date;
 
 /**
+ *
  * @author willian.carvalho
  */
-public class Cliente {
-    private int codigo;
+
+public class Cliente{
+
+    private Integer codigo;
     private String nome;
     private String endereco;
     private String bairro;
-    private String estado;
     private String cidade;
+    private String estado;
     private String cep;
-    private char sexo;
+    private String sexo;
     private String telefone;
     private String celular;
     private Date cadastro;
-    private int convenio;
-    private char ativo;
-    private char deletado;
+    private String ativo;
+    private String deletado;
 
-    public int getCodigo() {
+    public Cliente() {
+    }
+    
+    public Cliente(String nome, String endereco,String bairro,String cidade,
+            String estado,String cep,String sexo,String telefone,String celular,
+            Date Cadastro,String ativo) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.cep = cep;
+        this.sexo = sexo;
+        this.telefone = telefone;
+        this.celular = celular;
+        this.cadastro = cadastro;
+        this.ativo = ativo;
+    }
+
+     public Cliente(int codigo, String nome,String endereco,String bairro,
+            String cidade,String estado,String cep,String sexo, String telefone,
+            String celular,Date Cadastro,String ativo){
+        this.codigo = codigo;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.cep = cep;
+        this.sexo = sexo;
+        this.telefone = telefone;
+        this.celular = celular;
+        this.cadastro = cadastro;
+        this.ativo = ativo;
+    }        
+
+    public Cliente(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -54,20 +95,20 @@ public class Cliente {
         this.bairro = bairro;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
     public String getCidade() {
         return cidade;
     }
 
     public void setCidade(String cidade) {
         this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public String getCep() {
@@ -78,11 +119,11 @@ public class Cliente {
         this.cep = cep;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
@@ -110,28 +151,19 @@ public class Cliente {
         this.cadastro = cadastro;
     }
 
-    public int getConvenio() {
-        return convenio;
-    }
-
-    public void setConvenio(int convenio) {
-        this.convenio = convenio;
-    }
-
-    public char getAtivo() {
+    public String getAtivo() {
         return ativo;
     }
 
-    public void setAtivo(char ativo) {
+    public void setAtivo(String ativo) {
         this.ativo = ativo;
     }
 
-    public char getDeletado() {
+    public String getDeletado() {
         return deletado;
     }
 
-    public void setDeletado(char deletado) {
+    public void setDeletado(String deletado) {
         this.deletado = deletado;
     }
-
 }

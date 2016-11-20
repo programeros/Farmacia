@@ -1,18 +1,19 @@
 package br.sp.senac.programeros.model;
 
-import java.sql.Date;
-
-
 /**
+ *
  * @author willian.carvalho
  */
-public class Compra {
+
+public class Compra{
+    
     private int codigo;
-    private Date data;
     private int fornecedor;
-    private String produto;
-    private int almoxarifado;
-    private float quantidade;
+    private int condicao;
+    private int usuario;    
+
+    public Compra() {
+    }
 
     public int getCodigo() {
         return codigo;
@@ -20,14 +21,6 @@ public class Compra {
 
     public void setCodigo(int codigo) {
         this.codigo = codigo;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
     }
 
     public int getFornecedor() {
@@ -38,28 +31,20 @@ public class Compra {
         this.fornecedor = fornecedor;
     }
 
-    public String getProduto() {
-        return produto;
+    public int getCondicao() {
+        return condicao;
     }
 
-    public void setProduto(String produto) {
-        this.produto = produto;
+    public void setCondicao(int condicao) {
+        this.condicao = condicao;
     }
 
-    public int getAlmoxarifado() {
-        return almoxarifado;
+    public int getUsuario() {
+        return usuario;
     }
 
-    public void setAlmoxarifado(int almoxarifado) {
-        this.almoxarifado = almoxarifado;
+    public void setUsuario(int usuario) {
+        this.usuario = usuario;
     }
 
-    public float getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(float quantidade) {
-        this.quantidade = quantidade;
-    }
-    
 }

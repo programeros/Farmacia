@@ -1,11 +1,15 @@
 package br.sp.senac.programeros.model;
 
+import java.util.Date;
+
 /**
+ *
  * @author willian.carvalho
  */
 
-public class Filial {
-    private int codigo;
+public class Fornecedores{
+
+    private Integer codigo;
     private String nome;
     private String endereco;
     private String bairro;
@@ -13,15 +17,23 @@ public class Filial {
     private String estado;
     private String cep;
     private String telefone;
-    private String email;
-    private char ativo;
-    private char deletado;
+    private String celular;
+    private Date cadastro;
+    private String ativo;
+    private String deletado;
 
-    public int getCodigo() {
+    public Fornecedores() {
+    }
+
+    public Fornecedores(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -81,27 +93,35 @@ public class Filial {
         this.telefone = telefone;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
-    public char getAtivo() {
+    public Date getCadastro() {
+        return cadastro;
+    }
+
+    public void setCadastro(Date cadastro) {
+        this.cadastro = cadastro;
+    }
+
+    public String getAtivo() {
         return ativo;
     }
 
-    public void setAtivo(char ativo) {
+    public void setAtivo(String ativo) {
         this.ativo = ativo;
     }
 
-    public char getDeletado() {
+    public String getDeletado() {
         return deletado;
     }
 
-    public void setDeletado(char deletado) {
+    public void setDeletado(String deletado) {
         this.deletado = deletado;
     }
 }

@@ -1,19 +1,42 @@
 package br.sp.senac.programeros.model;
 
 /**
+ *
  * @author willian.carvalho
  */
 
-public class Almoxarifado {
-    private int codigo;
-    private String descricao;
-    private int unidade;
+public class Almoxarifado{
 
-    public int getCodigo() {
+    private Integer codigo;
+    private String descricao;
+    private String ativo;
+    private String deletado;
+
+    public Almoxarifado() {
+    }
+
+
+    public Almoxarifado(String descricao,String ativo) {
+        this.descricao = descricao;
+        this.ativo = ativo;
+    }
+
+    public Almoxarifado(int codigo,String descricao,String ativo) {
+        this.codigo = codigo;
+        this.descricao = descricao;
+        this.ativo = ativo;
+    }    
+    
+    
+    public Almoxarifado(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -25,11 +48,19 @@ public class Almoxarifado {
         this.descricao = descricao;
     }
 
-    public int getUnidade() {
-        return unidade;
+    public String getAtivo() {
+        return ativo;
     }
 
-    public void setUnidade(int unidade) {
-        this.unidade = unidade;
+    public void setAtivo(String ativo) {
+        this.ativo = ativo;
     }
+
+    public String getDeletado() {
+        return deletado;
+    }
+
+    public void setDeletado(String deletado) {
+        this.deletado = deletado;
+    }   
 }
