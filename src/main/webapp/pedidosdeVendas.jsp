@@ -3,6 +3,10 @@
     Created on : 19/11/2016, 17:17:06
     Author     : willian.carvalho
 --%>
+<%@page import="com.mysql.jdbc.Connection"%>
+<%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,6 +15,14 @@
 	<link type="text/css" href="css/pedidosdeVenda.css" rel="stylesheet" />
 	<script src="js/pedidosdeVenda.js" type="text/javascript"></script>
 	<body>
+        <%
+            ConexaoBD conn = new ConexaoBD();
+            Connection conexao = conn.obterConexao();
+            UsuarioDAO dao = new UsuarioDAO(conexao);
+            List<Usuario> usuario = dao.listarUsuarios();
+            conn.fecharConexao();
+        %>            
+            
 		<div class="cabecalho">
 			<img src="images/logo_1.png" width="75" height="71" alt=""/>
 			<div class="pesquisa">
