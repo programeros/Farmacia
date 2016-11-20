@@ -7,10 +7,10 @@ package br.sp.senac.programeros.model;
 
 public class Produto{
 
-    private Integer codbar;
+    private int codbar;
     private String codigo;
     private String descricao;
-    private Float preco;
+    private float preco;
     private String marca;
     private String ativo;
     private String deletado;
@@ -19,12 +19,40 @@ public class Produto{
 
     public Produto() {
     }
+    
+    public Produto(int codbar, String codigo, String descricao, float preco, 
+            String marca, String ativo, int categoria, int fornecedor){
+        this.codbar = codbar;
+        this.codigo = codigo;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.marca = marca;        
+        this.ativo = ativo;
+        this.categoria = categoria;
+        this.fornecedor = fornecedor;
+    } 
+    
+        public Produto(int codbar, String codigo, String descricao, float preco, 
+            String marca, String ativo, String deletado, int categoria, 
+            int fornecedor){
+            
+        this.codbar = codbar;
+        this.codigo = codigo;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.marca = marca;        
+        this.ativo = ativo;
+        this.deletado = deletado;
+        this.categoria = categoria;
+        this.fornecedor = fornecedor;
+    } 
 
-    public Produto(Integer codbar) {
+
+    public Produto(int codbar) {
         this.codbar = codbar;
     }
 
-    public Integer getCodbar() {
+    public int getCodbar() {
         return codbar;
     }
 
@@ -48,11 +76,11 @@ public class Produto{
         this.descricao = descricao;
     }
 
-    public Float getPreco() {
+    public float getPreco() {
         return preco;
     }
 
-    public void setPreco(Float preco) {
+    public void setPreco(float preco) {
         this.preco = preco;
     }
 

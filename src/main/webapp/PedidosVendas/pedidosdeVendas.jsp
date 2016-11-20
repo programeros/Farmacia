@@ -3,6 +3,8 @@
     Created on : 19/11/2016, 17:17:06
     Author     : willian.carvalho
 --%>
+<%@page import="br.sp.senac.programeros.model.Venda"%>
+<%@page import="br.sp.senac.programeros.dao.VendaDAO"%>
 <%@page import="com.mysql.jdbc.Connection"%>
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -12,14 +14,14 @@
 	<head>
 		<title>SGF</title>
 	</head>
-	<link type="text/css" href="css/pedidosdeVenda.css" rel="stylesheet" />
-	<script src="js/pedidosdeVenda.js" type="text/javascript"></script>
+	<link type="text/css" href="pedidosdeVenda.css" rel="stylesheet" />
+	<script src="pedidosdeVenda.js" type="text/javascript"></script>
 	<body>
         <%
             ConexaoBD conn = new ConexaoBD();
             Connection conexao = conn.obterConexao();
-            UsuarioDAO dao = new UsuarioDAO(conexao);
-            List<Usuario> usuario = dao.listarUsuarios();
+            VendaDAO dao = new VendaDAO(conexao);
+            List<Venda> venda = dao.listarPedidos();
             conn.fecharConexao();
         %>            
             

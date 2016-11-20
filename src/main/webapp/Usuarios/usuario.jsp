@@ -17,12 +17,11 @@
     <head>    
         <title>Usuários do SGF</title>    
     </head>
-    <link href="css/usuario.css" type="text/css" rel="stylesheet" />
+    <link href="usuario.css" type="text/css" rel="stylesheet" />
     <body>
-        <c:import url="cabecalho.jsp"/>
         <h1>Lista de Usuários</h1> <br/>
         <button onclick= "window.location.href = 'usuarioAdicionar.jsp'">Adicionar</button>
-        <button onclick= "window.location.href = 'menu.jsp'">Sair</button><br/>
+        <button onclick= "window.location.href = '../menu.jsp'">Sair</button><br/>
         <hr /><br/>
         
         <%
@@ -56,16 +55,16 @@
                 </td>
                 <td> 
                     <a href="ExcluirUsuario?id=<%=c.getCodigo()%>" title="Excluir">
-                    <img src="images/trash.png" height="20" width="20"/> </a>
+                    <img src="../images/trash.png" height="20" width="20"/> </a>
                     <a href="AlterarUsuario?id=<%=c.getCodigo()%>" title="Alterar">
-                    <img src="images/edit.png" height="20" width="20"/> </a>
+                    <img src="../images/edit.png" height="20" width="20"/> </a>
                     <a href="AlterarSenhaUsuario?id=<%=c.getCodigo()%>" title="Alterar Senha">
-                    <img src="images/edit-1.png" height="20" width="20"/> </a>
+                    <img src="../images/edit-1.png" height="20" width="20"/> </a>
                 </td>                                                
             </tr>              
             <%} %>
 
         </table> 
-            <c:import url="rodape.jsp"/>
+            <c:import url="../rodape.jsp"/>
     </body>
 </html>
