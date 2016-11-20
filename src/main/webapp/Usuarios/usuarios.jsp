@@ -14,7 +14,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-            <title>SGF</title>
+            <title>SGF</title>        
+            
 	</head>
 	<link type="text/css" href="usuarios.css" rel="stylesheet" />
 	<script src="usuarios.js" type="text/javascript"></script>
@@ -45,7 +46,7 @@
 		</div>
 
 		<div class="tela">
-                    <table id="tblContatos">         
+                    <table id="usuarios">         
                             <tr>
                                     <th id="col1">Codigo</th>
                                     <th id="col2">Login</th>

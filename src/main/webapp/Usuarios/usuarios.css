@@ -72,6 +72,6 @@ table{
 	color: white;
 }
 
-tr:hover {
-    background-color:#FF0000; 
+tr:hover{
+    background: blue;
 }
