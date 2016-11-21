@@ -28,7 +28,7 @@ public class AlterarSenhaUsuario extends HttpServlet {
         String id = request.getParameter("id");
         request.setAttribute("id", id);
         
-        request.getRequestDispatcher("usuarioSenhaAlterar.jsp").forward(request, response);  
+        request.getRequestDispatcher("Usuarios/usuarioSenhaAlterar.jsp").forward(request, response);  
     }
 
     @Override
@@ -52,7 +52,7 @@ public class AlterarSenhaUsuario extends HttpServlet {
         
         conn.fecharConexao();
         
-        response.sendRedirect("usuario.jsp");
+        response.sendRedirect("/Farmacia/Usuarios/usuarios.jsp");
     }
 
     @Override

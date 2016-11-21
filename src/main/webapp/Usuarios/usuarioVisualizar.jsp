@@ -18,29 +18,22 @@
     <body>
         <%            
             ConexaoBD conn = new ConexaoBD();
-            Connection conexao = conn.obterConexao();
-            
-            UsuarioDAO dao = new UsuarioDAO(conexao);
-            
-            Usuario usuario = dao.selecionar(Integer.parseInt(request.getParameter("id")));
-            
-            conn.fecharConexao();
-            
+            Connection conexao = conn.obterConexao();            
+            UsuarioDAO dao = new UsuarioDAO(conexao);            
+            Usuario usuario = dao.selecionar(Integer.parseInt(request.getParameter("id")));            
+            conn.fecharConexao();            
             String senha = Senhas.Descriptografar(usuario.getSenha());       
-
         %>        
         
-        <h1>Alteração de Usuario</h1>
+        <h1>Visualização de Usuario</h1>
         <hr />
-        <form action ="AlterarUsuario" method="post">
+        <form action =" " method="post">
             Código: <input type="text" name="val" value="<%=usuario.getCodigo()%>" size="6" disabled="disabled" /><br/>
-            <input type="hidden" name="id" value="<%=usuario.getCodigo()%>" size="6" />
-            Login: <input type="text" name="cred" value="<%=usuario.getLogin()%>" size="25" disabled="disabled" /><br />
-            <input type="hidden" name="login" value="<%=usuario.getLogin()%>" size="25" disabled="disabled" />
-            Nome: <input type="text" name="nome" value="<%=usuario.getNome()%>" size="50" /><br />
+            Login: <input type="text" name="cred" value="<%=usuario.getLogin()%>" size="25" disabled="disabled" /><br />            
+            Nome: <input type="text" name="nome" value="<%=usuario.getNome()%>" size="50" disabled="disabled"/><br />
             Senha: <input type="password" name="senha" value="<%=senha%>" size="10" disabled="disabled"/><br/>
             
-            Ativo: <select name="ativo" id="selectAtivo">
+            Ativo: <select name="ativo" id="selectAtivo" disabled="disabled">
                 <option value = "1">Sim</option>
                 <option value = "2">Não</option>
                     <script type="text/javascript">
@@ -55,8 +48,6 @@
                             }   
                     </script>                 
             </select><br/><br/>
-            <input type="submit" value="Confirmar" />
-            <input type="reset" value="Limpar" />
             <input type="button" value="Voltar" onClick="history.go(-1)"> 
         </form>
     </body>

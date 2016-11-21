@@ -18,7 +18,7 @@
             
 	</head>
 	<link type="text/css" href="usuarios.css" rel="stylesheet" />
-	<script src="usuarios.js" type="text/javascript"></script>
+	<script src="usuarios.js" type="text/javascript"></script>     
 	<body>
             
         <%
@@ -27,6 +27,7 @@
             UsuarioDAO dao = new UsuarioDAO(conexao);
             List<Usuario> usuario = dao.listarUsuarios();
             conn.fecharConexao();
+            int cont=0;
         %>        
             
 		<div class="cabecalho">
@@ -42,20 +43,23 @@
 			<p id="visualizar">Visualizar</p>
 			<p id="alterar">Alterar</p>
 			<p id="excluir">Excluir</p>
+                        <p id="senha">Senha</p>
                         <p id="sair">Sair</p>
 		</div>
 
 		<div class="tela">
                     <table id="usuarios">         
-                            <tr>
-                                    <th id="col1">Codigo</th>
-                                    <th id="col2">Login</th>
-                                    <th id="col3">Nome</th>
-                                    <th id="col4">Senha</th>             
-                            </tr>
-                        <% for(Usuario c:usuario){
+                        <thread>
+                            <th id="col1">Codigo</th>
+                            <th id="col2">Login</th>
+                            <th id="col3">Nome</th>
+                            <th id="col4">Senha</th>             
+                        </thread>
+                        <%                            
+                            for(Usuario c:usuario){
+                                cont++;
                         %>
-                        <tr>
+                        <tr onclick="selecionar(this)">
                             <td><%= c.getCodigo()%></td>
                             <td><%= c.getLogin()%></td>
                             <td><%= c.getNome() %></td>

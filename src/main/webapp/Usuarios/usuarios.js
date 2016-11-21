@@ -1,4 +1,6 @@
-var btnIncluir,btnVisualizar,btnAlterar,btnExcluir, btnSair, linha;
+var btnIncluir,btnVisualizar,btnAlterar,btnExcluir, btnSair,linha,tabela;
+var btnSenha,selected=0,id=0,coluna, celula;
+var cod=0;
 
 function iniciar(){
 	
@@ -6,40 +8,68 @@ function iniciar(){
 	btnVisualizar = document.querySelector("#visualizar");
 	btnAlterar = document.querySelector("#alterar");
 	btnExcluir = document.querySelector("#excluir");
+        btnSenha = document.querySelector("#senha");
         btnSair = document.querySelector("#sair");
-        linha = document.querySelector("tr");
-	
-	btnIncluir.addEventListener("click",adicionar);
+        	
+	btnIncluir.addEventListener("click",incluir);
 	btnVisualizar.addEventListener("click",visualizar);
 	btnAlterar.addEventListener("click",alterar);
 	btnExcluir.addEventListener("click",excluir);
+        btnSenha.addEventListener("click",senha);
         btnSair.addEventListener("click",sair);
-        linha.addEventListener("click",teste);
-	
+       
 }
 
-function adicionar(){
-	alert("Clicou no Incluir");
+function incluir(){
+    window.location.assign("usuarioAdicionar.jsp");
 }
 
 function alterar(){
-	alert("Clicou no alterar");
+    linha = document.getElementsByTagName('tr')[selected];
+    coluna = linha.getElementsByTagName("td");
+    celula = coluna[0].innerText;
+
+    document.location.href = "/Farmacia/AlterarUsuario?id="+celula;
 }
 
 function visualizar(){
-	alert("Clicou no visualizar");
+    linha = document.getElementsByTagName('tr')[selected];
+    coluna = linha.getElementsByTagName("td");
+    celula = coluna[0].innerText;
+  
+     document.location.href = "/Farmacia/VisualizarUsuario?id="+celula;
 }
 
-function excluir(){
-	alert("Clicou no excluir");
+function senha(){
+    linha = document.getElementsByTagName('tr')[selected];
+    coluna = linha.getElementsByTagName("td");
+    celula = coluna[0].innerText;
+  
+     document.location.href = "/Farmacia/AlterarSenhaUsuario?id="+celula;
+}
+
+function excluir(){  
+    linha = document.getElementsByTagName('tr')[selected];
+    coluna = linha.getElementsByTagName("td");
+    celula = coluna[0].innerText;
+
+     document.location.href = "/Farmacia/ExcluirUsuario?id="+celula;
 }
 
 function sair(){
     window.location.assign("../menu.jsp");
 }
 
-function teste(){
-	alert("Clicou na linha");
+function selecionar(x){
+    id = x.rowIndex;
+    if (id !== selected){
+        linha = document.getElementsByTagName('tr')[selected];
+        linha.removeAttribute("class","cor");           
+    }
+    
+    linha = document.getElementsByTagName('tr')[x.rowIndex];
+    linha.setAttribute("class","cor");
+    selected = x.rowIndex;        
 }
 
 window.addEventListener("load",iniciar);

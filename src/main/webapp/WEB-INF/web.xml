@@ -28,6 +28,10 @@
         <servlet-name>novoPedido</servlet-name>
         <servlet-class>br.sp.senac.programeros.actions.novoPedido</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VisualizarUsuario</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.VisualizarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerificarUsuario</servlet-name>
         <url-pattern>/VerificarUsuario</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>novoPedido</servlet-name>
         <url-pattern>/compra.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VisualizarUsuario</servlet-name>
+        <url-pattern>/VisualizarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

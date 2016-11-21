@@ -12,7 +12,7 @@
     <body>
         <h1>Adicionar Usuario</h1>
         <hr />
-        <form action ="AdicionarUsuario" method="get">
+        <form action ="../AdicionarUsuario" method="get">
             Login: <input type="text" name="login" /><br />
             Nome: <input type="text" name="nome" /><br />
             Senha: <input type="text" name="senha" /><br/>

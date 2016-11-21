@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author willian.carvalho
  */
 
-public class AlterarUsuario extends HttpServlet {
+public class VisualizarUsuario extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -27,32 +27,12 @@ public class AlterarUsuario extends HttpServlet {
         String id = request.getParameter("id");
         request.setAttribute("id", id);
         
-        request.getRequestDispatcher("Usuarios/usuarioAlterar.jsp").forward(request, response);  
+        request.getRequestDispatcher("Usuarios/usuarioVisualizar.jsp").forward(request, response);  
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        String nome = request.getParameter("nome");
-        String login = request.getParameter("login");
-        String ativo =  request.getParameter("ativo");
-       
-        Usuario usuario = new Usuario();
-        usuario.setCodigo(id);
-        usuario.setLogin(login);
-        usuario.setNome(nome);
-        usuario.setAtivo(ativo);
-        
-        ConexaoBD conn = new ConexaoBD();
-        Connection conexao = conn.obterConexao();
-
-        UsuarioDAO dao = new UsuarioDAO(conexao);
-        dao.alterar(usuario);
-        
-        conn.fecharConexao();
-        
-        response.sendRedirect("/Farmacia/Usuarios/usuarios.jsp");
     }
 
     @Override

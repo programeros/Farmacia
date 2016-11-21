@@ -40,7 +40,7 @@ public class AdicionarUsuario extends HttpServlet {
         
         conn.fecharConexao();
         
-        response.sendRedirect("usuario.jsp");       
+        response.sendRedirect("/Farmacia/Usuarios/usuarios.jsp");       
     }
 
     @Override
