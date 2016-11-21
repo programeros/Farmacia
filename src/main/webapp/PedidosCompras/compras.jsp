@@ -13,13 +13,14 @@
 <%@page import="br.sp.senac.programeros.model.Compra" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
+
+<c:import url="../Formularios/head.jsp"></c:import>
+
+    <!--<head>
         <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="cadastro.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Compras</title>
+        <title>Compras</title> -->
 
         <!--Javascript soma dos valores dos campos-->
 
@@ -32,9 +33,9 @@
             }
         </script>
 
-    </head>
+    
     <body>
-        <c:import url="cabecalho.jsp"/>
+        <c:import url="../Formularios/header.jsp"/>
         <div class="container-fluid">
             <nav class="navbar">
                 <!--<ul class="menu">-->
@@ -92,8 +93,4 @@
 
                 </tbody>
             </table>
-
-            <c:import url="rodape.jsp" />
-        </div>
-    </body>
-</html>
+<c:import url="../Formularios/footer.jsp" />
