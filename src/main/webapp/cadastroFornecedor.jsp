@@ -25,9 +25,9 @@
         </nav>
         <aside>
             <div>
-                <fieldset>
+                
                     <legend><h2>Dados Pessoais do Fornecedor</h2></legend>
-                <form class="formulario" action ="AdicionarCliente" method="post">
+                <form class="formulario" action ="AdicionarFornecedor" method="get">
                     Nome: <input type="text" size="40" name="nome" />
                     Endereço: <input type="text" size="30" name="endereco" /><br/>
                     Bairro: <input type="text" name="bairro" />
@@ -35,10 +35,7 @@
                     Estado: <input type="text" name="estado" /><br/>
                     CEP: <input type="text" name="cep" />                    
                     Tel.: <input type="text" name="telefone" />
-                    Cel.: <input type="text" name="celular" /><br/>                    
-                    Data de Cadastro: <input type="date" name="data" />                   
-                    Ativo: <input type="checkbox" name="ativo" /><br /><br/>
-                </fieldset>
+                    Cel.: <input type="text" name="celular" /><br/>                                                        
                     <br/><input type="submit" value="Gravar" />
                     <input type="reset" value="Limpar" />                    
                     <input type="button" value="Voltar" onClick="history.go(-1)"> 

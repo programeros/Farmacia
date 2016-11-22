@@ -22,7 +22,7 @@
     </servlet>
     <servlet>
         <servlet-name>IncluirCliente</servlet-name>
-        <servlet-class>br.sp.senac.programeros.actions.IncluirCliente</servlet-class>
+        <servlet-class>br.sp.senac.programeros.actions.AdicionarCliente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>novoPedido</servlet-name>
@@ -31,6 +31,54 @@
     <servlet>
         <servlet-name>VisualizarUsuario</servlet-name>
         <servlet-class>br.sp.senac.programeros.actions.VisualizarUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdicionarCliente</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AdicionarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarCliente</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AlterarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirCliente</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.ExcluirCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdicionarFornecedor</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AdicionarFornecedor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarFornecedor</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AlterarFornecedor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirFornecedor</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.ExcluirFornecedor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdicionarVendedor</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AdicionarVendedor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarVendedor</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AlterarVendedor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirVendedor</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.ExcluirVendedor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdicionarProduto</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AdicionarProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarProduto</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AlterarProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirProduto</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.ExcluirProduto</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>VerificarUsuario</servlet-name>
@@ -51,11 +99,7 @@
     <servlet-mapping>
         <servlet-name>AlterarSenhaUsuario</servlet-name>
         <url-pattern>/AlterarSenhaUsuario</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>cadastrarCliente</servlet-name>
-        <url-pattern>/cadastrarCliente</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>    
     <servlet-mapping>
         <servlet-name>novoPedido</servlet-name>
         <url-pattern>/compra.do</url-pattern>
@@ -63,6 +107,54 @@
     <servlet-mapping>
         <servlet-name>VisualizarUsuario</servlet-name>
         <url-pattern>/VisualizarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdicionarCliente</servlet-name>
+        <url-pattern>/AdicionarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarCliente</servlet-name>
+        <url-pattern>/AlterarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirCliente</servlet-name>
+        <url-pattern>/ExcluirCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdicionarFornecedor</servlet-name>
+        <url-pattern>/AdicionarFornecedor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarFornecedor</servlet-name>
+        <url-pattern>/AlterarFornecedor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirFornecedor</servlet-name>
+        <url-pattern>/ExcluirFornecedor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdicionarVendedor</servlet-name>
+        <url-pattern>/AdicionarVendedor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarVendedor</servlet-name>
+        <url-pattern>/AlterarVendedor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirVendedor</servlet-name>
+        <url-pattern>/ExcluirVendedor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdicionarProduto</servlet-name>
+        <url-pattern>/AdicionarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarProduto</servlet-name>
+        <url-pattern>/AlterarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirProduto</servlet-name>
+        <url-pattern>/ExcluirProduto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

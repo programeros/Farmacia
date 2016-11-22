@@ -13,6 +13,9 @@ public class Transferencia{
     private Date data;
     private Float quantidade;
     private int produto;
+    private int origem;
+    private int destino;
+    private int usuario;        
 
     public Transferencia() {
     }
@@ -51,5 +54,29 @@ public class Transferencia{
 
     public void setProduto(int produto) {
         this.produto = produto;
+    }
+    
+    public void setOrigem(int origem) {
+        this.origem = origem;
+    }
+
+    public void setDestino(int destino) {
+        this.destino = destino;
+    }
+
+    public void setUsuario(int usuario) {
+        this.usuario = usuario;
+    }
+
+    public int getOrigem() {
+        return origem;
+    }
+
+    public int getDestino() {
+        return destino;
+    }
+
+    public int getUsuario() {
+        return usuario;
     }
 }

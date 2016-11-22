@@ -12,7 +12,7 @@
     <body>
         <h1>Adicionar Usuario</h1>
         <hr />
-        <form action ="../IncluirCliente" method="post">
+        <form action ="../AdicionarCliente" method="post">
             Nome: <input type="text" name="nome" /><br />
             Endereco: <input type="text" name="endereco" /><br />
             Bairro: <input type="text" name="bairro" /><br/>

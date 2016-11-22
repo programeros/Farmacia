@@ -1,5 +1,7 @@
 package br.sp.senac.programeros.model;
 
+import java.sql.Date;
+
 /**
  *
  * @author willian.carvalho
@@ -8,9 +10,12 @@ package br.sp.senac.programeros.model;
 public class Compra{
     
     private int codigo;
+    private int numero;
     private int fornecedor;
     private int condicao;
-    private int usuario;    
+    private int usuario;
+    private Date data;
+    private float valor;
 
     public Compra() {
     }
@@ -47,4 +52,29 @@ public class Compra{
         this.usuario = usuario;
     }
 
+    public int getNumero() {
+        return numero;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public float getValor() {
+        return valor;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public void setValor(float valor) {
+        this.valor = valor;
+    }
+
+    
 }

@@ -17,7 +17,7 @@
             <ul class="menu">
                 <li><a href="#">Pesquisar</a>
                     <ul>
-                        <li><a href="cliente.jsp">Clientes Cadastrados</a></li>                        
+                        <li><a href="Clientes/cliente.jsp">Clientes Cadastrados</a></li>                        
                     </ul>
                 </li>              
                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
