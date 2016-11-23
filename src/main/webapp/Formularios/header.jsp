@@ -4,10 +4,16 @@
     Author     : smarangoni
 --%>
 <html lang="pt-br">
-    <div class="container">
+    <body>
+        <div class="container">
         <div class="row">
-                <div class="page-header">
-                    <img src="../images/logo.png" id="logo" height="100" width="100">
-            </div>
+            <header class="page-header"> 
+                <img class="logo" src="../images/logo.png" id="logo" height="100" width="100">   
+                <h1>Sistema de Gestão de Farmácias - SGF</h1>
+            </header>
         </div>
-    
+        
+        
+            
+            
+        

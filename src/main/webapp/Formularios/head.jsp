@@ -9,8 +9,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
     <head>
+        <!--Bootstrap CSS-->
         <link href="../css/bootstrap.css" type="text/css" rel="stylesheet" />
+        <link href="../css/formulario.css" type="text/css" rel="stylesheet" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Sistema de Gestão de Farmácias - SGF</title>
     </head>
 

@@ -16,81 +16,46 @@
 
 <c:import url="../Formularios/head.jsp"></c:import>
 
-    <!--<head>
-        <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="cadastro.css"/>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Compras</title> -->
 
-        <!--Javascript soma dos valores dos campos-->
+    <!--<script type="text/javascript">
+        function multiplicacao() {
+            var quantidade = document.getElementById("qtd").value;
+            var unitario = document.getElementById("s2").value;
+            var subtotal = parseInt(s1) * parseInt(s2);
+            alert(s3);
+        }
+    </script> -->
 
-        <script type="text/javascript">
-            function multiplicacao() {
-                var quantidade = document.getElementById("qtd").value;
-                var unitario = document.getElementById("s2").value;
-                var subtotal = parseInt(s1) * parseInt(s2);
-                alert(s3);
-            }
-        </script>
+<c:import url="../Formularios/header.jsp"/>
 
+
+<div class="menu col-md-2 menu-acoes">
     
-    <body>
-        <c:import url="../Formularios/header.jsp"/>
-        <div class="container-fluid">
-            <nav class="navbar">
-                <!--<ul class="menu">-->
-                <li><a onclick= "window.location.href = 'cadastroFornecedor.jsp'">Adicionar</a></li>
-                <li><a onclick= "window.location.href = 'menu.jsp'">Voltar</a></li>                
-                <li><a onclick= "window.location.href = 'index.html'">Sair</a></li>                
-                <!--</ul>-->
-                <div class="imagem"></div>
-            </nav>
-            <h1>Compras</h1>
+    <p>
+        <a class="btn btn-primary btn-block" href="#">Incluir</a>
+    </p>
+    <p>
+        <a class="btn btn-primary btn-block" href="#">Visualizar</a>
+    </p>
+    <p>
+        <a class="btn btn-primary btn-block" href="#">Alterar</a>
+    </p>
+    <p>
+        <a class="btn btn-primary btn-block" role="button" href="#">Excluir</a>
+    </p>
+</div>
 
-            <form class="form-inline">
-                <div class="form-group">
+<div class="col-md-10 infCompras">
+    <table class="table table-hover text-primary">
+        <thead>
+            <th id="col1" style="width: 20px">Status</th>
+            <th id="col2" style="width: 30px">Pedido</th>
+            <th id="col3" style="width: 30px">Cod. Fornecedor</th>
+            <th id="col4" style="width: 40px">Nome Fornecedor</th>
+            <th id="col5" style="width: 30px">Data</th>
+            <th id="col6" style="width: 30px">Valor</th>               
+        </thead>
+    </table>
+</div>
 
-                    <label for="cliente">Cliente</label>
-                    <input type="search" name="cliente" value="<c:out value="${cliente.getcodigo}" />" />
-                </div>
-                <div class="form-group">
-                    <label for="vendedor">Vendedor</label>
-                    <input type="search" name="vendedor" value="<c:out value="${vendedor.getcodigo}" />" />
-                </div>
-                <hr />
-            </form>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col" style="width:60px">Codigo Produto</th>
-                        <th scope="col" style="width: 60px">Descrição</th>
-                        <th scope="col" style="width: 30px">Quantidade</th>
-                        <th scope="col" style="width:40px">Preço Unitário</th>
-                        <th scope="col" style="width: 30px">Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%
-                        ConexaoBD conn = new ConexaoBD();
-                        Connection conexao = conn.obterConexao();
-
-                        ProdutoDAO dao = new ProdutoDAO(conexao);
-                        List<Produto> produto = dao.listarProdutos();
-
-                        conn.fecharConexao();
-                    %>
-                    <% for (Produto p : produto) {
-                    %>
-                    <tr>
-                        <td><%= p.getCodigo() %></td>
-                        <td><%= p.getDescricao() %></td>
-                        <td><%= p.getMarca()%></td>
-                        
-                        
-                    </tr>
-
-                    <%}%>
-
-                </tbody>
-            </table>
 <c:import url="../Formularios/footer.jsp" />
