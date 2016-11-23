@@ -32,16 +32,16 @@
 <div class="menu col-md-2 menu-acoes">
     
     <p>
-        <a class="btn btn-primary btn-block" href="#">Incluir</a>
+        <input type="button" class="btn btn-primary btn-block" value="Incluir" onclick="Incluir clicado" />
     </p>
     <p>
-        <a class="btn btn-primary btn-block" href="#">Visualizar</a>
+        <input type="button" class="btn btn-primary btn-block" value="Visualizar" onclick="Visualizar" />
     </p>
     <p>
-        <a class="btn btn-primary btn-block" href="#">Alterar</a>
+        <input type="button" class="btn btn-primary btn-block" value="Alterar" onclick="Alterar clicado" />
     </p>
     <p>
-        <a class="btn btn-primary btn-block" role="button" href="#">Excluir</a>
+        <input type="button" class="btn btn-primary btn-block" value="Excluir" onclick="Excluir" />
     </p>
 </div>
 
