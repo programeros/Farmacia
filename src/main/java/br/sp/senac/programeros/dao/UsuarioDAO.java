@@ -25,7 +25,7 @@ Connection conexao;
     public void inserir(Usuario usuario) {
         
         String sql = "insert into usuarios "
-            + "(login, nome, senha, ativo) VALUES (?, ?, ?, ?)";
+            + "(login, nome, senha, ativo, deletado) VALUES (?, ?, ?, ?, '')";
         PreparedStatement p;
              
         
@@ -89,7 +89,7 @@ Connection conexao;
         List<Usuario> usuarios = new ArrayList<Usuario>();
         
         try{
-            String sql = "SELECT * FROM usuarios";
+            String sql = "SELECT * FROM usuarios WHERE deletado <> '*'";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql); 
                         
@@ -123,7 +123,7 @@ Connection conexao;
         Usuario usuario = new Usuario();
         ConexaoBD conn = new ConexaoBD();
        
-        String sql = "SELECT * FROM usuarios WHERE codigo= "+codigo;
+        String sql = "SELECT * FROM usuarios WHERE deletado <> '*' AND codigo= "+codigo;
         
         try{
             Statement stmt = (Statement) conn.obterConexao().createStatement();
@@ -145,7 +145,7 @@ Connection conexao;
     @Override
     public Usuario Remove(int codigo){
 
-        String sql = "DELETE FROM usuarios WHERE codigo=?";
+        String sql = "UPDATE usuarios set deletado = '*' WHERE codigo=?";
 
         PreparedStatement p;
         try {
@@ -167,7 +167,7 @@ Connection conexao;
         String user = null;
         String pass = null;
        
-        String sql = "SELECT * FROM usuarios WHERE login= '"+login+"'";
+        String sql = "SELECT * FROM usuarios WHERE deletado <> '*' AND ativo = 1 AND login= '"+login+"'";
         
         try{
             java.sql.Statement stmt = conexao.createStatement();

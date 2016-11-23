@@ -22,7 +22,7 @@ public class AdicionarUsuario extends HttpServlet {
         String login = request.getParameter("login");
         String nome = request.getParameter("nome");
         String senha = request.getParameter("senha");
-        char ativo = 'S';
+        char ativo = '1';
         
         senha = Senhas.Criptografar(senha);
 
