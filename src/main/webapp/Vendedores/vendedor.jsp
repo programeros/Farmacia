@@ -6,7 +6,7 @@
 
 <%@page import="br.sp.senac.programeros.model.Vendedor"%>
 <%@page import="br.sp.senac.programeros.dao.VendedorDAO"%>
-<%@page import="java.sql.Connection"%>
+<%@page import="com.mysql.jdbc.Connection"%>
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.List"%>
@@ -22,11 +22,8 @@
         <%
             ConexaoBD conn = new ConexaoBD();
             Connection conexao = conn.obterConexao();
-
             VendedorDAO dao = new VendedorDAO(conexao);
-
             List<Vendedor> vendedor = dao.listarVendedores();
-
             conn.fecharConexao();
             int cont = 0;
         %>

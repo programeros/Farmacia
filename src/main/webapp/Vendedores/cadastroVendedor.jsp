@@ -3,11 +3,12 @@
     Created on : 03/11/2016, 15:33:22
     Author     : Michael Facul
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="../cadastro.css"/>
+        
         <title>Cadastro do Vendedor</title>
     </head>
     <body>             
@@ -25,7 +26,7 @@
             CEP: <input type="text" name="cep" />                    
             Tel.: <input type="text" name="telefone" />
             Cel.: <input type="text" name="celular" /><br/><br/>                                        
-            <br/><input type="submit" value="Gravar" />
+            <input type="submit" value="Gravar" />
             <input type="reset" value="Limpar" />                    
             <input type="button" value="Voltar" onClick="history.go(-1)"> 
         </form>            

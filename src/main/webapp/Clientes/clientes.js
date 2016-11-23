@@ -35,7 +35,7 @@ function visualizar(){
     coluna = linha.getElementsByTagName("td");
     celula = coluna[0].innerText;
   
-     document.location.href = "/Farmacia/VisualizarUsuario?id="+celula;
+     document.location.href = "/Farmacia/VisualizarCliente?id="+celula;
 }
 
 function excluir(){  

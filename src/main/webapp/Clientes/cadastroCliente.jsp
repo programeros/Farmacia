@@ -18,7 +18,7 @@
          <hr/>               
             <h2>Dados Pessoais do Cliente</h2><br/>
             
-            <form action ="AdicionarCliente" method="get">
+            <form action ="../AdicionarCliente" method="get">
                 Nome: <input type="text" size="40" name="nome" />
                 Endereço: <input type="text" size="30" name="endereco" /><br/><br/> 
                 Bairro: <input type="text" name="bairro" />
@@ -34,7 +34,6 @@
                 <br/><input type="submit" value="Gravar" />
                 <input type="reset" value="Limpar" />                    
                 <input type="button" value="Voltar" onClick="history.go(-1)"> 
-            </form>
-                      
+            </form>                      
     </body>
 </html>
