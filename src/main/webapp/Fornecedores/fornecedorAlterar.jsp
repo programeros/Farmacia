@@ -4,7 +4,7 @@
     Author     : Michael Facul
 --%>
 
-<%@page import="br.sp.senac.programeros.model.Fornecedor"%>
+<%@page import="br.sp.senac.programeros.model.Fornecedores"%>
 <%@page import="java.util.List"%>
 <%@page import="br.sp.senac.programeros.dao.FornecedorDAO"%>
 <%@page import="java.sql.Connection"%>
@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="cadastro.css"/>
+        <link rel="stylesheet" type="text/css" href="css/cadastro.css"/>
         <title>Cadastro de Fornecedores</title>
     </head>
     <body>
@@ -23,7 +23,7 @@
 
             FornecedorDAO dao = new FornecedorDAO(conexao);
 
-            Fornecedor fornecedor = dao.selecionar(Integer.parseInt(request.getParameter("id")));
+            Fornecedores fornecedor = dao.selecionar(Integer.parseInt(request.getParameter("id")));
 
             conn.fecharConexao();
 
@@ -38,13 +38,13 @@
                 <form action ="AlterarFornecedor" method="post">
                     <input type=hidden name="id" value="<%=fornecedor.getCodigo()%>" size="6"  /><br/>                    
                     Nome: <input type="text" size="40" name="nome" value="<%=fornecedor.getNome()%>"/>
-                    Endereço: <input type="text" size="30" name="endereco" value="<%=fornecedor.getEndereco()%>"/><br/>
+                    Endereço: <input type="text" size="30" name="endereco" value="<%=fornecedor.getEndereco()%>"/><br/><br/>
                     Bairro: <input type="text" name="bairro" value="<%=fornecedor.getBairro()%>"/>
                     Cidade: <input type="text" name="cidade" value="<%=fornecedor.getCidade()%>"/>
-                    Estado: <input type="text" name="estado" value="<%=fornecedor.getEstado()%>"/><br/>
+                    Estado: <input type="text" name="estado" value="<%=fornecedor.getEstado()%>"/><br/><br/>
                     CEP: <input type="text" name="cep" value="<%=fornecedor.getCep()%>" />                    
                     Tel.: <input type="text" name="telefone" value="<%=fornecedor.getTelefone()%>"/>
-                    Cel.: <input type="text" name="celular" value="<%=fornecedor.getCelular()%>"/><br/>                                                                      
+                    Cel.: <input type="text" name="celular" value="<%=fornecedor.getCelular()%>"/><br/><br/>                                                                     
                     
                     Ativo: <select name="ativo" id="selectAtivo">
                         <option value = "S">Sim</option>

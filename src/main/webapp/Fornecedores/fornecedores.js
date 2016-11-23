@@ -19,7 +19,7 @@ function iniciar(){
 }
 
 function incluir(){
-    window.location.assign("cadastroCliente.jsp");
+    window.location.assign("cadastroFornecedor.jsp");
 }
 
 function alterar(){
@@ -27,7 +27,7 @@ function alterar(){
     coluna = linha.getElementsByTagName("td");
     celula = coluna[0].innerText;
 
-    document.location.href = "/Farmacia/AlterarCliente?id="+celula;
+    document.location.href = "/Farmacia/AlterarFornecedor?id="+celula;
 }
 //ARRUMAR!!!
 function visualizar(){
@@ -42,7 +42,7 @@ function excluir(){
     linha = document.getElementsByTagName('tr')[selected];
     coluna = linha.getElementsByTagName("td");
     celula = coluna[0].innerText;
-    document.location.href = "/Farmacia/ExcluirCliente?id="+celula;
+    document.location.href = "/Farmacia/ExcluirFornecedor?id="+celula;
 }
 
 function sair(){

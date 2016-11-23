@@ -19,9 +19,9 @@
             <ul class="menu">
                 <li><a href="#">Cadastros</a>
                     <ul>
-                        <li><a href="cliente.jsp">Clientes</a></li>
-                        <li><a href="fornecedor.jsp">Fornecedores</a></li>
-                        <li><a href="vendedor.jsp">Vendedores</a></li>   
+                        <li><a href="Clientes/cliente.jsp">Clientes</a></li>
+                        <li><a href="Fornecedores/fornecedor.jsp">Fornecedores</a></li>
+                        <li><a href="Vendedores/vendedor.jsp">Vendedores</a></li>   
                         <li><a href="Produtos/produtos.jsp">Produtos</a></li>                  
                         <li><a href="almoxarifado.jsp">Almoxarifados</a></li> 
                         <li><a href="filial.jsp">Filiais</a></li> 

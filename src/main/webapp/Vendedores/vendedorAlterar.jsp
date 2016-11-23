@@ -33,7 +33,7 @@
         <aside>
             <div>
 
-                <form action ="AlterarVendedor" method="post">
+                <form action ="br.sp.senac.programeros.actions/AlterarVendedor" method="post">
                     <input type=hidden name="id" value="<%=vendedor.getCodigo()%>" size="6"  /><br/>                    
                     Nome: <input type="text" size="40" name="nome" value="<%=vendedor.getNome()%>"/>
                     Endereço: <input type="text" size="30" name="endereco" value="<%=vendedor.getEndereco()%>"/><br/><br/>
