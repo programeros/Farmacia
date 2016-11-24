@@ -42,7 +42,7 @@
             <p id="sair">Sair</p>
         </div>
         <div class="tela">
-            <table id="clientes">         
+            <table id="cliente">         
                 <thread>
                     <th id="col1">Codigo</th>
                     <th id="col2">Nome</th>

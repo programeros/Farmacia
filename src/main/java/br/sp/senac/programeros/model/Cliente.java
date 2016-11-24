@@ -9,7 +9,7 @@ import java.sql.Date;
 
 public class Cliente{
 
-    private int codigo;
+    private Integer codigo;
     private String nome;
     private String endereco;
     private String bairro;
@@ -26,11 +26,11 @@ public class Cliente{
     public Cliente() {
     }               
 
-    public Cliente(int codigo) {
+    public Cliente(Integer codigo) {
         this.codigo = codigo;
     }
 
-    public int getCodigo() {
+    public Integer getCodigo() {
         return codigo;
     }
 

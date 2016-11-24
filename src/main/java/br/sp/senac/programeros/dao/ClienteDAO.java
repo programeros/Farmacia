@@ -163,7 +163,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
     @Override
     public Cliente Remove(int codigo) {
 
-        String sql = "DELETE FROM clientes WHERE codigo=?";
+        String sql = "UPDATE clientes set deletado = '*' WHERE codigo=?";
 
         PreparedStatement p;
         try {

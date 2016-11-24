@@ -12,10 +12,12 @@ public class Notassaida{
     private Integer chave;
     private String serie;
     private String numero;
+    private int pedido;
     private Float valor;
     private Date data;
     private Date vencimento;
     private Integer parcelas;
+    private int usuario;
 
     public Notassaida() {
     }
@@ -78,5 +80,21 @@ public class Notassaida{
 
     public void setParcelas(Integer parcelas) {
         this.parcelas = parcelas;
+    }        
+    
+    public void setPedido(int pedido) {
+        this.pedido = pedido;
+    }
+
+    public void setUsuario(int usuario) {
+        this.usuario = usuario;
+    }
+
+    public int getPedido() {
+        return pedido;
+    }
+
+    public int getUsuario() {
+        return usuario;
     }
 }

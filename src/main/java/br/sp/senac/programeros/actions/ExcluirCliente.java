@@ -40,7 +40,7 @@ public class ExcluirCliente extends HttpServlet {
 
         conn.fecharConexao();
         
-        response.sendRedirect("cliente.jsp");            
+        response.sendRedirect("/Farmacia/Clientes/cliente.jsp");            
         
     }
 

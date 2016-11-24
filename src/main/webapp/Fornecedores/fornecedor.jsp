@@ -6,7 +6,7 @@
 
 <%@page import="br.sp.senac.programeros.model.Fornecedores"%>
 <%@page import="br.sp.senac.programeros.dao.FornecedorDAO"%>
-<%@page import="java.sql.Connection"%>
+<%@page import="com.mysql.jdbc.Connection"%>
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.List"%>

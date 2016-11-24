@@ -3,7 +3,7 @@ package br.sp.senac.programeros.actions;
 import br.sp.senac.programeros.connection.ConexaoBD;
 import br.sp.senac.programeros.dao.VendedorDAO;
 import br.sp.senac.programeros.model.Vendedor;
-import java.sql.Connection;
+import com.mysql.jdbc.Connection;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

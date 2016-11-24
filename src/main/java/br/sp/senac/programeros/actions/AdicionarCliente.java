@@ -3,7 +3,7 @@ package br.sp.senac.programeros.actions;
 import br.sp.senac.programeros.connection.ConexaoBD;
 import br.sp.senac.programeros.dao.ClienteDAO;
 import br.sp.senac.programeros.model.Cliente;
-import java.sql.Connection;
+import com.mysql.jdbc.Connection;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -26,7 +26,7 @@ public class AdicionarCliente extends HttpServlet {
         String cidade = request.getParameter("cidade");
         String estado = request.getParameter("estado");
         String cep = request.getParameter("cep");
-        String sexo = request.getParameter("sexo");
+       // String sexo = request.getParameter("sexo");
         String telefone = request.getParameter("telefone");
         String celular = request.getParameter("celular");        
         String ativo = "S";
@@ -38,7 +38,7 @@ public class AdicionarCliente extends HttpServlet {
         novoCliente.setCidade(cidade);
         novoCliente.setEstado(estado);
         novoCliente.setCep(cep);
-        novoCliente.setSexo(sexo);
+       // novoCliente.setSexo(sexo);
         novoCliente.setTelefone(telefone);
         novoCliente.setCelular(celular);        
         novoCliente.setAtivo(ativo);

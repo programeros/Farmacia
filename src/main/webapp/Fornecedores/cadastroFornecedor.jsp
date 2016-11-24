@@ -3,7 +3,7 @@
     Created on : 03/11/2016, 15:28:49
     Author     : Michael Facul
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>

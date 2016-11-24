@@ -28,8 +28,8 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
     public void inserir(Fornecedores fornecedor) {
         String sql = "INSERT INTO fornecedores"
                 + "(nome, endereco, bairro, cidade, estado, cep, telefone, celular, "
-                + "cadastro, ativo) VALUES "
-                + "(?,?,?,?,?,?,?,?,?,?)";
+                + "cadastro, ativo, deletado) VALUES "
+                + "(?,?,?,?,?,?,?,?,?,?,'')";
         PreparedStatement p;
         try {
             p = this.conexao.prepareStatement(sql);
@@ -87,7 +87,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
         List<Fornecedores> fornecedores = new ArrayList<Fornecedores>();
 
         try {
-            String sql = "SELECT * FROM fornecedores";
+            String sql = "SELECT * FROM fornecedores WHERE deletado <> '*'";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -104,8 +104,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
                 String telefone = rs.getString("telefone");
                 String celular = rs.getString("celular");
                 Date cadastro = rs.getDate("cadastro");
-                String ativo = rs.getString("ativo");
-                String deletado = rs.getString("deletado");
+                String ativo = rs.getString("ativo");             
 
                 fornecedor.setCodigo(codigo);
                 fornecedor.setNome(nome);
@@ -117,8 +116,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
                 fornecedor.setTelefone(telefone);
                 fornecedor.setCelular(celular);
                 fornecedor.setCadastro(cadastro);
-                fornecedor.setAtivo(ativo);
-                fornecedor.setDeletado(deletado);
+                fornecedor.setAtivo(ativo);                
 
                 fornecedores.add(fornecedor);
             }
@@ -135,7 +133,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
         Fornecedores fornecedor = new Fornecedores();
         ConexaoBD conn = new ConexaoBD();
 
-        String sql = "SELECT * FROM fornecedores WHERE codigo = " + codigo;
+        String sql = "SELECT * FROM fornecedores WHERE deletado <> '*' AND codigo= "+codigo;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
@@ -153,7 +151,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
             fornecedor.setCelular(rs.getString("celular"));
             fornecedor.setCadastro(rs.getDate("cadastro"));
             fornecedor.setAtivo(rs.getString("ativo"));
-            fornecedor.setDeletado(rs.getString("deletado"));
+           
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -165,7 +163,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
     @Override
     public Fornecedores Remove(int codigo) {
 
-        String sql = "DELETE FROM fornecedores WHERE codigo = ?";
+        String sql = "UPDATE fornecedores set deletado = '*' WHERE codigo=?";
 
         PreparedStatement p;
         try {
@@ -180,7 +178,5 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
         return null;
 
     }
-
-    
 
 }

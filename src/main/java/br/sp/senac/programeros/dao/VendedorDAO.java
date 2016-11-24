@@ -161,7 +161,7 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
     @Override
     public Vendedor Remove(int codigo) {
 
-        String sql = "DELETE FROM vendedores WHERE codigo =?";
+        String sql = "UPDATE vendedores set deletado = '*' WHERE codigo=?";
 
         PreparedStatement p;
         try {
