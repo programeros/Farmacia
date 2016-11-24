@@ -5,6 +5,10 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<c:import
+<c:import url="../Formularios/head.jsp" ></c:import>
+<c:import url="../Formularios/header.jsp" ></c:import>
+    <body>
+        
+    </body>
+<c:import url="../Formularios/footer.jsp" ></c:import>

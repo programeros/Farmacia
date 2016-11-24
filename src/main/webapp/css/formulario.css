@@ -3,6 +3,11 @@
     Author     : smarangoni
 */
 
+body{
+    background-color: lightgray;
+}
+
+
 header img{
     display: inline-block;
     margin-left: 85px;
