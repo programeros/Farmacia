@@ -55,7 +55,10 @@
             <th id="col5" style="width: 30px">Data</th>
             <th id="col6" style="width: 30px">Valor</th>               
         </thead>
+        
+        <tbody>
+            
+        </tbody>
     </table>
-</div>
 
 <c:import url="../Formularios/footer.jsp" />
