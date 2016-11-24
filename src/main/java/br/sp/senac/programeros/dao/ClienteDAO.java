@@ -23,10 +23,10 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
 
     @Override
     public void inserir(Cliente cliente) {
-        String sql = "INSERT INTO clientes "
-                + "(nome, endereco, bairro, cidade,estado,cep,sexo,telefone,celular,"
-                + "cadastro, ativo) VALUES "
-                + "(?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into clientes "
+                + "(nome, endereco, bairro, cidade, estado, cep, sexo, telefone, celular,"
+                + " cadastro, ativo, deletado) VALUES "
+                + "(?,?,?,?,?,?,?,?,?,?,?,'')";
         PreparedStatement p;
         try {
             p = this.conexao.prepareStatement(sql);
@@ -36,7 +36,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             p.setString(4, cliente.getCidade());
             p.setString(5, cliente.getEstado());
             p.setString(6, cliente.getCep());
-            p.setString(7, String.valueOf(cliente.getSexo()));
+            p.setString(7, cliente.getSexo());
             p.setString(8, cliente.getTelefone());
             p.setString(9, cliente.getCelular());
             p.setDate(10, new java.sql.Date(System.currentTimeMillis()));            
@@ -85,7 +85,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
         List<Cliente> clientes = new ArrayList<Cliente>();
 
         try {
-            String sql = "SELECT * FROM clientes";
+            String sql = "SELECT * FROM clientes WHERE deletado <> '*'";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -103,8 +103,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
                 String telefone = rs.getString("telefone");
                 String celular = rs.getString("celular");
                 Date cadastro = rs.getDate("cadastro");                
-                String ativo = rs.getString("ativo");
-                String deletado = rs.getString("deletado");
+                String ativo = rs.getString("ativo");                
 
                 cliente.setCodigo(codigo);
                 cliente.setNome(nome);
@@ -117,8 +116,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
                 cliente.setTelefone(telefone);
                 cliente.setCelular(celular);
                 cliente.setCadastro(cadastro);
-                cliente.setAtivo(ativo);
-                cliente.setDeletado(deletado);
+                cliente.setAtivo(ativo);                
 
                 clientes.add(cliente);
             }
@@ -135,7 +133,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
         Cliente cliente = new Cliente();
         ConexaoBD conn = new ConexaoBD();
 
-        String sql = "SELECT * FROM clientes WHERE codigo= " + codigo;
+        String sql = "SELECT * FROM clientes WHERE deletado <> '*' AND codigo= "+codigo;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
@@ -153,8 +151,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             cliente.setTelefone(rs.getString("telefone"));
             cliente.setCelular(rs.getString("celular"));
             cliente.setCadastro(rs.getDate("cadastro"));
-            cliente.setAtivo(rs.getString("ativo"));
-            cliente.setDeletado(rs.getString("deletado"));
+            cliente.setAtivo(rs.getString("ativo"));            
         } catch (Exception e) {
             e.printStackTrace();
         }

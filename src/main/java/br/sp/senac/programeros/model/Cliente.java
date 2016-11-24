@@ -9,7 +9,7 @@ import java.sql.Date;
 
 public class Cliente{
 
-    private Integer codigo;
+    private int codigo;
     private String nome;
     private String endereco;
     private String bairro;
@@ -24,46 +24,13 @@ public class Cliente{
     private String deletado;
 
     public Cliente() {
-    }
-    
-    public Cliente(String nome, String endereco,String bairro,String cidade,
-            String estado,String cep,String sexo,String telefone,String celular,
-            Date Cadastro,String ativo) {
-        this.nome = nome;
-        this.endereco = endereco;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.estado = estado;
-        this.cep = cep;
-        this.sexo = sexo;
-        this.telefone = telefone;
-        this.celular = celular;
-        this.cadastro = cadastro;
-        this.ativo = ativo;
-    }
+    }               
 
-     public Cliente(int codigo, String nome,String endereco,String bairro,
-            String cidade,String estado,String cep,String sexo, String telefone,
-            String celular,Date Cadastro,String ativo){
-        this.codigo = codigo;
-        this.nome = nome;
-        this.endereco = endereco;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.estado = estado;
-        this.cep = cep;
-        this.sexo = sexo;
-        this.telefone = telefone;
-        this.celular = celular;
-        this.cadastro = cadastro;
-        this.ativo = ativo;
-    }        
-
-    public Cliente(Integer codigo) {
+    public Cliente(int codigo) {
         this.codigo = codigo;
     }
 
-    public Integer getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 

@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.sp.senac.programeros.actions;
 
 import br.sp.senac.programeros.connection.ConexaoBD;
 import br.sp.senac.programeros.dao.ClienteDAO;
 import br.sp.senac.programeros.model.Cliente;
-import com.mysql.jdbc.Connection;
+import java.sql.Connection;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -56,7 +51,7 @@ public class AdicionarCliente extends HttpServlet {
 
         conn.fecharConexao();
 
-        response.sendRedirect("cliente.jsp");
+        response.sendRedirect("/Farmacia/Clientes/cliente.jsp");
 
     }
 

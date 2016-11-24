@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.sp.senac.programeros.actions;
 
 import br.sp.senac.programeros.connection.ConexaoBD;
@@ -32,7 +27,7 @@ public class AlterarCliente extends HttpServlet {
         String id = request.getParameter("id");
         request.setAttribute("id", id);        
         
-        request.getRequestDispatcher("clienteAlterar.jsp").forward(request, response);  
+        request.getRequestDispatcher("Clientes/clienteAlterar.jsp").forward(request, response);  
     }
 
     @Override
@@ -72,7 +67,7 @@ public class AlterarCliente extends HttpServlet {
         
         conn.fecharConexao();
         
-        response.sendRedirect("cliente.jsp");
+        response.sendRedirect("/Farmacia/Clientes/cliente.jsp");
     }
 
     @Override

@@ -3,13 +3,10 @@
     Created on : 10/11/2016, 11:04:46
     Author     : Michael Facul
 --%>
-
-
-
 <%@page import="br.sp.senac.programeros.model.Cliente"%>
 <%@page import="java.util.List"%>
 <%@page import="br.sp.senac.programeros.dao.ClienteDAO"%>
-<%@page import="com.mysql.jdbc.Connection"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -22,9 +19,9 @@
             ConexaoBD conn = new ConexaoBD();
             Connection conexao = conn.obterConexao();
 
-            ClienteDAO Cldao = new ClienteDAO(conexao);
+            ClienteDAO dao = new ClienteDAO(conexao);
 
-            Cliente cliente = Cldao.selecionar(Integer.parseInt(request.getParameter("id")));
+            Cliente cliente = dao.selecionar(Integer.parseInt(request.getParameter("id")));
 
             conn.fecharConexao();
 
@@ -59,10 +56,10 @@
                 <script type="text/javascript">
                     var selected = document.getElementById("selectAtivo");
                     switch ("<%=cliente.getAtivo()%>") {
-                        case 'S':
+                        case "S":
                             selected.selectedIndex = 0;
                             break;
-                        case 'N':
+                        case "N":
                             selected.selectedIndex = 1;
                             break;
                     }

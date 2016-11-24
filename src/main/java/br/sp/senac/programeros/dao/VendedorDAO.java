@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.sp.senac.programeros.dao;
 
 /**
@@ -30,9 +25,9 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
     }
     @Override
     public void inserir(Vendedor vendedor) {
-        String sql = "INSERT INTO vendedores"
-                + "(nome, endereco, bairro, cidade, estado, cep, telefone, celular, cadastro, ativo) VALUES"              
-                + "(?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into vendedores "
+                + "(nome, endereco, bairro, cidade, estado, cep, telefone, celular, cadastro, ativo, deletado) VALUES"              
+                + "(?,?,?,?,?,?,?,?,?,?,'')";
         PreparedStatement p;
         try {
             p = this.conexao.prepareStatement(sql);
@@ -89,7 +84,7 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
         List<Vendedor> vendedores = new ArrayList<Vendedor>();
 
         try {
-            String sql = "SELECT * FROM vendedores";
+            String sql = "SELECT * FROM vendedores WHERE deletado <> '*'";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -107,7 +102,7 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
                 String celular = rs.getString("celular");
                 Date cadastro = rs.getDate("cadastro");
                 String ativo = rs.getString("ativo");
-                String deletado = rs.getString("deletado");
+                
 
                 vendedor.setCodigo(codigo);
                 vendedor.setNome(nome);
@@ -120,7 +115,7 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
                 vendedor.setCelular(celular);
                 vendedor.setCadastro(cadastro);
                 vendedor.setAtivo(ativo);
-                vendedor.setDeletado(deletado);
+                
 
                 vendedores.add(vendedor);
             }
@@ -137,7 +132,7 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
         Vendedor vendedor = new Vendedor();
         ConexaoBD conn = new ConexaoBD();
 
-        String sql = "SELECT * FROM vendedores WHERE codigo = " + codigo;
+        String sql = "SELECT * FROM vendedores WHERE deletado <> '*' AND codigo= "+codigo;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
@@ -154,8 +149,7 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
             vendedor.setTelefone(rs.getString("telefone"));
             vendedor.setCelular(rs.getString("celular"));
             vendedor.setCadastro(rs.getDate("cadastro"));
-            vendedor.setAtivo(rs.getString("ativo"));
-            vendedor.setDeletado(rs.getString("deletado"));
+            vendedor.setAtivo(rs.getString("ativo"));            
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -182,9 +176,32 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
         return null;
 
     }
-
-//    @Override
-//    public void inserir(Vendedor vendedor) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
+//    public String verificar(String nome, String endereco, String bairro,
+//            String cidade, String estado, String cep, String telefone, 
+//            String celular, String cadastro, String ativo){
+//        ConexaoBD conn = new ConexaoBD();
+//        String name = null;
+//        String adress = null;
+//        String  = null;
+//       
+//        String sql = "SELECT * FROM usuarios WHERE deletado <> '*' AND ativo = 1 AND login= '"+nome+"'";
+//        
+//        try{
+//            java.sql.Statement stmt = conexao.createStatement();
+//            ResultSet rs = stmt.executeQuery(sql); 
+//
+//            while(rs.next()){
+//                user = rs.getString("login");
+//                pass = rs.getString("senha");
+//
+//                if(login.equals(user) && senha.equals(pass)){
+//                    ret = rs.getString("nome");
+//                }
+//            }
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
+//        
+//        return ret;
+//    } 
 }
