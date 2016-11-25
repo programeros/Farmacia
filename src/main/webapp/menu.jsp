@@ -24,7 +24,7 @@
                         <li><a href="Vendedores/vendedor.jsp">Vendedores</a></li>   
                         <li><a href="Produtos/produtos.jsp">Produtos</a></li>                  
                         <li><a href="almoxarifado.jsp">Almoxarifados</a></li> 
-                        <li><a href="filial.jsp">Filiais</a></li> 
+                        <li><a href="Filiais/filial.jsp">Filiais</a></li> 
                         <li><a href="Usuarios/usuarios.jsp">Usuários</a></li> 
                     </ul>
                 </li>
