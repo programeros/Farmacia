@@ -1,8 +1,5 @@
 package br.sp.senac.programeros.dao;
 
-/**
- * @author Michael Facul
- */
 import br.sp.senac.programeros.connection.ConexaoBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,18 +14,21 @@ import br.sp.senac.programeros.model.Transferencia;
 import java.sql.Date;
 
 public class TransferenciaDAO implements br.sp.senac.programeros.interfaces.TransferenciaInterface {
+    //Conexao do banco
     Connection conexao;
-
+    //Construtor
     public TransferenciaDAO(Connection conexao) {
         this.conexao = conexao;
     }
-    
+    //Inserir
     public void transferencia(Transferencia transferencia) {
+        //Comando do banco
         String sql = "INSERT INTO transferencias"
                 + "(data, produto, origem, destino, quantidate, usuario) VALUES "
                 + "(?,?,?,?,?,?)";
         PreparedStatement p;
         try {
+            //Setando valores
             p = this.conexao.prepareStatement(sql);
             p.setDate(1, new java.sql.Date(System.currentTimeMillis()));  
             p.setInt(2, transferencia.getProduto());
@@ -43,15 +43,18 @@ public class TransferenciaDAO implements br.sp.senac.programeros.interfaces.Tran
         }
 
     }
+    //Alterar
     @Override
     public void alterar(Transferencia tranferencia) {
 
         try {
+            //Comando do banco
             String sql = "UPDATE tranferencias"
                     + " SET data = ?, produto = ?, origem = ?, destino = ?,quantidade = ?, usuario = ?"
                     + " WHERE chave = ?";
 
             PreparedStatement p;
+            //Setando valores
             p = this.conexao.prepareStatement(sql);
             p.setDate(1, new java.sql.Date(System.currentTimeMillis()));
             p.setInt(2, tranferencia.getProduto());
@@ -67,19 +70,21 @@ public class TransferenciaDAO implements br.sp.senac.programeros.interfaces.Tran
             Logger.getLogger(TransferenciaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    //Listar
     @Override
     public List<Transferencia> listarMovimentos() {
+        //Lista
         List<Transferencia> movimentos = new ArrayList<Transferencia>();
 
         try {
+            //Comando do banco
             String sql = "SELECT * FROM transferencias";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
                 Transferencia movimento = new Transferencia();
-
+                //Setando valores
                 int chave = rs.getInt("chave");
                 Date data = rs.getDate("data");
                 int produto = rs.getInt("produto");
@@ -104,20 +109,20 @@ public class TransferenciaDAO implements br.sp.senac.programeros.interfaces.Tran
         }
         return movimentos;
     }
-
+    //Selecionar
     @Override
     public Transferencia selecionar(int id) {
-
+        //Criando o objeto movimento
         Transferencia movimento = new Transferencia();
         ConexaoBD conn = new ConexaoBD();
-
+        //Comando do banco
         String sql = "SELECT * FROM transferencias WHERE chave = " + id;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
-
+            //Setando valores
             movimento.setChave(id);
             movimento.setData(rs.getDate("data"));
             movimento.setProduto(rs.getInt("produto"));
@@ -133,10 +138,10 @@ public class TransferenciaDAO implements br.sp.senac.programeros.interfaces.Tran
         return movimento;
 
     }
-
+    //Remvoer
     @Override
     public Transferencia Remove(int codigo) {
-
+        //Comando do banco
         String sql = "DELETE FROM transferencias WHERE chave=?";
 
         PreparedStatement p;

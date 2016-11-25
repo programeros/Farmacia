@@ -1,8 +1,5 @@
 package br.sp.senac.programeros.dao;
 
-/** 
- * @author Michael Facul
- */
 import br.sp.senac.programeros.connection.ConexaoBD;
 
 import java.sql.Connection;
@@ -17,19 +14,22 @@ import java.util.logging.Logger;
 import br.sp.senac.programeros.model.Filiais;
 
 public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInterface {
-
+    //Conexao do banco
     Connection conexao;
-
+    //Construtor
     public FilialDAO(Connection conexao) {
         this.conexao = conexao;
     }
+    //Inserir
     public void filial(Filiais filial) {
+        //Comando do banco
         String sql = "INSERT INTO filiais "
                 + "(nome,endereco,bairro,cidade,estado,cep,telefone,fax,responsavel,email,"
-                + "ativo) VALUES "
-                + "(?,?,?,?,?,?,?,?,?,?,?)";
+                + "ativo, deletado) VALUES "
+                + "(?,?,?,?,?,?,?,?,?,?,?, '')";
         PreparedStatement p;
         try {
+            //Setando Valores
             p = this.conexao.prepareStatement(sql);
             p.setString(1, filial.getNome());
             p.setString(2, filial.getEndereco());
@@ -49,15 +49,16 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
             Logger.getLogger(FilialDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    //Alterar
     @Override
     public void alterar(Filiais filial) {
-
+        //Comando do banco
         try {
             String sql = "UPDATE filiais "
                     + " SET nome = ?, endereco = ?, bairro = ?, cidade = ?, "
                     + " estado = ?, cep = ?, telefone = ?, fax = ?, responsavel = ?, email = ?, ativo = ?, deletado = ? "                    
                     + " WHERE CODIGO = ?";
-
+            //Setando valores
             PreparedStatement p;
             p = this.conexao.prepareStatement(sql);
             p.setString(1, filial.getNome());
@@ -80,18 +81,21 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
             Logger.getLogger(FilialDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    //Listar
     @Override
     public List<Filiais> listarFiliais() {
+        //Lista
         List<Filiais> filiais = new ArrayList<Filiais>();
-
+        
         try {
-            String sql = "SELECT * FROM filiais";
+            //Comando do banco
+            String sql = "SELECT * FROM filiais WHERE deletado <> '*'";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
                 Filiais filial = new Filiais();
-
+                //Setando valores
                 int codigo = rs.getInt("codigo");
                 String nome = rs.getString("nome");
                 String endereco = rs.getString("endereco");
@@ -128,16 +132,17 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
         }
         return filiais;
     }
-
+    //Selecionar
     @Override
     public Filiais selecionar(int codigo) {
-
+        //Criando o objeto Filial
         Filiais filial = new Filiais();
         ConexaoBD conn = new ConexaoBD();
-
-        String sql = "SELECT * FROM filiais WHERE codigo= " + codigo;
+        //Comando do banco
+        String sql = "SELECT * FROM filiais WHERE deletado <> '*' AND codigo= " + codigo;
 
         try {
+            //Setando valores
             Statement stmt = (Statement) conn.obterConexao().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
@@ -162,11 +167,11 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
         return filial;
 
     }
-
+    //Remover
     @Override
     public Filiais Remove(int codigo) {
-
-        String sql = "DELETE FROM filiais WHERE codigo=?";
+        //Comando do banco
+        String sql = "UPDATE filiais set deletado = '*' WHERE codigo=?";
 
         PreparedStatement p;
         try {
@@ -181,7 +186,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
         return null;
 
     }
-
+    //Inserir
     @Override
     public void inserir(Filiais filial) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

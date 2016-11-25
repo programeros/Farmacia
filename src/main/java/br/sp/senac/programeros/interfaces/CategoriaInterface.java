@@ -3,6 +3,7 @@ package br.sp.senac.programeros.interfaces;
 import br.sp.senac.programeros.model.Categoria;
 import java.util.List;
 
+//Interface Categoria
 public interface CategoriaInterface {
     public void inserir(Categoria categoria);
     public void alterar(Categoria categoria);

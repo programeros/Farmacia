@@ -14,17 +14,23 @@ import br.sp.senac.programeros.model.Notassaida;
 import java.sql.Date;
 
 public class NotasSaidaDAO implements br.sp.senac.programeros.interfaces.NotasSaidaInterface {
+
+    //Conexao do banco
     Connection conexao;
 
+    //Construtor
     public NotasSaidaDAO(Connection conexao) {
         this.conexao = conexao;
     }
-     public void NotasSaida(Notassaida notasS) {
+    //Inserir
+    public void NotasSaida(Notassaida notasS) {
+        //Comando do banco
         String sql = "insert into notassaida "
                 + "(serie, numero, pedido, valor, data, vencimento, parcelas, usuario)"
-                + " VALUES (?,?,?,?,?,?,?,?)";              
+                + " VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement p;
         try {
+            //Setando valores
             p = this.conexao.prepareStatement(sql);
             p.setString(1, notasS.getSerie());
             p.setString(2, notasS.getNumero());
@@ -32,7 +38,7 @@ public class NotasSaidaDAO implements br.sp.senac.programeros.interfaces.NotasSa
             p.setFloat(4, notasS.getValor());
             p.setDate(5, new java.sql.Date(System.currentTimeMillis()));
             p.setDate(6, (Date) notasS.getVencimento());
-            p.setInt(7, notasS.getParcelas());   
+            p.setInt(7, notasS.getParcelas());
             p.setInt(8, notasS.getUsuario());
 
             p.execute();
@@ -42,16 +48,19 @@ public class NotasSaidaDAO implements br.sp.senac.programeros.interfaces.NotasSa
         }
 
     }
-     @Override
+    //Alterar
+    @Override
     public void alterar(Notassaida notasS) {
 
         try {
+            //Comando do banco
             String sql = "UPDATE notassaida "
                     + " SET serie = ?, numero = ?, pedido = ?, valor = ?, "
-                    + " data = ?, vencimento = ?, parcelas = ?, usuario = ? "                   
+                    + " data = ?, vencimento = ?, parcelas = ?, usuario = ? "
                     + " WHERE codigo = ?";
-
+            
             PreparedStatement p;
+            //Setando valores
             p = this.conexao.prepareStatement(sql);
             p.setString(1, notasS.getSerie());
             p.setString(2, notasS.getNumero());
@@ -59,7 +68,7 @@ public class NotasSaidaDAO implements br.sp.senac.programeros.interfaces.NotasSa
             p.setFloat(4, notasS.getValor());
             p.setDate(5, new java.sql.Date(System.currentTimeMillis()));
             p.setDate(6, (Date) notasS.getVencimento());
-            p.setInt(7, notasS.getParcelas());   
+            p.setInt(7, notasS.getParcelas());
             p.setInt(8, notasS.getUsuario());
             p.setInt(9, notasS.getChave());
 
@@ -69,18 +78,21 @@ public class NotasSaidaDAO implements br.sp.senac.programeros.interfaces.NotasSa
             Logger.getLogger(NotasSaidaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    //Listar
     @Override
     public List<Notassaida> listarNotassaida() {
+        //Lista
         List<Notassaida> notassS = new ArrayList<Notassaida>();
 
         try {
+            //Comando do banco
             String sql = "SELECT * FROM notassaida";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
                 Notassaida notass = new Notassaida();
-
+                //Setando valores
                 int chave = rs.getInt("chave");
                 String serie = rs.getString("serie");
                 String numero = rs.getString("numero");
@@ -89,7 +101,7 @@ public class NotasSaidaDAO implements br.sp.senac.programeros.interfaces.NotasSa
                 Date data = rs.getDate("data");
                 Date vencimento = rs.getDate("vencimento");
                 int parcelas = rs.getInt("parcelas");
-                int usuario = rs.getInt("usuario");                             
+                int usuario = rs.getInt("usuario");
 
                 notass.setChave(chave);
                 notass.setSerie(serie);
@@ -100,7 +112,7 @@ public class NotasSaidaDAO implements br.sp.senac.programeros.interfaces.NotasSa
                 notass.setVencimento(vencimento);
                 notass.setParcelas(parcelas);
                 notass.setUsuario(usuario);
-                               
+
                 notassS.add(notass);
             }
 
@@ -109,19 +121,20 @@ public class NotasSaidaDAO implements br.sp.senac.programeros.interfaces.NotasSa
         }
         return notassS;
     }
+    //Selecionar
     @Override
     public Notassaida selecionar(int chave) {
-
+        //Criando o objeto notass
         Notassaida notass = new Notassaida();
         ConexaoBD conn = new ConexaoBD();
-
-        String sql = "SELECT * FROM notassaida WHERE chave = "+chave;
+        //Comando do banco
+        String sql = "SELECT * FROM notassaida WHERE chave = " + chave;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
-
+            //Setando valores
             notass.setChave(chave);
             notass.setSerie(rs.getString("serie"));
             notass.setNumero(rs.getString("numero"));
@@ -131,15 +144,16 @@ public class NotasSaidaDAO implements br.sp.senac.programeros.interfaces.NotasSa
             notass.setVencimento(rs.getDate("vencimento"));
             notass.setParcelas(rs.getInt("parcelas"));
             notass.setUsuario(rs.getInt("usuario"));
-                       
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         return notass;
     }
+    //Remover
     @Override
     public Notassaida Remove(int codigo) {
-
+        //Comando do banco
         String sql = "UPDATE notassaida WHERE chave = ?";
 
         PreparedStatement p;

@@ -5,22 +5,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * @author willian.carvalho
- */
-
 public class ControleNumeracao {
-    
+    //Conexao do banco
     Connection conexao;
-    
+    //Construtor
     public ControleNumeracao(Connection conexao){
         this.conexao = conexao;
     }    
-
+    //Seleciona o numero
     public int forneceNumero(String tabela){
         ConexaoBD conn = new ConexaoBD();
         int number = 0 ;
-       
+        //Comando do banco
         String sql = "SELECT count(numero) as 'numero' FROM controle_numeracao "
                 + "WHERE tabela= '"+tabela+"'";
         
@@ -39,9 +35,9 @@ public class ControleNumeracao {
         return number;
     } 
     
-    
+    //Inserir o numer
     public void gravaNumero(String tabela, int proxNum) {
-        
+        //Comando do banco
         String sql = "insert into controle_numeracao "
             + "(tabela, numero) VALUES (?, ?)";
         

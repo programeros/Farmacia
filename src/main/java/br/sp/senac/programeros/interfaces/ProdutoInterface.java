@@ -3,6 +3,7 @@ package br.sp.senac.programeros.interfaces;
 import java.util.List;
 import br.sp.senac.programeros.model.Produto;
 
+//Interface Produto
 public interface ProdutoInterface {
     public void inserir(Produto produto);
     public void alterar(Produto produto);

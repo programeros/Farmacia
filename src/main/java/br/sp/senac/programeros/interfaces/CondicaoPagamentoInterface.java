@@ -3,7 +3,6 @@ package br.sp.senac.programeros.interfaces;
 import br.sp.senac.programeros.model.CondicaoPagamento;
 import java.util.List;
 
-
 //Interface CondicaoPagamento
 public interface CondicaoPagamentoInterface {
     public void inserir(CondicaoPagamento condicaoPagamento);

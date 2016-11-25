@@ -1,8 +1,5 @@
 package br.sp.senac.programeros.dao;
 
-/**
- * @author Michael Facul
- */
 import br.sp.senac.programeros.connection.ConexaoBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,21 +14,23 @@ import br.sp.senac.programeros.model.Fornecedores;
 import java.sql.Date;
 
 public class FornecedorDAO implements br.sp.senac.programeros.interfaces.FornecedorInterface {
-
+    //Conexao do banco
     Connection conexao;
-
+    //Construtor
     public FornecedorDAO(Connection conexao) {
         this.conexao = conexao;
     }
-
+    //Inserir
     @Override
     public void inserir(Fornecedores fornecedor) {
+        //Comando do banco
         String sql = "INSERT INTO fornecedores"
                 + "(nome, endereco, bairro, cidade, estado, cep, telefone, celular, "
                 + "cadastro, ativo, deletado) VALUES "
                 + "(?,?,?,?,?,?,?,?,?,?,'')";
         PreparedStatement p;
         try {
+            //Setando Valores
             p = this.conexao.prepareStatement(sql);
             p.setString(1, fornecedor.getNome());
             p.setString(2, fornecedor.getEndereco());
@@ -51,11 +50,12 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
         }
 
     }
-
+    //Alterar
     @Override
     public void alterar(Fornecedores fornecedor) {
 
         try {
+            //Comando do banco
             String sql = "UPDATE fornecedores "
                     + " SET nome = ?, endereco = ?, bairro = ?, cidade = ?, "
                     + " estado = ?, cep = ?, telefone = ?, celular = ?,"
@@ -63,6 +63,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
                     + " WHERE codigo = ?";
 
             PreparedStatement p;
+            //Setando valores
             p = this.conexao.prepareStatement(sql);
             p.setString(1, fornecedor.getNome());
             p.setString(2, fornecedor.getEndereco());
@@ -81,19 +82,21 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
             Logger.getLogger(FornecedorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    //Listar
     @Override
     public List<Fornecedores> listarFornecedores() {
+        //Lista
         List<Fornecedores> fornecedores = new ArrayList<Fornecedores>();
 
         try {
+            //Comando do banco
             String sql = "SELECT * FROM fornecedores WHERE deletado <> '*'";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
                 Fornecedores fornecedor = new Fornecedores();
-
+                //Setando valores
                 int codigo = rs.getInt("codigo");
                 String nome = rs.getString("nome");
                 String endereco = rs.getString("endereco");
@@ -126,20 +129,20 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
         }
         return fornecedores;
     }
-
+    //Selecionar
     @Override
     public Fornecedores selecionar(int codigo) {
-
+        //Criando o objeto selecioar
         Fornecedores fornecedor = new Fornecedores();
         ConexaoBD conn = new ConexaoBD();
-
+        //Comando do banco
         String sql = "SELECT * FROM fornecedores WHERE deletado <> '*' AND codigo= "+codigo;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
-
+            //Setando valores
             fornecedor.setCodigo(codigo);
             fornecedor.setNome(rs.getString("nome"));
             fornecedor.setEndereco(rs.getString("endereco"));
@@ -159,10 +162,10 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
         return fornecedor;
 
     }
-
+    //Remover
     @Override
     public Fornecedores Remove(int codigo) {
-
+        //Comando do banco
         String sql = "UPDATE fornecedores set deletado = '*' WHERE codigo=?";
 
         PreparedStatement p;

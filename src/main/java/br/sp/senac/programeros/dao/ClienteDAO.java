@@ -14,21 +14,23 @@ import br.sp.senac.programeros.model.Cliente;
 import java.sql.Date;
 
 public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInterface {
-
+    //Conexao Banco
     Connection conexao;
-
+    //Construtor
     public ClienteDAO(Connection conexao) {
         this.conexao = conexao;
     }
-
+    //Inserir
     @Override
     public void inserir(Cliente cliente) {
+        //Comando do banco
         String sql = "insert into clientes "
                 + "(nome, endereco, bairro, cidade, estado, cep, sexo, telefone, celular,"
                 + " cadastro, ativo, deletado) VALUES "
                 + "(?,?,?,?,?,?,?,?,?,?,?,'')";
         PreparedStatement p;
         try {
+            //Setando valores
             p = this.conexao.prepareStatement(sql);
             p.setString(1, cliente.getNome());
             p.setString(2, cliente.getEndereco());
@@ -49,10 +51,10 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
         }
 
     }
-
+    //Alterar
     @Override
     public void alterar(Cliente cliente) {
-
+        //Comando do banco
         try {
             String sql = "UPDATE clientes "
                     + " SET nome = ?, endereco = ?, bairro = ?, cidade = ?, "
@@ -60,6 +62,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
                     + " WHERE codigo = ?";
 
             PreparedStatement p;
+            //Setando valores
             p = this.conexao.prepareStatement(sql);
             p.setString(1, cliente.getNome());
             p.setString(2, cliente.getEndereco());
@@ -79,11 +82,12 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    //Lista
     @Override
     public List<Cliente> listarClientes() {
+        //Lista
         List<Cliente> clientes = new ArrayList<Cliente>();
-
+        //Comando do banco
         try {
             String sql = "SELECT * FROM clientes WHERE deletado <> '*'";
             java.sql.Statement stmt = conexao.createStatement();
@@ -91,7 +95,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
 
             while (rs.next()) {
                 Cliente cliente = new Cliente();
-
+                //Setando valores
                 int codigo = rs.getInt("codigo");
                 String nome = rs.getString("nome");
                 String endereco = rs.getString("endereco");
@@ -126,20 +130,20 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
         }
         return clientes;
     }
-
+    //Selecionar
     @Override
     public Cliente selecionar(int codigo) {
-
+        //Criando o obejeto cliente
         Cliente cliente = new Cliente();
         ConexaoBD conn = new ConexaoBD();
-
+        //Comando do banco
         String sql = "SELECT * FROM clientes WHERE deletado <> '*' AND codigo= "+codigo;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
-
+            //Setando Valores
             cliente.setCodigo(codigo);
             cliente.setNome(rs.getString("nome"));
             cliente.setEndereco(rs.getString("endereco"));
@@ -159,12 +163,12 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
         return cliente;
 
     }
-
+    //Remover
     @Override
     public Cliente Remove(int codigo) {
-
+        //Comando do banco
         String sql = "UPDATE clientes set deletado = '*' WHERE codigo=?";
-
+        
         PreparedStatement p;
         try {
             p = this.conexao.prepareStatement(sql);

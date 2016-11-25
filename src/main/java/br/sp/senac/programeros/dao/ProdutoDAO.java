@@ -15,14 +15,14 @@ import br.sp.senac.programeros.model.Produto;
 
 public class ProdutoDAO implements br.sp.senac.programeros.interfaces.ProdutoInterface{
 Connection conexao;
-    
+    //Conexao do banco
     public ProdutoDAO(Connection conexao){
         this.conexao = conexao;
     }
-
+    //Inserir
     @Override
     public void inserir(Produto produto) {
-        
+        //Comando do banco
         String sql = "insert into produtos "
             + "(codigo, descricao, preco, marca, categoria_codigo,"
             + " fornecedor_codigo, ativo, deletado) "
@@ -31,6 +31,7 @@ Connection conexao;
         PreparedStatement p;
                      
         try {
+            //Setando valores
             p = this.conexao.prepareStatement(sql);           
             p.setString(1, produto.getCodigo());            
             p.setString(2, produto.getDescricao());
@@ -47,17 +48,19 @@ Connection conexao;
         }
         
     }
-    
+    //Alterar
     @Override
     public void alterar(Produto produto) {
         
         try {
+            //Comando do banco
             String sql = "UPDATE produtos "
                 + " SET codigo = ?, descricao = ?, preco = ?, marca = ?,"
                 + " categoria_codigo = ?, fornecedor_codigo = ?, ativo = ?,"
                 + " WHERE codbar = ?";
 
-            PreparedStatement p;            
+            PreparedStatement p; 
+            //Setando valores
             p = this.conexao.prepareStatement(sql);
             p.setString(1, produto.getCodigo());
             p.setString(2, produto.getDescricao());
@@ -75,19 +78,21 @@ Connection conexao;
         } 
     }   
     
-     
+    //Listar 
     @Override
     public List<Produto> listarProdutos() {
+        //Lista
         List<Produto> produtos = new ArrayList<Produto>();
         
         try{
+            //Comando do banco
             String sql = "SELECT * FROM produtos WHERE deletado <> '*'";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql); 
                         
             while(rs.next()){
                 Produto produto = new Produto();
-                
+                //Setando valores
                 int codbar = rs.getInt("codbar");
                 String codigo = rs.getString("codigo");
                 String descricao = rs.getString("descricao");
@@ -114,20 +119,20 @@ Connection conexao;
         
         return produtos;
     }
-    
+    //Selecionar
     @Override
     public Produto selecionar(int codigo){
-       
+        //Criando o objeto produto
         Produto produto = new Produto();
         ConexaoBD conn = new ConexaoBD();
-       
+        //COmando do banco
         String sql = "SELECT * FROM produtos WHERE deletado <> '*' AND codbar= "+codigo;
         
         try{
             Statement stmt = (Statement) conn.obterConexao().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
-            
+                //Setando valores
                 produto.setCodbar(codigo);
                 produto.setCodigo(rs.getString("codigo"));
                 produto.setDescricao(rs.getString("descricao"));
@@ -143,10 +148,10 @@ Connection conexao;
         return produto;
 
     }       
-    
+    //Remvoer
     @Override
     public void remove(int codigo) {
-        
+        //Comando do banco
         try {
             String sql = "UPDATE produtos "
                 + " SET deletado = '*'  WHERE codbar = "+codigo;

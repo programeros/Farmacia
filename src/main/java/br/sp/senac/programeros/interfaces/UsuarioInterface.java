@@ -4,6 +4,7 @@ package br.sp.senac.programeros.interfaces;
 import java.util.List;
 import br.sp.senac.programeros.model.Usuario;
 
+//Interface Usuario
 public interface UsuarioInterface {
     public void inserir(Usuario usuario);
     public void alterar(Usuario usuario);

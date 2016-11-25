@@ -1,9 +1,5 @@
 package br.sp.senac.programeros.dao;
 
-/**
- *
- * @author Michael Facul
- */
 import br.sp.senac.programeros.connection.ConexaoBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,18 +14,24 @@ import br.sp.senac.programeros.model.Vendedor;
 import java.sql.Date;
 
 public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorInterface {
+
+    //Conexao do banco
     Connection conexao;
 
+    //Construtor
     public VendedorDAO(Connection conexao) {
         this.conexao = conexao;
     }
+    //Inserir
     @Override
     public void inserir(Vendedor vendedor) {
+        //Comando do banco
         String sql = "insert into vendedores "
-                + "(nome, endereco, bairro, cidade, estado, cep, telefone, celular, cadastro, ativo, deletado) VALUES"              
+                + "(nome, endereco, bairro, cidade, estado, cep, telefone, celular, cadastro, ativo, deletado) VALUES"
                 + "(?,?,?,?,?,?,?,?,?,?,'')";
         PreparedStatement p;
         try {
+            //Setando valores
             p = this.conexao.prepareStatement(sql);
             p.setString(1, vendedor.getNome());
             p.setString(2, vendedor.getEndereco());
@@ -49,10 +51,12 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
         }
 
     }
+    //Alterar
     @Override
     public void alterar(Vendedor vendedor) {
 
         try {
+            //Comando do banco
             String sql = "UPDATE vendedores"
                     + " SET nome = ?, endereco = ?, bairro = ?, cidade = ?, "
                     + " estado = ?, cep = ?, telefone = ?, celular = ?,"
@@ -60,6 +64,7 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
                     + " WHERE codigo = ?";
 
             PreparedStatement p;
+            //Setando valores
             p = this.conexao.prepareStatement(sql);
             p.setString(1, vendedor.getNome());
             p.setString(2, vendedor.getEndereco());
@@ -78,19 +83,21 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
             Logger.getLogger(VendedorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    //Listar
     @Override
     public List<Vendedor> listarVendedores() {
+        //Lista
         List<Vendedor> vendedores = new ArrayList<Vendedor>();
 
         try {
+            //Comando do banco
             String sql = "SELECT * FROM vendedores WHERE deletado <> '*'";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
                 Vendedor vendedor = new Vendedor();
-
+                //Setando valores
                 int codigo = rs.getInt("codigo");
                 String nome = rs.getString("nome");
                 String endereco = rs.getString("endereco");
@@ -102,7 +109,6 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
                 String celular = rs.getString("celular");
                 Date cadastro = rs.getDate("cadastro");
                 String ativo = rs.getString("ativo");
-                
 
                 vendedor.setCodigo(codigo);
                 vendedor.setNome(nome);
@@ -115,7 +121,6 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
                 vendedor.setCelular(celular);
                 vendedor.setCadastro(cadastro);
                 vendedor.setAtivo(ativo);
-                
 
                 vendedores.add(vendedor);
             }
@@ -125,20 +130,20 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
         }
         return vendedores;
     }
-
+    //Selecionar
     @Override
     public Vendedor selecionar(int codigo) {
-
+        //Criando o objeto vendedor
         Vendedor vendedor = new Vendedor();
         ConexaoBD conn = new ConexaoBD();
-
-        String sql = "SELECT * FROM vendedores WHERE deletado <> '*' AND codigo= "+codigo;
+        //Comando do banco
+        String sql = "SELECT * FROM vendedores WHERE deletado <> '*' AND codigo= " + codigo;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
-
+            //Setando valores
             vendedor.setCodigo(codigo);
             vendedor.setNome(rs.getString("nome"));
             vendedor.setEndereco(rs.getString("endereco"));
@@ -149,7 +154,7 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
             vendedor.setTelefone(rs.getString("telefone"));
             vendedor.setCelular(rs.getString("celular"));
             vendedor.setCadastro(rs.getDate("cadastro"));
-            vendedor.setAtivo(rs.getString("ativo"));            
+            vendedor.setAtivo(rs.getString("ativo"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -157,10 +162,10 @@ public class VendedorDAO implements br.sp.senac.programeros.interfaces.VendedorI
         return vendedor;
 
     }
-
+    //Remover
     @Override
     public Vendedor Remove(int codigo) {
-
+        //Comando do banco
         String sql = "UPDATE vendedores set deletado = '*' WHERE codigo=?";
 
         PreparedStatement p;

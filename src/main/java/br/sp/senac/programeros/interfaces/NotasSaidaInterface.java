@@ -3,6 +3,7 @@ package br.sp.senac.programeros.interfaces;
 import br.sp.senac.programeros.model.Notassaida;
 import java.util.List;
 
+//Interface Notas Saida
 public interface NotasSaidaInterface {
     public void inserir(Notassaida notas);
     public void alterar(Notassaida notas);

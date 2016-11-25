@@ -1,8 +1,5 @@
 package br.sp.senac.programeros.dao;
 
-/**
- * @author Michael Facul
- */
 import br.sp.senac.programeros.connection.ConexaoBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,17 +14,22 @@ import br.sp.senac.programeros.model.Compra;
 import java.sql.Date;
 
 public class CompraDAO implements br.sp.senac.programeros.interfaces.CompraInterface {
+    //Conexao do banco
     Connection conexao;
-
+    //Construtor
     public CompraDAO(Connection conexao) {
         this.conexao = conexao;
     }
+    
+    //Inserir
     public void compra(Compra compra) {
+        //Comandos do banco
         String sql = "INSERT INTO compras"
                 + "(numero,fornecedor,condicao,usuario,data,valor) VALUES "
                 + "(?,?,?,?,?,?)";
         PreparedStatement p;
         try {
+            //Setando valores
             p = this.conexao.prepareStatement(sql);
             p.setInt(1, compra.getNumero());
             p.setInt(2, compra.getFornecedor());
@@ -43,14 +45,15 @@ public class CompraDAO implements br.sp.senac.programeros.interfaces.CompraInter
         }
 
     }
+    //Alterar
     @Override
     public void alterar(Compra compra) {
-
+        //Comando do banco
         try {
             String sql = "UPDATE compras"
                     + " SET numero = ?, fornecedor = ?, condicao = ?, usuario = ?,data = ?, valor = ?"
                     + " WHERE codigo = ?";
-
+            //Setando valores
             PreparedStatement p;
             p = this.conexao.prepareStatement(sql);
             p.setInt(1, compra.getNumero());
@@ -67,11 +70,12 @@ public class CompraDAO implements br.sp.senac.programeros.interfaces.CompraInter
             Logger.getLogger(CompraDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    //Listar
     @Override
     public List<Compra> listarCompras() {
+        //Lista 
         List<Compra> compras = new ArrayList<Compra>();
-
+        //Comando do banco
         try {
             String sql = "SELECT * FROM compras";
             java.sql.Statement stmt = conexao.createStatement();
@@ -79,7 +83,7 @@ public class CompraDAO implements br.sp.senac.programeros.interfaces.CompraInter
 
             while (rs.next()) {
                 Compra compra = new Compra();
-
+                //Setando valores
                 int codigo = rs.getInt("codigo");
                 int numero = rs.getInt("numero");  
                 int fornecedor = rs.getInt("fornecedor"); 
@@ -104,20 +108,20 @@ public class CompraDAO implements br.sp.senac.programeros.interfaces.CompraInter
         }
         return compras;
     }
-
+    //Selecionar
     @Override
     public Compra selecionar(int codigo) {
-
+        //Criando o objetco compra
         Compra compra = new Compra();
         ConexaoBD conn = new ConexaoBD();
-
+        //Comando do banco
         String sql = "SELECT * FROM compras WHERE codigo= " + codigo;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
-
+            //Setando valores
             compra.setCodigo(codigo);
             compra.setNumero(rs.getInt("numero"));
             compra.setFornecedor(rs.getInt("fornecedor"));
@@ -133,7 +137,7 @@ public class CompraDAO implements br.sp.senac.programeros.interfaces.CompraInter
         return compra;
 
     }
-
+    //Remover
     @Override
     public Compra Remove(int codigo) {
 

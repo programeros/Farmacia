@@ -103,7 +103,7 @@ public class CondicaoPagamentoDAO implements br.sp.senac.programeros.interfaces.
         }
         return condicaoPagamentos;
     }
-
+    //Selecionar
     @Override
     public CondicaoPagamento selecionar(int codigo) {
         //Criando o objeto condicapagamento  

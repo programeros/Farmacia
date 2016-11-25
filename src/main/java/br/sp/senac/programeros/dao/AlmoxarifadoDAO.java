@@ -1,8 +1,5 @@
 package br.sp.senac.programeros.dao;
 
-/**
- * @author Michael Facul
- */
 import br.sp.senac.programeros.connection.ConexaoBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,19 +13,22 @@ import java.util.logging.Logger;
 import br.sp.senac.programeros.model.Almoxarifado;
 
 public class AlmoxarifadoDAO implements br.sp.senac.programeros.interfaces.AlmoxarifadoInterface {
-
+    //Conexao Banco
     Connection conexao;
-
+    //Construtor
     public AlmoxarifadoDAO(Connection conexao) {
         this.conexao = conexao;
     }
+    //Inserir
     @Override
     public void inserir(Almoxarifado almoxarifado) {
+        //Comando do banco
         String sql = "insert into almoxarifados "
                 + "(descricao, filial_codigo, ativo, deletado) values"
                 + "(?,?,?,'')";
         PreparedStatement p;
         try {
+            //Setando Valores
             p = this.conexao.prepareStatement(sql);
             p.setString(1, almoxarifado.getDescricao());
             p.setInt(2, almoxarifado.getFilial());            
@@ -41,15 +41,15 @@ public class AlmoxarifadoDAO implements br.sp.senac.programeros.interfaces.Almox
         }
 
     }
-
+    //Alterar
     @Override
     public void alterar(Almoxarifado almoxarifado) {
-
+        //Comando do banco
         try {
             String sql = "update almoxarifados "
                     + " set descricao = ?, filial_codigo = ?, ativo = ?"
                     + " where codigo = ?";
-
+            //Setando Valores
             PreparedStatement p;
             p = this.conexao.prepareStatement(sql);
             p.setString(1, almoxarifado.getDescricao());
@@ -64,16 +64,17 @@ public class AlmoxarifadoDAO implements br.sp.senac.programeros.interfaces.Almox
         }
     }
 
-   
+   //Listar
     @Override
     public List<Almoxarifado> listarAlmoxarifados() {
+        //Lista
         List<Almoxarifado> almoxarifados = new ArrayList<Almoxarifado>();
-
+        //Comando do banco
         try {
             String sql = "select * from almoxarifados WHERE deletado <> '*'";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-
+            //Setando os valores
             while (rs.next()) {
                 Almoxarifado almoxarifado = new Almoxarifado();
 
@@ -95,20 +96,20 @@ public class AlmoxarifadoDAO implements br.sp.senac.programeros.interfaces.Almox
         }
         return almoxarifados;
     }
-
+    //Selecionar
     @Override
     public Almoxarifado selecionar(int codigo) {
-
+    //Criando o objeto almoxarifado  
         Almoxarifado almoxarifado = new Almoxarifado();
         ConexaoBD conn = new ConexaoBD();
-
+        //Comando do banco
         String sql = "select * from almoxarifados WHERE deletado <> '*' AND codigo= "+codigo;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
-
+    //Setando os valores
             almoxarifado.setCodigo(codigo);
             almoxarifado.setDescricao(rs.getString("descricao"));
             almoxarifado.setFilial(rs.getInt("filial_codigo"));
@@ -121,10 +122,10 @@ public class AlmoxarifadoDAO implements br.sp.senac.programeros.interfaces.Almox
         return almoxarifado;
 
     }
-
+    //Remove
     @Override
     public Almoxarifado Remove(int codigo) {
-
+        //Comando do banco
         String sql = "update almoxarifado set deletado = '*' WHERE codigo=?";
 
         PreparedStatement p;
@@ -140,7 +141,7 @@ public class AlmoxarifadoDAO implements br.sp.senac.programeros.interfaces.Almox
         return null;
 
     }
-
+//Inserir
 //    @Override
 //    public void inserir(Almoxarifado almoxarifado) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -14,19 +14,21 @@ import br.sp.senac.programeros.model.Notasentrada;
 import java.sql.Date;
 
 public class NotasEntradaDAO implements br.sp.senac.programeros.interfaces.NotasEntradaInterface {
-
-     Connection conexao;
-
+    //Conexao do banco
+    Connection conexao;
+    //Construtor
     public NotasEntradaDAO(Connection conexao) {
         this.conexao = conexao;
     }
-   
+    //Inserir
     public void NotasEntrada(Notasentrada notasEntrada) {
+        //Comando do banco
         String sql = "insert into notasentrada "
                 + "(serie, numero, pedido, valor, data, vencimento, parcelas, usuario)"
                 + " VALUES (?,?,?,?,?,?,?,?)";              
         PreparedStatement p;
         try {
+            //Setando valores
             p = this.conexao.prepareStatement(sql);
             p.setString(1, notasEntrada.getSerie());
             p.setString(2, notasEntrada.getNumero());
@@ -44,10 +46,10 @@ public class NotasEntradaDAO implements br.sp.senac.programeros.interfaces.Notas
         }
 
     }
-
+    //Alterar
     @Override
     public void alterar(Notasentrada notasEntrada) {
-
+        //Comando do banco
         try {
             String sql = "UPDATE notasentrada "
                     + " SET serie = ?, numero = ?, pedido = ?, valor = ?, "
@@ -55,6 +57,7 @@ public class NotasEntradaDAO implements br.sp.senac.programeros.interfaces.Notas
                     + " WHERE codigo = ?";
 
             PreparedStatement p;
+            //Setando valores 
             p = this.conexao.prepareStatement(sql);
             p.setString(1, notasEntrada.getSerie());
             p.setString(2, notasEntrada.getNumero());
@@ -72,19 +75,21 @@ public class NotasEntradaDAO implements br.sp.senac.programeros.interfaces.Notas
             Logger.getLogger(NotasEntradaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    //Lista
     @Override
     public List<Notasentrada> listarNotasentrada() {
+        //Lista
         List<Notasentrada> notaseS = new ArrayList<Notasentrada>();
 
         try {
+            //Comando do banco
             String sql = "SELECT * FROM notasentrada";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
                 Notasentrada notase = new Notasentrada();
-
+                //Setando valores
                 int chave = rs.getInt("chave");
                 String serie = rs.getString("serie");
                 String numero = rs.getString("numero");
@@ -113,20 +118,20 @@ public class NotasEntradaDAO implements br.sp.senac.programeros.interfaces.Notas
         }
         return notaseS;
     }
-
+    //Selecionar
     @Override
     public Notasentrada selecionar(int chave) {
-
+        //Criando objeto notase
         Notasentrada notase = new Notasentrada();
         ConexaoBD conn = new ConexaoBD();
-
+        //Comando do banco
         String sql = "SELECT * FROM notasentrada WHERE chave = "+chave;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
-
+            //Setando valores
             notase.setChave(chave);
             notase.setSerie(rs.getString("serie"));
             notase.setNumero(rs.getString("numero"));
@@ -144,10 +149,10 @@ public class NotasEntradaDAO implements br.sp.senac.programeros.interfaces.Notas
         return notase;
 
     }
-
+    //Remover
     @Override
     public Notasentrada Remove(int codigo) {
-
+        //Comando do banco
         String sql = "UPDATE notasentrada WHERE chave = ?";
 
         PreparedStatement p;
@@ -163,7 +168,7 @@ public class NotasEntradaDAO implements br.sp.senac.programeros.interfaces.Notas
         return null;
 
     }
-
+    //Inserir
     @Override
     public void inserir(Notasentrada notasentrada) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

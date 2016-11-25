@@ -1,8 +1,4 @@
 package br.sp.senac.programeros.dao;
-/**
- *
- * @author Pedro
- */
 
 import br.sp.senac.programeros.connection.ConexaoBD;
 import br.sp.senac.programeros.model.Categoria;
@@ -28,8 +24,8 @@ public class CategoriaDAO implements br.sp.senac.programeros.interfaces.Categori
     public void categoria(Categoria categoria) {
         //Comando do banco
         String sql = "insert into categorias "
-                + "(descricao, ativo) values"
-                + "(?,?)";
+                + "(descricao, ativo, deletado) values"
+                + "(?,?,'')";
         PreparedStatement p;
         try {
             //Setando os valores
@@ -75,7 +71,7 @@ public class CategoriaDAO implements br.sp.senac.programeros.interfaces.Categori
         
         try{
             //Comando do banco
-            String sql = "SELECT * FROM categorias";
+            String sql = "SELECT * FROM categorias WHERE deletado <> '*'";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql); 
                         
@@ -104,7 +100,7 @@ public class CategoriaDAO implements br.sp.senac.programeros.interfaces.Categori
         Categoria categoria = new Categoria();
         ConexaoBD conn = new ConexaoBD();
         //Comando do banco
-        String sql = "SELECT * FROM categorias WHERE codigo= "+codigo;
+        String sql = "SELECT * FROM categorias WHERE deletado <> '*' AND codigo= "+codigo;
         
         try{
             Statement stmt = (Statement) conn.obterConexao().createStatement();
@@ -127,7 +123,7 @@ public class CategoriaDAO implements br.sp.senac.programeros.interfaces.Categori
     @Override
     public Categoria Remove(int codigo) {
         //Comando do banco
-        String sql = "DELETE FROM categorias WHERE codigo=?";
+        String sql = "update categorias set deletado = '*' WHERE codigo=?";
 
         PreparedStatement p;
         try {
