@@ -88,6 +88,18 @@
         <servlet-name>ExcluirFilial</servlet-name>
         <servlet-class>br.sp.senac.programeros.actions.ExcluirFilial</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdicionarAlmoxarifado</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AdicionarAlmoxarifado</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarAlmoxarifado</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AlterarAlmoxarifado</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirAlmoxarifado</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.ExcluirAlmoxarifado</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerificarUsuario</servlet-name>
         <url-pattern>/VerificarUsuario</url-pattern>
@@ -175,6 +187,18 @@
     <servlet-mapping>
         <servlet-name>ExcluirFilial</servlet-name>
         <url-pattern>/ExcluirFilial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdicionarAlmoxarifado</servlet-name>
+        <url-pattern>/AdicionarAlmoxarifado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarAlmoxarifado</servlet-name>
+        <url-pattern>/AlterarAlmoxarifado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirAlmoxarifado</servlet-name>
+        <url-pattern>/ExcluirAlmoxarifado</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

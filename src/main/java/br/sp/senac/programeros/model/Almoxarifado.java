@@ -7,7 +7,9 @@ package br.sp.senac.programeros.model;
 public class Almoxarifado {
     private int codigo;
     private String descricao;
-    private int unidade;
+    private int filial;
+    private String ativo;
+    private String deletado;
 
     public int getCodigo() {
         return codigo;
@@ -25,11 +27,29 @@ public class Almoxarifado {
         this.descricao = descricao;
     }
 
-    public int getUnidade() {
-        return unidade;
+    public int getFilial() {
+        return filial;
     }
 
-    public void setUnidade(int unidade) {
-        this.unidade = unidade;
+    public void setFilial(int filial) {
+        this.filial = filial;
     }
+
+    public String getAtivo() {
+        return ativo;
+    }
+
+    public String getDeletado() {
+        return deletado;
+    }
+
+    public void setAtivo(String ativo) {
+        this.ativo = ativo;
+    }
+
+    public void setDeletado(String deletado) {
+        this.deletado = deletado;
+    }
+    
+    
 }

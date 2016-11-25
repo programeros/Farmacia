@@ -23,7 +23,7 @@
                         <li><a href="Fornecedores/fornecedor.jsp">Fornecedores</a></li>
                         <li><a href="Vendedores/vendedor.jsp">Vendedores</a></li>   
                         <li><a href="Produtos/produtos.jsp">Produtos</a></li>                  
-                        <li><a href="almoxarifado.jsp">Almoxarifados</a></li> 
+                        <li><a href="Almoxarifados/almoxarifado.jsp">Almoxarifados</a></li> 
                         <li><a href="Filiais/filial.jsp">Filiais</a></li> 
                         <li><a href="Usuarios/usuarios.jsp">Usuários</a></li> 
                     </ul>
@@ -31,7 +31,7 @@
                 <li><a href="#">Atualizações</a>
                     <ul>
                         <li><a href="PedidosVendas/pedidosdeVendas.jsp">Vendas</a></li>
-                        <li><a href="#">Compras</a></li>
+                        <li><a href="PedidosCompras/compras.jsp">Compras</a></li>
                         <li><a href="#">Recebimentos</a></li>                    
                         <li><a href="#">Pagamentos</a></li>
                         <li><a href="#">Transferencias</a></li>	                
