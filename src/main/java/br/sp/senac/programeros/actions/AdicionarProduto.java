@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.sp.senac.programeros.actions;
 
 import br.sp.senac.programeros.connection.ConexaoBD;
@@ -49,7 +44,7 @@ public class AdicionarProduto extends HttpServlet {
 
         conn.fecharConexao();
 
-        response.sendRedirect("produto.jsp");
+        response.sendRedirect("/Farmacia/Produtos/produtos.jsp");
     }
 
     @Override

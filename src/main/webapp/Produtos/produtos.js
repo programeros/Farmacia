@@ -1,39 +1,64 @@
-var btnIncluir,btnVisualizar,btnAlterar,btnExcluir, btnSair;
+var btnIncluir,btnVisualizar,btnAlterar,btnExcluir, btnSair,linha,tabela;
+var selected=0,id=0,coluna, celula;
+var cod=0;
 
-function iniciar(){
-	
-	btnIncluir = document.querySelector("#incluir");
-	btnVisualizar = document.querySelector("#visualizar");
-	btnAlterar = document.querySelector("#alterar");
-	btnExcluir = document.querySelector("#excluir");
-        btnSair = document.querySelector("#sair");
-	
-	btnIncluir.addEventListener("click",adicionar);
-	btnVisualizar.addEventListener("click",visualizar);
-	btnAlterar.addEventListener("click",alterar);
-	btnExcluir.addEventListener("click",excluir);
-        btnSair.addEventListener("click",sair);
-	
+function iniciar() {
+
+    btnIncluir = document.querySelector("#incluir");
+    btnVisualizar = document.querySelector("#visualizar");
+    btnAlterar = document.querySelector("#alterar");
+    btnExcluir = document.querySelector("#excluir");
+    btnSair = document.querySelector("#sair");
+
+    btnIncluir.addEventListener("click", adicionar);
+    btnVisualizar.addEventListener("click", visualizar);
+    btnAlterar.addEventListener("click", alterar);
+    btnExcluir.addEventListener("click", excluir);
+    btnSair.addEventListener("click", sair);
+
 }
 
-function adicionar(){
-	alert("Clicou no Incluir");
+function adicionar() {
+    window.location.assign("cadastroProduto.jsp");
 }
 
-function alterar(){
-	alert("Clicou no alterar");
+function alterar() {
+    linha = document.getElementsByTagName('tr')[selected];
+    coluna = linha.getElementsByTagName("td");
+    celula = coluna[0].innerText;
+
+    document.location.href = "/Farmacia/AlterarProduto?id=" + celula;
+}
+//ARRUMAR!!!
+function visualizar() {
+    linha = document.getElementsByTagName('tr')[selected];
+    coluna = linha.getElementsByTagName("td");
+    celula = coluna[0].innerText;
+
+    document.location.href = "/Farmacia/VisualizarProduto?id=" + celula;
 }
 
-function visualizar(){
-	alert("Clicou no visualizar");
+function excluir() {
+    linha = document.getElementsByTagName('tr')[selected];
+    coluna = linha.getElementsByTagName("td");
+    celula = coluna[0].innerText;
+    document.location.href = "/Farmacia/ExcluirProduto?id="+celula;
 }
 
-function excluir(){
-	alert("Clicou no excluir");
-}
-
-function sair(){
+function sair() {
     window.location.assign("../menu.jsp");
 }
 
-window.addEventListener("load",iniciar);
+function selecionar(x){
+    id = x.rowIndex;
+    if (id !== selected){
+        linha = document.getElementsByTagName('tr')[selected];
+        linha.removeAttribute("class","cor");           
+    }
+    
+    linha = document.getElementsByTagName('tr')[x.rowIndex];
+    linha.setAttribute("class","cor");
+    selected = x.rowIndex;        
+}
+
+window.addEventListener("load", iniciar);

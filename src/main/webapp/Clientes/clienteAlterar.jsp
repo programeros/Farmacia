@@ -10,11 +10,10 @@
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="clientes.css"/>
+    <head>         
         <title>Cadastro de Clientes</title>
-    </head>
-    <body>
+    </head>    
+    <body>                    
         <%
             ConexaoBD conn = new ConexaoBD();
             Connection conexao = conn.obterConexao();
@@ -26,14 +25,7 @@
             conn.fecharConexao();
 
         %>                
-        <div class="cabecalho">
-            <img src="../images/logo_1.png" width="75" height="71" alt=""/>
-            <div class="pesquisa">
-                <label for="select">Pesquisar:</label>				
-                <input type="text" name="textfield" id="textfield">
-                <label id="pesquisa"><img src="../images/search.png" width="15" height="11" alt=""/></label>
-            </div>
-        </div>
+                          
         <h1>Alteração de Cliente</h1>                          
         <hr/>
         <form action ="AlterarCliente" method="post">

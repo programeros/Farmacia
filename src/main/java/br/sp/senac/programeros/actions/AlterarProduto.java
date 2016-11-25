@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.sp.senac.programeros.actions;
 
 import br.sp.senac.programeros.connection.ConexaoBD;
@@ -33,21 +28,23 @@ public class AlterarProduto extends HttpServlet {
         String codigo = request.getParameter("id");
         request.setAttribute("id", codigo);
         
-        request.getRequestDispatcher("produtoAlterar.jsp").forward(request, response);  
+        request.getRequestDispatcher("Produtos/produtoAlterar.jsp").forward(request, response);  
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
+            throws ServletException, IOException { 
+        int codbar = Integer.parseInt(request.getParameter("id"));
         String codigo = request.getParameter("codigo");
         String descricao = request.getParameter("descricao");
         String preco = request.getParameter("preco");
         String marca = request.getParameter("marca");
         String categoria = request.getParameter("categoria");
         String fornecedor = request.getParameter("fornecedor");                
-        String ativo = "S";
+        String ativo = request.getParameter("ativo");
 
         Produto novo = new Produto();
+        novo.setCodbar(codbar);
         novo.setCodigo(codigo);
         novo.setDescricao(descricao);
         novo.setMarca(marca);
@@ -64,7 +61,7 @@ public class AlterarProduto extends HttpServlet {
 
         conn.fecharConexao();
         
-        response.sendRedirect("produto.jsp");
+        response.sendRedirect("/Farmacia/Produtos/produtos.jsp");
     }
 
     @Override

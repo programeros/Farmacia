@@ -1,6 +1,5 @@
 package br.sp.senac.programeros.dao;
 
-
 import br.sp.senac.programeros.connection.ConexaoBD;
 import br.sp.senac.programeros.connection.Senhas;
 import java.sql.Connection;
@@ -25,23 +24,21 @@ Connection conexao;
     public void inserir(Produto produto) {
         
         String sql = "insert into produtos "
-            + "(codbar,codigo,descricao,preco,marca,categoria_codigo,"
-            + " fornecedor_codigo,ativo) "
-            + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            + "(codigo, descricao, preco, marca, categoria_codigo,"
+            + " fornecedor_codigo, ativo, deletado) "
+            + " VALUES (?, ?, ?, ?, ?, ?, ?, '')";
         
         PreparedStatement p;
                      
         try {
-            p = this.conexao.prepareStatement(sql);
- 
-            p.setInt(1, produto.getCodbar());
-            p.setString(2, produto.getCodigo());            
-            p.setString(3, produto.getDescricao());
-            p.setFloat(4, produto.getPreco());            
-            p.setString(5, produto.getMarca());
-            p.setInt(6, produto.getCategoria());
-            p.setInt(7, produto.getFornecedor());
-            p.setString(8, produto.getAtivo());
+            p = this.conexao.prepareStatement(sql);           
+            p.setString(1, produto.getCodigo());            
+            p.setString(2, produto.getDescricao());
+            p.setFloat(3, produto.getPreco());            
+            p.setString(4, produto.getMarca());
+            p.setInt(5, produto.getCategoria());
+            p.setInt(6, produto.getFornecedor());
+            p.setString(7, "S");
             
             p.execute();
             
@@ -56,21 +53,20 @@ Connection conexao;
         
         try {
             String sql = "UPDATE produtos "
-                + " SET codbar = ?, descricao = ?, preco = ?, marca = ?,"
+                + " SET codigo = ?, descricao = ?, preco = ?, marca = ?,"
                 + " categoria_codigo = ?, fornecedor_codigo = ?, ativo = ?,"
-                + " deletado = ?"
-                + " WHERE codigo = ?";
+                + " WHERE codbar = ?";
 
             PreparedStatement p;            
             p = this.conexao.prepareStatement(sql);
-            p.setInt(1, produto.getCodbar());
+            p.setString(1, produto.getCodigo());
             p.setString(2, produto.getDescricao());
             p.setFloat(3, produto.getPreco());
             p.setString(4, produto.getMarca());
             p.setInt(5, produto.getCategoria());
             p.setInt(6, produto.getFornecedor());
-            p.setString(7, produto.getAtivo());
-            p.setString(8, produto.getDeletado());
+            p.setString(7, String.valueOf(produto.getAtivo()));
+            p.setInt(8, produto.getCodbar());
             
             p.execute();
             
@@ -85,7 +81,7 @@ Connection conexao;
         List<Produto> produtos = new ArrayList<Produto>();
         
         try{
-            String sql = "SELECT * FROM produtos";
+            String sql = "SELECT * FROM produtos WHERE deletado <> '*'";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql); 
                         
@@ -125,7 +121,7 @@ Connection conexao;
         Produto produto = new Produto();
         ConexaoBD conn = new ConexaoBD();
        
-        String sql = "SELECT * FROM produtos WHERE codbar= "+codigo;
+        String sql = "SELECT * FROM produtos WHERE deletado <> '*' AND codbar= "+codigo;
         
         try{
             Statement stmt = (Statement) conn.obterConexao().createStatement();
@@ -153,7 +149,7 @@ Connection conexao;
         
         try {
             String sql = "UPDATE produtos "
-                + " SET deletado = '*'  WHERE codigo = "+codigo;
+                + " SET deletado = '*'  WHERE codbar = "+codigo;
 
             PreparedStatement p;            
             p = this.conexao.prepareStatement(sql);

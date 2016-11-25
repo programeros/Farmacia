@@ -41,7 +41,7 @@ public class ExcluirVendedor extends HttpServlet {
 
         conn.fecharConexao();
         
-        response.sendRedirect("/Farmacia/Vendores/vendedor.jsp");            
+        response.sendRedirect("/Farmacia/Vendedores/vendedor.jsp");            
         
     }
 

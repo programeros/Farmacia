@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.sp.senac.programeros.actions;
 
 import br.sp.senac.programeros.connection.ConexaoBD;
@@ -29,17 +24,17 @@ public class ExcluirProduto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String codigo = request.getParameter("id");
-        int id = Integer.parseInt(codigo);
+        int codbar = Integer.parseInt(codigo);
                         
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
 
         ProdutoDAO dao = new ProdutoDAO(conexao);
-        dao.remove(id);
+        dao.remove(codbar);
 
         conn.fecharConexao();
         
-        response.sendRedirect("produto.jsp");            
+        response.sendRedirect("/Farmacia/Produtos/produtos.jsp");            
         
     }
 

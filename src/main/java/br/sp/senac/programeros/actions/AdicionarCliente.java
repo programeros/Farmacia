@@ -26,7 +26,7 @@ public class AdicionarCliente extends HttpServlet {
         String cidade = request.getParameter("cidade");
         String estado = request.getParameter("estado");
         String cep = request.getParameter("cep");
-       // String sexo = request.getParameter("sexo");
+        String sexo = request.getParameter("sexo");
         String telefone = request.getParameter("telefone");
         String celular = request.getParameter("celular");        
         String ativo = "S";
@@ -38,7 +38,7 @@ public class AdicionarCliente extends HttpServlet {
         novoCliente.setCidade(cidade);
         novoCliente.setEstado(estado);
         novoCliente.setCep(cep);
-       // novoCliente.setSexo(sexo);
+        novoCliente.setSexo(sexo);
         novoCliente.setTelefone(telefone);
         novoCliente.setCelular(celular);        
         novoCliente.setAtivo(ativo);
