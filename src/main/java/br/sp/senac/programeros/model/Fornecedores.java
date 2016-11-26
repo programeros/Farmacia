@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Fornecedores{
     //Atribitos
-    private Integer codigo;
+    private int codigo;
     private String nome;
     private String endereco;
     private String bairro;
@@ -19,6 +19,39 @@ public class Fornecedores{
     //Construtor
     public Fornecedores() {
     }
+
+    public Fornecedores(String nome, String endereco, String bairro, String cidade,
+            String estado, String cep, String telefone, String celular,
+            Date Cadastro, String ativo) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.cep = cep;
+        this.telefone = telefone;
+        this.celular = celular;
+        this.cadastro = cadastro;
+        this.ativo = ativo;
+    }
+
+   public Fornecedores(int codigo,String nome, String endereco, String bairro, String cidade,
+            String estado, String cep, String telefone, String celular,
+            Date Cadastro, String ativo) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.cep = cep;
+        this.telefone = telefone;
+        this.celular = celular;
+        this.cadastro = cadastro;
+        this.ativo = ativo;
+    }    
+    
+    
     //Construtor
     public Fornecedores(Integer codigo) {
         this.codigo = codigo;

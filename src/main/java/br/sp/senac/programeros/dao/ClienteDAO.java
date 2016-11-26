@@ -86,7 +86,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
     @Override
     public List<Cliente> listarClientes() {
         //Lista
-        List<Cliente> clientes = new ArrayList<Cliente>();
+        List<Cliente> clientes = new ArrayList<>();
         //Comando do banco
         try {
             String sql = "SELECT * FROM clientes WHERE deletado <> '*'";
@@ -125,8 +125,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
                 clientes.add(cliente);
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
         }
         return clientes;
     }
@@ -156,8 +155,7 @@ public class ClienteDAO implements br.sp.senac.programeros.interfaces.ClienteInt
             cliente.setCelular(rs.getString("celular"));
             cliente.setCadastro(rs.getDate("cadastro"));
             cliente.setAtivo(rs.getString("ativo"));            
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
         }
 
         return cliente;

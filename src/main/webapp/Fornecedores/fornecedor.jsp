@@ -21,11 +21,8 @@
         <%
             ConexaoBD conn = new ConexaoBD();
             Connection conexao = conn.obterConexao();
-
             FornecedorDAO dao = new FornecedorDAO(conexao);
-
             List<Fornecedores> fornecedor = dao.listarFornecedores();
-
             conn.fecharConexao();
             int cont = 0;
         %>   

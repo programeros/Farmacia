@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 import br.sp.senac.programeros.model.Fornecedores;
 import java.sql.Date;
 
-public class FornecedorDAO implements br.sp.senac.programeros.interfaces.FornecedorInterface {
+public class FornecedorDAO implements br.sp.senac.programeros.interfaces.FornecedorInterface{
     //Conexao do banco
     Connection conexao;
     //Construtor
@@ -124,8 +124,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
                 fornecedores.add(fornecedor);
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
         }
         return fornecedores;
     }
@@ -155,8 +154,7 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
             fornecedor.setCadastro(rs.getDate("cadastro"));
             fornecedor.setAtivo(rs.getString("ativo"));
            
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
         }
 
         return fornecedor;
@@ -176,7 +174,6 @@ public class FornecedorDAO implements br.sp.senac.programeros.interfaces.Fornece
             p.execute();
 
         } catch (SQLException e) {
-            e.printStackTrace();
         }
         return null;
 
