@@ -28,6 +28,8 @@
 
 <c:import url="../Formularios/header.jsp"/>
 
+<c:import url="../Formularios/navinterna.jsp"></c:import>
+
 
 <div class="menu col-md-2 menu-acoes">
     

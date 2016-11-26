@@ -4,10 +4,5 @@
     Author     : smarangoni
 --%>
         
-        <div class="col-md-12">
-            <footer class="row text-info">
-                <footer>programeros&copy Todos os direitos reservados</footer>
-            </footer>
-        </div>
     </body>
 </html>
