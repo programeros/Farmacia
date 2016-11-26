@@ -21,17 +21,18 @@ public class AlterarFilial extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Variavel do id
         String id = request.getParameter("id");
         request.setAttribute("id", id);        
-        
+        //Request diretorio
         request.getRequestDispatcher("Filiais/filialAlterar.jsp").forward(request, response); 
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Variaves
         int id = Integer.parseInt(request.getParameter("id"));
-        
         String nome = request.getParameter("nome");
         String endereco = request.getParameter("endereco");
         String bairro = request.getParameter("bairro");
@@ -42,7 +43,7 @@ public class AlterarFilial extends HttpServlet {
         String fax = request.getParameter("fax");
         String responsavel = request.getParameter("responsavel");
         String ativo = "S";
-        
+        //Objetos e variaveis
         Filiais novaFilial = new Filiais();
         novaFilial.setCodigo(id);
         novaFilial.setNome(nome);
@@ -55,15 +56,15 @@ public class AlterarFilial extends HttpServlet {
         novaFilial.setFax(fax);
         novaFilial.setResponsavel(responsavel);
         novaFilial.setAtivo(ativo);
-
+        //Comando do banco
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
-
+        //Obejto
         FilialDAO dao = new FilialDAO(conexao);
         dao.inserir(novaFilial);
 
         conn.fecharConexao();
-
+        //Diretorio
         response.sendRedirect("/Farmacia/Filiais/filial.jsp");
     }
 

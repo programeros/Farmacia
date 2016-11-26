@@ -11,35 +11,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author willian.carvalho
- */
 public class AdicionarUsuario extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    
+        //Variaveis
         String login = request.getParameter("login");
         String nome = request.getParameter("nome");
         String senha = request.getParameter("senha");
         char ativo = '1';
-        
         senha = Senhas.Criptografar(senha);
-
+        //Obejtos e valores
         Usuario novoUsuario = new Usuario();
         novoUsuario.setLogin(login);
         novoUsuario.setNome(nome);
         novoUsuario.setSenha(senha);
         novoUsuario.setAtivo(Character.toString(ativo));
-        
+        //Comando do banco
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
-
+        //Objeto
         UsuarioDAO dao = new UsuarioDAO(conexao);
         dao.inserir(novoUsuario);
         
         conn.fecharConexao();
-        
+        //Diretorio
         response.sendRedirect("/Farmacia/Usuarios/usuarios.jsp");       
     }
 

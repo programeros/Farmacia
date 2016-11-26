@@ -28,18 +28,18 @@ public class ExcluirCliente extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Variavel do id
         String codigo = request.getParameter("id");
-        
         int id = Integer.parseInt(codigo);
-        
+        //Comando do banco
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
-
+        //Objeto
         ClienteDAO dao = new ClienteDAO(conexao);
         dao.Remove(id);
 
         conn.fecharConexao();
-        
+        //Diretorio
         response.sendRedirect("/Farmacia/Clientes/cliente.jsp");            
         
     }

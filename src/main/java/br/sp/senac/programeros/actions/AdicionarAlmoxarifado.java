@@ -10,31 +10,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author Michael Facul
- */
 public class AdicionarAlmoxarifado extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        //Variaveis
         String descricao = request.getParameter("descricao");
         String filial = request.getParameter("filial");        
         String ativo = "S";
-
+        //Objeto e valores
         Almoxarifado novo = new Almoxarifado();
         novo.setDescricao(descricao);
         novo.setFilial(Integer.parseInt(filial));        
         novo.setAtivo(ativo);
-
+        //Comando do banco
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
-
+        //Objeto
         AlmoxarifadoDAO dao = new AlmoxarifadoDAO(conexao);
         dao.inserir(novo);
 
         conn.fecharConexao();
-
+        //Diretorio
         response.sendRedirect("/Farmacia/Almoxarifados/almoxarifado.jsp");
 
     }

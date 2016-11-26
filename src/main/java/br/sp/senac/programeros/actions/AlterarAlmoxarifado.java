@@ -24,34 +24,36 @@ public class AlterarAlmoxarifado extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Variavel do id
         String id = request.getParameter("id");
         request.setAttribute("id", id);
-        
+        //Request diretorio
         request.getRequestDispatcher("Almoxarifados/almoxarifadoAlterar.jsp").forward(request, response);  
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Variaveis
         int id = Integer.parseInt(request.getParameter("id"));
         String descricao = request.getParameter("descricao");
         String filial = request.getParameter("filial");        
         String ativo = "S";
-
+        //Objeto e valores
         Almoxarifado novo = new Almoxarifado();
         novo.setCodigo(id);
         novo.setDescricao(descricao);
         novo.setFilial(Integer.parseInt(filial));        
         novo.setAtivo(ativo);
-
+        //Comando do banco
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
-
+        //Objeto
         AlmoxarifadoDAO dao = new AlmoxarifadoDAO(conexao);
         dao.alterar(novo);
         
         conn.fecharConexao();
-        
+        //Diretorio
         response.sendRedirect("/Farmacia/Almoxarifados/almoxarifado.jsp");
     }
 

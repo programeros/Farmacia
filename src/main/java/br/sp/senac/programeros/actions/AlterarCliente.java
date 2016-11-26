@@ -10,10 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Michael Facul
- */
 public class AlterarCliente extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -24,15 +20,17 @@ public class AlterarCliente extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Variavel do id
         String id = request.getParameter("id");
         request.setAttribute("id", id);        
-        
+        //Request diretorio
         request.getRequestDispatcher("Clientes/clienteAlterar.jsp").forward(request, response);  
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Variaveis
         int id = Integer.parseInt(request.getParameter("id"));
         String nome = request.getParameter("nome");
         String endereco = request.getParameter("endereco");
@@ -44,7 +42,7 @@ public class AlterarCliente extends HttpServlet {
         String telefone = request.getParameter("telefone");
         String celular = request.getParameter("celular");        
         String ativo =  request.getParameter("ativo");
-        
+        //Objetos e valores 
         Cliente novoCliente = new Cliente();
         novoCliente.setCodigo(id);
         novoCliente.setNome(nome);
@@ -58,15 +56,15 @@ public class AlterarCliente extends HttpServlet {
         novoCliente.setCelular(celular);
         novoCliente.setAtivo(ativo);
 
-        
+        //Comando do banco
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
-
+        //Obejto
         ClienteDAO dao = new ClienteDAO(conexao);
         dao.alterar(novoCliente);
         
         conn.fecharConexao();
-        
+        //Diretorio
         response.sendRedirect("/Farmacia/Clientes/cliente.jsp");
     }
 

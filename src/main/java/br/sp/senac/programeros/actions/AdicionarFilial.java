@@ -15,7 +15,7 @@ public class AdicionarFilial extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        //Variaveis
         String nome = request.getParameter("nome");
         String endereco = request.getParameter("endereco");
         String bairro = request.getParameter("bairro");
@@ -26,7 +26,7 @@ public class AdicionarFilial extends HttpServlet {
         String fax = request.getParameter("fax");
         String responsavel = request.getParameter("responsavel");
         String ativo = "S";
-        
+        //Objeto e valores
         Filiais novaFilial = new Filiais();
         novaFilial.setNome(nome);
         novaFilial.setEndereco(endereco);
@@ -38,15 +38,15 @@ public class AdicionarFilial extends HttpServlet {
         novaFilial.setFax(fax);
         novaFilial.setResponsavel(responsavel);
         novaFilial.setAtivo(ativo);
-
+        //Comando do banco
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
-
+        //Objeto
         FilialDAO dao = new FilialDAO(conexao);
         dao.inserir(novaFilial);
 
         conn.fecharConexao();
-
+        //Diretorio
         response.sendRedirect("/Farmacia/Filiais/filial.jsp");
         
     }

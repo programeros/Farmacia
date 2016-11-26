@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.sp.senac.programeros.actions;
 
 import br.sp.senac.programeros.connection.ConexaoBD;
@@ -14,10 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Michael Facul
- */
 public class ExcluirFornecedor extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -28,18 +19,18 @@ public class ExcluirFornecedor extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Variavel
         String codigo = request.getParameter("id");
-        
         int id = Integer.parseInt(codigo);
-        
+        //Comando do banco
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
-
+        //Objeto
         FornecedorDAO dao = new FornecedorDAO(conexao);
         dao.Remove(id);
 
         conn.fecharConexao();
-        
+        //Diretorio
         response.sendRedirect("/Farmacia/Fornecedores/fornecedor.jsp");            
         
     }

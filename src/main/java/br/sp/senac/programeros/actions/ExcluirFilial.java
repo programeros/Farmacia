@@ -25,18 +25,18 @@ public class ExcluirFilial extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Variavel do id
         String codigo = request.getParameter("id");
-        
         int id = Integer.parseInt(codigo);
-        
+        //Comando do banco
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
-
+        //Objeto
         FilialDAO dao = new FilialDAO(conexao);
         dao.Remove(id);
 
         conn.fecharConexao();
-        
+        //Diretorio
         response.sendRedirect("/Farmacia/Filiais/filial.jsp");    
     }
 

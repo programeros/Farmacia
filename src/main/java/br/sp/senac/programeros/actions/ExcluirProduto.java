@@ -10,10 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Michael Facul
- */
 public class ExcluirProduto extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -23,17 +19,18 @@ public class ExcluirProduto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Variavel do id
         String codigo = request.getParameter("id");
         int codbar = Integer.parseInt(codigo);
-                        
+        //Comando do banco                
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
-
+        //Objeto
         ProdutoDAO dao = new ProdutoDAO(conexao);
         dao.remove(codbar);
 
         conn.fecharConexao();
-        
+        //Diretorio
         response.sendRedirect("/Farmacia/Produtos/produtos.jsp");            
         
     }

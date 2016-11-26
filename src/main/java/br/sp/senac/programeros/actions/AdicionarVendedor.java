@@ -10,15 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Michael Facul
- */
 public class AdicionarVendedor extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        //Variaveis
         String nome = request.getParameter("nome");
         String endereco = request.getParameter("endereco");
         String bairro = request.getParameter("bairro");
@@ -28,7 +24,7 @@ public class AdicionarVendedor extends HttpServlet {
         String telefone = request.getParameter("telefone");
         String celular = request.getParameter("celular");
         String ativo = "S";
-
+        //Objetos e valores
         Vendedor novo = new Vendedor();
         novo.setNome(nome);
         novo.setEndereco(endereco);
@@ -39,15 +35,15 @@ public class AdicionarVendedor extends HttpServlet {
         novo.setTelefone(telefone);
         novo.setCelular(celular);
         novo.setAtivo(ativo);
-
+        //Comandos do banco
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
-
+        //Objeto
         VendedorDAO dao = new VendedorDAO(conexao);
         dao.inserir(novo);
 
         conn.fecharConexao();
-
+        //Diretorio
         response.sendRedirect("/Farmacia/Vendedores/vendedor.jsp");
 
     }

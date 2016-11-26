@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author Michael Facul
- */
 public class ExcluirAlmoxarifado extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -23,18 +20,18 @@ public class ExcluirAlmoxarifado extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Variavel id
         String codigo = request.getParameter("id");
-        
         int id = Integer.parseInt(codigo);
-        
+        //Comando do banco
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
-
+        //Objeto
         AlmoxarifadoDAO dao = new AlmoxarifadoDAO(conexao);
         dao.Remove(id);
 
         conn.fecharConexao();
-        
+        //Diretorio
         response.sendRedirect("/Farmacia/Almoxarifados/almoxarifado.jsp");            
         
     }

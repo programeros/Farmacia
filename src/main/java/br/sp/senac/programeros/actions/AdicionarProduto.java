@@ -11,14 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author Michael Facul
- */
 public class AdicionarProduto extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        //Variaveis
         String codigo = request.getParameter("codigo");
         String descricao = request.getParameter("descricao");
         String preco = request.getParameter("preco");
@@ -26,7 +23,7 @@ public class AdicionarProduto extends HttpServlet {
         String categoria = request.getParameter("categoria");
         String fornecedor = request.getParameter("fornecedor");                
         String ativo = "S";
-
+        //Objetos e valores
         Produto novo = new Produto();
         novo.setCodigo(codigo);
         novo.setDescricao(descricao);
@@ -35,15 +32,15 @@ public class AdicionarProduto extends HttpServlet {
         novo.setCategoria(Integer.parseInt(categoria));
         novo.setFornecedor(Integer.parseInt(fornecedor));               
         novo.setAtivo(ativo);
-
+        //Comando do banco
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
-
+        //Objeto
         ProdutoDAO dao = new ProdutoDAO(conexao);
         dao.inserir(novo);
 
         conn.fecharConexao();
-
+        //Diretorio
         response.sendRedirect("/Farmacia/Produtos/produtos.jsp");
     }
 
