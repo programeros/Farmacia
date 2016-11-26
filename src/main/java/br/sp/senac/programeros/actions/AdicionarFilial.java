@@ -25,6 +25,7 @@ public class AdicionarFilial extends HttpServlet {
         String telefone = request.getParameter("telefone");
         String fax = request.getParameter("fax");
         String responsavel = request.getParameter("responsavel");
+        String email = request.getParameter("email");
         String ativo = "S";
         //Objeto e valores
         Filiais novaFilial = new Filiais();
@@ -37,6 +38,7 @@ public class AdicionarFilial extends HttpServlet {
         novaFilial.setTelefone(telefone);
         novaFilial.setFax(fax);
         novaFilial.setResponsavel(responsavel);
+        novaFilial.setEmail(email);
         novaFilial.setAtivo(ativo);
         //Comando do banco
         ConexaoBD conn = new ConexaoBD();

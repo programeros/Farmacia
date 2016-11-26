@@ -34,7 +34,8 @@
             CEP: <input type="text" name="cep" value="<%=filial.getCep()%>" />                    
             Tel.: <input type="text" name="telefone" value="<%=filial.getTelefone()%>"/>
             Fax.: <input type="text" name="fax" value="<%=filial.getFax()%>"/><br/> <br/>  
-            Responsável: <input type="text" name="celular" value="<%=filial.getResponsavel()%>"/> 
+            Responsável: <input type="text" name="responsavel" value="<%=filial.getResponsavel()%>"/> 
+            Email: <input type="text" name="email" value="<%=filial.getEmail()%>"/> 
             Ativo: <select name="ativo" id="selectFilial"><br/><br/> 
                 <option value = "S">Sim</option>
                 <option value = "N">Não</option>

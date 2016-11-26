@@ -42,7 +42,8 @@ public class AlterarFilial extends HttpServlet {
         String telefone = request.getParameter("telefone");
         String fax = request.getParameter("fax");
         String responsavel = request.getParameter("responsavel");
-        String ativo = "S";
+        String email = request.getParameter("email");
+        String ativo = request.getParameter("ativo");
         //Objetos e variaveis
         Filiais novaFilial = new Filiais();
         novaFilial.setCodigo(id);
@@ -55,13 +56,14 @@ public class AlterarFilial extends HttpServlet {
         novaFilial.setTelefone(telefone);
         novaFilial.setFax(fax);
         novaFilial.setResponsavel(responsavel);
+        novaFilial.setEmail(email);
         novaFilial.setAtivo(ativo);
         //Comando do banco
         ConexaoBD conn = new ConexaoBD();
         Connection conexao = conn.obterConexao();
         //Obejto
         FilialDAO dao = new FilialDAO(conexao);
-        dao.inserir(novaFilial);
+        dao.alterar(novaFilial);
 
         conn.fecharConexao();
         //Diretorio

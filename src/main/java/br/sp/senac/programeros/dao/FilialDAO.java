@@ -21,7 +21,8 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
         this.conexao = conexao;
     }
     //Inserir
-    public void filial(Filiais filial) {
+    @Override
+    public void inserir(Filiais filial) {
         //Comando do banco
         String sql = "INSERT INTO filiais "
                 + "(nome,endereco,bairro,cidade,estado,cep,telefone,fax,responsavel,email,"
@@ -56,8 +57,8 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
         try {
             String sql = "UPDATE filiais "
                     + " SET nome = ?, endereco = ?, bairro = ?, cidade = ?, "
-                    + " estado = ?, cep = ?, telefone = ?, fax = ?, responsavel = ?, email = ?, ativo = ?, deletado = ? "                    
-                    + " WHERE CODIGO = ?";
+                    + " estado = ?, cep = ?, telefone = ?, fax = ?, responsavel = ?, email = ?, ativo = ? "                    
+                    + " WHERE codigo = ?";
             //Setando valores
             PreparedStatement p;
             p = this.conexao.prepareStatement(sql);
@@ -71,9 +72,8 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
             p.setString(8, filial.getFax());
             p.setString(9, filial.getResponsavel()); 
             p.setString(10, filial.getEmail());            
-            p.setString(11, String.valueOf(filial.getAtivo()));
-            p.setString(12, String.valueOf(filial.getDeletado()));
-            p.setInt(13, filial.getCodigo());
+            p.setString(11, String.valueOf(filial.getAtivo()));           
+            p.setInt(12, filial.getCodigo());
 
             p.execute();
 
@@ -107,8 +107,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
                 String fax = rs.getString("fax");
                 String responsavel = rs.getString("responsavel");
                 String email = rs.getString("email");                
-                String ativo = rs.getString("ativo");
-                String deletado = rs.getString("deletado");
+                String ativo = rs.getString("ativo");                
 
                 filial.setCodigo(codigo);
                 filial.setNome(nome);
@@ -121,8 +120,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
                 filial.setFax(fax);
                 filial.setResponsavel(responsavel);
                 filial.setEmail(email);                
-                filial.setAtivo(ativo);
-                filial.setDeletado(deletado);
+                filial.setAtivo(ativo);             
 
                 filiais.add(filial);
             }
@@ -158,8 +156,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
             filial.setFax(rs.getString("fax"));
             filial.setResponsavel(rs.getString("responsavel"));
             filial.setEmail(rs.getString("email"));           
-            filial.setAtivo(rs.getString("ativo"));
-            filial.setDeletado(rs.getString("deletado"));
+            filial.setAtivo(rs.getString("ativo"));           
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -187,8 +184,8 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
 
     }
     //Inserir
-    @Override
-    public void inserir(Filiais filial) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }   
+//    @Override
+//    public void inserir(Filiais filial) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }   
 }

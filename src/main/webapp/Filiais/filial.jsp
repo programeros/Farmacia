@@ -43,7 +43,7 @@
             <p id="sair">Sair</p>
         </div>
         <div class="tela">
-            <table id="vendedores">    
+            <table id="filiais">    
                 <thread>
                     <th id="col1">Codigo</th>
                     <th id="col2">Nome</th>
