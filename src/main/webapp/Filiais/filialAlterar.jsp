@@ -32,20 +32,19 @@
             Cidade: <input type="text" name="cidade" value="<%=filial.getCidade()%>"/>
             Estado: <input type="text" name="estado" value="<%=filial.getEstado()%>"/><br/><br/>
             CEP: <input type="text" name="cep" value="<%=filial.getCep()%>" />                    
-            Tel.: <input type="text" name="telefone" value="<%=filial.getTelefone()%>"/>
-            Fax.: <input type="text" name="fax" value="<%=filial.getFax()%>"/><br/> <br/>  
+            Tel.: <input type="text" name="telefone" value="<%=filial.getTelefone()%>"/> 
             Responsável: <input type="text" name="responsavel" value="<%=filial.getResponsavel()%>"/> 
             Email: <input type="text" name="email" value="<%=filial.getEmail()%>"/> 
             Ativo: <select name="ativo" id="selectFilial"><br/><br/> 
-                <option value = "S">Sim</option>
-                <option value = "N">Não</option>
+                <option value = "1">Sim</option>
+                <option value = "2">Não</option>
                 <script type="text/javascript">
                     var selected = document.getElementById("selectFilial");
                     switch ("<%=filial.getAtivo()%>") {
-                        case "S":
+                        case "1":
                             selected.selectedIndex = 0;
                             break;
-                        case "N":
+                        case "2":
                             selected.selectedIndex = 1;
                             break;
                     }

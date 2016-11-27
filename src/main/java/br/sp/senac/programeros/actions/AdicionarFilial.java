@@ -23,10 +23,9 @@ public class AdicionarFilial extends HttpServlet {
         String estado = request.getParameter("estado");
         String cep = request.getParameter("cep");
         String telefone = request.getParameter("telefone");
-        String fax = request.getParameter("fax");
         String responsavel = request.getParameter("responsavel");
         String email = request.getParameter("email");
-        String ativo = "S";
+        String ativo = "1";
         //Objeto e valores
         Filiais novaFilial = new Filiais();
         novaFilial.setNome(nome);
@@ -36,7 +35,6 @@ public class AdicionarFilial extends HttpServlet {
         novaFilial.setEstado(estado);
         novaFilial.setCep(cep);
         novaFilial.setTelefone(telefone);
-        novaFilial.setFax(fax);
         novaFilial.setResponsavel(responsavel);
         novaFilial.setEmail(email);
         novaFilial.setAtivo(ativo);

@@ -24,10 +24,10 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
     @Override
     public void inserir(Filiais filial) {
         //Comando do banco
-        String sql = "INSERT INTO filiais "
-                + "(nome,endereco,bairro,cidade,estado,cep,telefone,fax,responsavel,email,"
-                + "ativo, deletado) VALUES "
-                + "(?,?,?,?,?,?,?,?,?,?,?, '')";
+        String sql = "insert into filiais "
+                + "(nome,endereco,bairro,cidade,estado,cep,telefone,responsavel,"
+                + "email,ativo) values (?,?,?,?,?,?,?,?,?,?)";
+        
         PreparedStatement p;
         try {
             //Setando Valores
@@ -39,10 +39,9 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
             p.setString(5, filial.getEstado());
             p.setString(6, filial.getCep());            
             p.setString(7, filial.getTelefone());
-            p.setString(8, filial.getFax());
-            p.setString(9, filial.getResponsavel());            
-            p.setString(10, filial.getEmail());                        
-            p.setString(11, "S");          
+            p.setString(8, filial.getResponsavel());            
+            p.setString(9, filial.getEmail());                        
+            p.setString(10, "1");          
 
             p.execute();
 
@@ -57,7 +56,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
         try {
             String sql = "UPDATE filiais "
                     + " SET nome = ?, endereco = ?, bairro = ?, cidade = ?, "
-                    + " estado = ?, cep = ?, telefone = ?, fax = ?, responsavel = ?, email = ?, ativo = ? "                    
+                    + " estado = ?, cep = ?, telefone = ?, responsavel = ?, email = ?, ativo = ? "                    
                     + " WHERE codigo = ?";
             //Setando valores
             PreparedStatement p;
@@ -69,11 +68,10 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
             p.setString(5, filial.getEstado());
             p.setString(6, filial.getCep());            
             p.setString(7, filial.getTelefone());
-            p.setString(8, filial.getFax());
-            p.setString(9, filial.getResponsavel()); 
-            p.setString(10, filial.getEmail());            
-            p.setString(11, String.valueOf(filial.getAtivo()));           
-            p.setInt(12, filial.getCodigo());
+            p.setString(8, filial.getResponsavel()); 
+            p.setString(9, filial.getEmail());            
+            p.setString(10, String.valueOf(filial.getAtivo()));           
+            p.setInt(11, filial.getCodigo());
 
             p.execute();
 
@@ -89,7 +87,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
         
         try {
             //Comando do banco
-            String sql = "SELECT * FROM filiais WHERE deletado <> '*'";
+            String sql = "SELECT * FROM filiais WHERE isnull(deletado)";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -104,7 +102,6 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
                 String estado = rs.getString("estado");
                 String cep = rs.getString("cep");                
                 String telefone = rs.getString("telefone");
-                String fax = rs.getString("fax");
                 String responsavel = rs.getString("responsavel");
                 String email = rs.getString("email");                
                 String ativo = rs.getString("ativo");                
@@ -115,9 +112,8 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
                 filial.setBairro(bairro);
                 filial.setCidade(cidade);
                 filial.setEstado(estado);
-                filial.setCep(cep);                
+                filial.setCep(cep);  
                 filial.setTelefone(telefone);
-                filial.setFax(fax);
                 filial.setResponsavel(responsavel);
                 filial.setEmail(email);                
                 filial.setAtivo(ativo);             
@@ -137,7 +133,8 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
         Filiais filial = new Filiais();
         ConexaoBD conn = new ConexaoBD();
         //Comando do banco
-        String sql = "SELECT * FROM filiais WHERE deletado <> '*' AND codigo= " + codigo;
+        String sql = "SELECT * FROM filiais WHERE isnull(deletado) "
+                + "AND codigo= " + codigo;
 
         try {
             //Setando valores
@@ -153,7 +150,6 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
             filial.setEstado(rs.getString("estado"));
             filial.setCep(rs.getString("cep"));           
             filial.setTelefone(rs.getString("telefone"));
-            filial.setFax(rs.getString("fax"));
             filial.setResponsavel(rs.getString("responsavel"));
             filial.setEmail(rs.getString("email"));           
             filial.setAtivo(rs.getString("ativo"));           
@@ -168,7 +164,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
     @Override
     public Filiais Remove(int codigo) {
         //Comando do banco
-        String sql = "UPDATE filiais set deletado = '*' WHERE codigo=?";
+        String sql = "UPDATE filiais set isnull(deletado) WHERE codigo=?";
 
         PreparedStatement p;
         try {

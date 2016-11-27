@@ -5,7 +5,6 @@ import br.sp.senac.programeros.dao.FilialDAO;
 import br.sp.senac.programeros.model.Filiais;
 import com.mysql.jdbc.Connection;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,7 +39,6 @@ public class AlterarFilial extends HttpServlet {
         String estado = request.getParameter("estado");
         String cep = request.getParameter("cep");
         String telefone = request.getParameter("telefone");
-        String fax = request.getParameter("fax");
         String responsavel = request.getParameter("responsavel");
         String email = request.getParameter("email");
         String ativo = request.getParameter("ativo");
@@ -54,7 +52,6 @@ public class AlterarFilial extends HttpServlet {
         novaFilial.setEstado(estado);
         novaFilial.setCep(cep);
         novaFilial.setTelefone(telefone);
-        novaFilial.setFax(fax);
         novaFilial.setResponsavel(responsavel);
         novaFilial.setEmail(email);
         novaFilial.setAtivo(ativo);

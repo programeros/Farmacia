@@ -10,7 +10,6 @@ public class Filiais {
     private String estado;
     private String cep;
     private String telefone;
-    private String fax;
     private String responsavel;
     private String email;
     private String ativo;
@@ -19,6 +18,41 @@ public class Filiais {
     //Construtor
     public Filiais() {
     }
+    
+    //Construtor
+    public Filiais(String nome, String endereco, String bairro, String cidade,
+            String estado, String cep, String telefone, String responsavel,
+            String email, String ativo) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.cep = cep;
+        this.telefone = telefone;
+        this.responsavel = responsavel;
+        this.email = email;
+        this.ativo = ativo;
+    }    
+
+    
+    //Construtor
+    public Filiais(int codigo, String nome, String endereco, String bairro, String cidade,
+            String estado, String cep, String telefone, String responsavel,
+            String email, String ativo) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.cep = cep;
+        this.telefone = telefone;
+        this.responsavel = responsavel;
+        this.email = email;
+        this.ativo = ativo;
+    }      
+    
     //Construtor
     public Filiais(Integer codigo) {
         this.codigo = codigo;
@@ -87,14 +121,7 @@ public class Filiais {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    //Metodo - GET
-    public String getFax() {
-        return fax;
-    }
-    //Metodo - SET
-    public void setFax(String fax) {
-        this.fax = fax;
-    }
+
     //Metodo - GET
     public String getResponsavel() {
         return responsavel;

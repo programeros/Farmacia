@@ -24,7 +24,6 @@
             Estado: <input type="text" name="estado" /><br/><br/>
             CEP: <input type="text" name="cep" />                    
             Tel.: <input type="text" name="telefone" />
-            Fax.: <input type="text" name="fax" /><br/><br/>
             Responsável: <input type="text" name="responsavel" />
             Email: <input type="text" name="email" /><br/><br/>                  
         <input type="submit" value="Gravar" />
