@@ -100,10 +100,6 @@
         <servlet-name>ExcluirAlmoxarifado</servlet-name>
         <servlet-class>br.sp.senac.programeros.actions.ExcluirAlmoxarifado</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>ControladorCompras</servlet-name>
-        <servlet-class>br.sp.senac.programeros.actions.ControladorCompras</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>VerificarUsuario</servlet-name>
         <url-pattern>/VerificarUsuario</url-pattern>
@@ -123,10 +119,6 @@
     <servlet-mapping>
         <servlet-name>AlterarSenhaUsuario</servlet-name>
         <url-pattern>/AlterarSenhaUsuario</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>novoPedido</servlet-name>
-        <url-pattern>/compra.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>VisualizarUsuario</servlet-name>
@@ -203,10 +195,6 @@
     <servlet-mapping>
         <servlet-name>ExcluirAlmoxarifado</servlet-name>
         <url-pattern>/ExcluirAlmoxarifado</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ControladorCompras</servlet-name>
-        <url-pattern>/compras.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
