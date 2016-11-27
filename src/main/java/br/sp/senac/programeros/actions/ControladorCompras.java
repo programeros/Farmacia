@@ -57,9 +57,7 @@ public class ControladorCompras extends HttpServlet {
             String compras = request.getParameter("idCompra");
             CompraDAO compraDAO = dao.inserir(compras);
             request.setAttribute("compraDAO", compraDAO);
-            
-            
-            
+         
         }else if (acao.equalsIgnoreCase("visualizar")) {
             
         }else if (acao.equalsIgnoreCase("alterar")) {
