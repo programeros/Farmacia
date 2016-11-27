@@ -22,7 +22,7 @@ public class VendaDAO implements br.sp.senac.programeros.interfaces.VendaInterfa
     }
     //Inserir Cabecalho
     @Override
-    public void inserirCabecalho(Venda venda) {
+    public void inserirVenda(Venda venda) {
         //Comando do banco
         String sql = "insert into venda "
                 + " (numero,cliente,condicao,desconto,vendedor)"
@@ -84,7 +84,7 @@ public class VendaDAO implements br.sp.senac.programeros.interfaces.VendaInterfa
     }
     //Remover
     @Override
-    public Venda Remove(int pedido) {
+    public Venda RemoverVenda(int pedido) {
         //Remove o cabeçalho do pedido da tabela
         String sql = "DELETE FROM vendas WHERE pedido=?";
 

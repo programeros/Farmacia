@@ -26,7 +26,7 @@ public class UsuarioDAO implements br.sp.senac.programeros.interfaces.UsuarioInt
     public void inserir(Usuario usuario) {
         //Comando do banco
         String sql = "insert into usuarios "
-                + "(login, nome, senha, ativo, deletado) VALUES (?, ?, ?, ?, '')";
+                + "(login, nome, senha, ativo) VALUES (?, ?, ?, ?)";
         PreparedStatement p;
 
         try {
@@ -96,7 +96,7 @@ public class UsuarioDAO implements br.sp.senac.programeros.interfaces.UsuarioInt
 
         try {
             //Comando do banco
-            String sql = "SELECT * FROM usuarios WHERE deletado <> '*'";
+            String sql = "SELECT * FROM usuarios WHERE isnull(deletado)";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -130,7 +130,7 @@ public class UsuarioDAO implements br.sp.senac.programeros.interfaces.UsuarioInt
         Usuario usuario = new Usuario();
         ConexaoBD conn = new ConexaoBD();
         //Comando do banco
-        String sql = "SELECT * FROM usuarios WHERE deletado <> '*' AND codigo= " + codigo;
+        String sql = "SELECT * FROM usuarios WHERE codigo= " + codigo;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
@@ -175,7 +175,8 @@ public class UsuarioDAO implements br.sp.senac.programeros.interfaces.UsuarioInt
         String user = null;
         String pass = null;
 
-        String sql = "SELECT * FROM usuarios WHERE deletado <> '*' AND ativo = 1 AND login= '" + login + "'";
+        String sql = "SELECT * FROM usuarios WHERE deletado <> '*' AND "
+                + "ativo <> 'N' OR ativo <> 2 AND login= '" + login + "'";
 
         try {
             java.sql.Statement stmt = conexao.createStatement();
