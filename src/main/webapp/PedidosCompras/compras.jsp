@@ -28,22 +28,22 @@
 
 <c:import url="../Formularios/header.jsp"/>
 
-
+<c:import url="../Formularios/menuprincipal.jsp"/>
 
 
 <div class="menu col-md-2 menu-acoes">
     
     <p>
-        <input type="button" class="btn btn-primary btn-block" value="Incluir" onclick="Incluir clicado" />
+        <input type="button" class="btn btn-primary btn-block" value="iIncluir" onclick="Incluir clicado" />
     </p>
     <p>
-        <input type="button" class="btn btn-primary btn-block" value="Visualizar" onclick="Visualizar" />
+        <input type="button" class="btn btn-primary btn-block" value="visualizar" onclick="Visualizar" />
     </p>
     <p>
-        <input type="button" class="btn btn-primary btn-block" value="Alterar" onclick="Alterar clicado" />
+        <input type="button" class="btn btn-primary btn-block" value="alterar" onclick="Alterar clicado" />
     </p>
     <p>
-        <input type="button" class="btn btn-primary btn-block" value="Excluir" onclick="Excluir" />
+        <input type="button" class="btn btn-primary btn-block" value="excluir" onclick="Excluir" />
     </p>
 </div>
 

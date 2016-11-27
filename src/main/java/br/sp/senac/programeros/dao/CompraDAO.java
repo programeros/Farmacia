@@ -161,4 +161,8 @@ public class CompraDAO implements br.sp.senac.programeros.interfaces.CompraInter
     public void inserir(Compra compra) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public CompraDAO inserir(String compras) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

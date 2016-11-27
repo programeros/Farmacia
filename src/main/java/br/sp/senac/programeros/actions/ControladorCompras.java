@@ -5,6 +5,9 @@
  */
 package br.sp.senac.programeros.actions;
 
+import br.sp.senac.programeros.connection.ConexaoBD;
+import br.sp.senac.programeros.dao.CompraDAO;
+import com.mysql.jdbc.Connection;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,6 +22,19 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/compras.do")
 public class ControladorCompras extends HttpServlet {
+    
+    private CompraDAO dao;
+    private static String inserir = "/PedidosCompras/incluir_pedido.jsp";
+    private static String listar = "/PedidosCompras/compras.jsp";
+
+    public ControladorCompras() {
+        super();
+        ConexaoBD conn = new ConexaoBD();
+        Connection conexao = conn.obterConexao();
+        dao = new CompraDAO(conexao);
+    }
+    
+    
 
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -36,11 +52,25 @@ public class ControladorCompras extends HttpServlet {
         String comando = "";
         String acao = request.getParameter("comando");
         
-        if (acao.equalsIgnoreCase("inserir")) {
+        if (acao.equalsIgnoreCase("incluir")) {
+            comando = inserir;
+            String compras = request.getParameter("idCompra");
+            CompraDAO compraDAO = dao.inserir(compras);
+            request.setAttribute("compraDAO", compraDAO);
+            
+            
+            
+        }else if (acao.equalsIgnoreCase("visualizar")) {
             
         }else if (acao.equalsIgnoreCase("alterar")) {
             
+        }else if (acao.equalsIgnoreCase("excluir")) {
+            
+        }else{
+            comando = listar;
+            request.setAttribute("listar", dao.listarCompras());
         }
+            
         
         
     }
