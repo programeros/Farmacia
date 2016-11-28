@@ -24,8 +24,8 @@ Connection conexao;
     public void inserir(Produto produto) {
         //Comando do banco
         String sql = "insert into produtos "
-            + "(codigo, descricao, preco, marca, categoria_codigo,"
-            + " fornecedor_codigo, ativo, deletado) "
+            + "(codigo, descricao, preco, marca, categoria,"
+            + " fornecedor, ativo, deletado) "
             + " VALUES (?, ?, ?, ?, ?, ?, ?, '')";
         
         PreparedStatement p;
@@ -56,7 +56,7 @@ Connection conexao;
             //Comando do banco
             String sql = "UPDATE produtos "
                 + " SET codigo = ?, descricao = ?, preco = ?, marca = ?,"
-                + " categoria_codigo = ?, fornecedor_codigo = ?, ativo = ?,"
+                + " categoria = ?, fornecedor = ?, ativo = ?,"
                 + " WHERE codbar = ?";
 
             PreparedStatement p; 
@@ -98,8 +98,8 @@ Connection conexao;
                 String descricao = rs.getString("descricao");
                 float preco = rs.getFloat("preco");
                 String marca = rs.getString("marca");
-                int categoria = rs.getInt("categoria_codigo");
-                int fornecedor = rs.getInt("fornecedor_codigo");
+                int categoria = rs.getInt("categoria");
+                int fornecedor = rs.getInt("fornecedor");
                 String ativo = rs.getString("ativo");
                 
                 produto.setCodbar(codbar);
@@ -138,8 +138,8 @@ Connection conexao;
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setMarca(rs.getString("marca"));
-                produto.setCategoria(rs.getInt("categoria_codigo"));
-                produto.setFornecedor(rs.getInt("fornecedor_codigo"));
+                produto.setCategoria(rs.getInt("categoria"));
+                produto.setFornecedor(rs.getInt("fornecedor"));
                 produto.setAtivo(rs.getString("ativo"));
 
         }catch(SQLException e){

@@ -25,7 +25,7 @@ public class AdicionarFilial extends HttpServlet {
         String telefone = request.getParameter("telefone");
         String responsavel = request.getParameter("responsavel");
         String email = request.getParameter("email");
-        String ativo = "1";
+        String ativo = "S";
         //Objeto e valores
         Filiais novaFilial = new Filiais();
         novaFilial.setNome(nome);

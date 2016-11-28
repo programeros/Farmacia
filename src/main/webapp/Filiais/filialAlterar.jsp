@@ -36,15 +36,15 @@
             Responsável: <input type="text" name="responsavel" value="<%=filial.getResponsavel()%>"/> 
             Email: <input type="text" name="email" value="<%=filial.getEmail()%>"/> 
             Ativo: <select name="ativo" id="selectFilial"><br/><br/> 
-                <option value = "1">Sim</option>
-                <option value = "2">Não</option>
+                <option value = "S">Sim</option>
+                <option value = "N">Não</option>
                 <script type="text/javascript">
                     var selected = document.getElementById("selectFilial");
                     switch ("<%=filial.getAtivo()%>") {
-                        case "1":
+                        case "S":
                             selected.selectedIndex = 0;
                             break;
-                        case "2":
+                        case "N":
                             selected.selectedIndex = 1;
                             break;
                     }

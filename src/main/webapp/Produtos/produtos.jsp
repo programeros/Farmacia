@@ -46,7 +46,7 @@
         </div>
 
         <div class="tela">
-            <table id="produtos">         
+            <table id="produto">         
                 <thread>
                     <th id="col1">Codigo Barras</th>
                     <th id="col2">Codigo</th>

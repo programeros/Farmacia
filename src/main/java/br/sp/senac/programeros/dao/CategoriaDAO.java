@@ -2,7 +2,7 @@ package br.sp.senac.programeros.dao;
 
 import br.sp.senac.programeros.connection.ConexaoBD;
 import br.sp.senac.programeros.model.Categoria;
-import java.sql.Connection;
+import com.mysql.jdbc.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +21,8 @@ public class CategoriaDAO implements br.sp.senac.programeros.interfaces.Categori
     }
     
     //Inserir
-    public void categoria(Categoria categoria) {
+    @Override
+    public void inserir(Categoria categoria) {
         //Comando do banco
         String sql = "insert into categorias "
                 + "(descricao, ativo, deletado) values"
@@ -139,11 +140,11 @@ public class CategoriaDAO implements br.sp.senac.programeros.interfaces.Categori
         return null;
     }
     
-    //Inserir
-    @Override
-    public void inserir(Categoria categoria) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    //Inserir
+//    @Override
+//    public void inserir(Categoria categoria) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     
     
 }

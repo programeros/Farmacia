@@ -126,7 +126,7 @@ public class AlmoxarifadoDAO implements br.sp.senac.programeros.interfaces.Almox
     @Override
     public Almoxarifado Remove(int codigo) {
         //Comando do banco
-        String sql = "update almoxarifado set deletado = '*' WHERE codigo=?";
+        String sql = "update almoxarifados set deletado = '*' WHERE codigo=?";
 
         PreparedStatement p;
         try {

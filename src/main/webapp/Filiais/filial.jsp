@@ -7,8 +7,9 @@
 <%@page import="br.sp.senac.programeros.dao.FilialDAO"%>
 <%@page import="br.sp.senac.programeros.model.Filiais"%>
 <%@page import="java.util.List"%>
-<%@page import="java.sql.Connection"%>
+<%@page import="com.mysql.jdbc.Connection"%>
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>       
@@ -22,10 +23,8 @@
             Connection conexao = conn.obterConexao();
             FilialDAO dao = new FilialDAO(conexao);
             List<Filiais> filial = dao.listarFiliais();
-
             conn.fecharConexao();
             int cont = 0;
-
         %>
         <div class="cabecalho">
             <img src="../images/logo_1.png" width="75" height="71" alt=""/>
@@ -43,7 +42,7 @@
             <p id="sair">Sair</p>
         </div>
         <div class="tela">
-            <table id="filiais">    
+            <table id="filial">    
                 <thread>
                     <th id="col1">Codigo</th>
                     <th id="col2">Nome</th>
@@ -65,5 +64,5 @@
                 <%}%>
             </table>                 
         </div> 
-</body>
+    </body>
 </html>

@@ -26,7 +26,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
         //Comando do banco
         String sql = "insert into filiais "
                 + "(nome,endereco,bairro,cidade,estado,cep,telefone,responsavel,"
-                + "email,ativo) values (?,?,?,?,?,?,?,?,?,?)";
+                + "email,ativo,deletado) values (?,?,?,?,?,?,?,?,?,?,'')";
         
         PreparedStatement p;
         try {
@@ -41,7 +41,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
             p.setString(7, filial.getTelefone());
             p.setString(8, filial.getResponsavel());            
             p.setString(9, filial.getEmail());                        
-            p.setString(10, "1");          
+            p.setString(10, "S");          
 
             p.execute();
 
@@ -87,7 +87,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
         
         try {
             //Comando do banco
-            String sql = "SELECT * FROM filiais WHERE isnull(deletado)";
+            String sql = "SELECT * FROM filiais WHERE deletado <> '*'";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -133,8 +133,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
         Filiais filial = new Filiais();
         ConexaoBD conn = new ConexaoBD();
         //Comando do banco
-        String sql = "SELECT * FROM filiais WHERE isnull(deletado) "
-                + "AND codigo= " + codigo;
+        String sql = "SELECT * FROM filiais WHERE deletado <> '*' AND codigo= " + codigo;
 
         try {
             //Setando valores
@@ -164,7 +163,7 @@ public class FilialDAO implements br.sp.senac.programeros.interfaces.FilialInter
     @Override
     public Filiais Remove(int codigo) {
         //Comando do banco
-        String sql = "UPDATE filiais set isnull(deletado) WHERE codigo=?";
+        String sql = "UPDATE filiais set deletado = '*' WHERE codigo=?";
 
         PreparedStatement p;
         try {

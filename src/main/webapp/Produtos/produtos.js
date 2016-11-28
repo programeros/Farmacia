@@ -10,7 +10,7 @@ function iniciar() {
     btnExcluir = document.querySelector("#excluir");
     btnSair = document.querySelector("#sair");
 
-    btnIncluir.addEventListener("click", adicionar);
+    btnIncluir.addEventListener("click",incluir);
     btnVisualizar.addEventListener("click", visualizar);
     btnAlterar.addEventListener("click", alterar);
     btnExcluir.addEventListener("click", excluir);
@@ -18,7 +18,7 @@ function iniciar() {
 
 }
 
-function adicionar() {
+function incluir() {
     window.location.assign("cadastroProduto.jsp");
 }
 
@@ -50,7 +50,7 @@ function sair() {
 }
 
 function selecionar(x){
-    id = x.rowIndex;
+   id = x.rowIndex;
     if (id !== selected){
         linha = document.getElementsByTagName('tr')[selected];
         linha.removeAttribute("class","cor");           
