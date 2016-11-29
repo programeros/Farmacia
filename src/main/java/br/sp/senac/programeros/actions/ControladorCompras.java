@@ -20,8 +20,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author smarangoni
  */
-@WebServlet("/compras.do")
+
 public class ControladorCompras extends HttpServlet {
+    
     
     private CompraDAO dao;
     private static String inserir = "/PedidosCompras/incluir_pedido.jsp";
@@ -85,6 +86,7 @@ public class ControladorCompras extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       
         
     }
 

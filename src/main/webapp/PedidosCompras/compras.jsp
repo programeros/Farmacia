@@ -19,6 +19,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link type="text/css" href="fornecedores.css" rel="stylesheet" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>SGF</title>
     </head>
@@ -50,33 +51,32 @@
             <p id="alterar">Alterar</p>
             <p id="excluir">Excluir</p>
         </div>
-        
-        
-        <table class="tblContatos">
-            <thead>
-            <th id="col1" style="width: 20px">Status</th>
-            <th id="col2" style="width: 30px">Pedido</th>
-            <th id="col3" style="width: 30px">Cod. Fornecedor</th>
-            <th id="col4" style="width: 40px">Nome Fornecedor</th>
-            <th id="col5" style="width: 30px">Data</th>
-            <th id="col6" style="width: 30px">Valor</th>               
-        </thead>
 
-        <tbody>
-            <% for (Compra c: compra) {
-        %>
-        <tr onclick="selecionar(this)">
-            <td><%= c.getNumero()%></td>
-            <td><%= c.getCondicao()%></td>
-            <td><%= c.getFornecedor()%></td>
-            <td><%= c.getNumero()%></td>
-            <td><%=c.getValor()%></td>
-            
-        
-        
-        
-        <%}%> 
-        </tbody>
+        <div class="tela">
+            <table class="tblContatos">
+                <thead>
+                <th id="col1" style="width: 20px">Status</th>
+                <th id="col2" style="width: 30px">Pedido</th>
+                <th id="col3" style="width: 30px">Cod. Fornecedor</th>
+                <th id="col4" style="width: 40px">Nome Fornecedor</th>
+                <th id="col5" style="width: 30px">Data</th>
+                <th id="col6" style="width: 30px">Valor</th>               
+                </thead>
+
+                <tbody>
+                    <% for (Compra c : compra) {
+                        
+                    %>
+                    <tr onclick="selecionar(this)">
+                        <td><%= c.getNumero()%></td>
+                        <td><%= c.getCondicao()%></td>
+                        <td><%= c.getFornecedor()%></td>
+                        <td><%= c.getNumero()%></td>
+                        <td><%=c.getValor()%></td>
+                        <%}%> 
+                </tbody>
+        </div>
+
 
 
     </table>

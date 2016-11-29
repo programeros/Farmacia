@@ -31,7 +31,7 @@
 
 
         <fieldset>
-            <form>
+            <form action="${pageContext.request.contextPath}/ControladorCompra" method="post">
                 <label for="codigo">Codigo do Produto</label>
                 <input class="input-default" type="search" name="codigo" value="" />
 
@@ -53,8 +53,8 @@
 
 
 
-        <div class="container-fluid">
-            <div class="col-md-12 infCompras">
+        <div class="tela">
+            
                 <table class="table table-hover text-primary">
                     <thead>
                     <th id="col1" style="width: 80px">Produto</th>
@@ -74,9 +74,7 @@
                             <td style="width: 30px">col4</td>
                             <td style="width: 20px">col5</td>
                             <td>
-                                <button type="button" class="btn btn-default" aria-label="Remover">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                </button>
+                                <input type="button" value="Excluir" onclick=""> 
                             </td>
                             <td>
                                 <button type="button" class="btn btn-default" aria-label="Editar">
