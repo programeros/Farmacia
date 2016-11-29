@@ -60,6 +60,7 @@ public class ControladorCompras extends HttpServlet {
          
         }else if (acao.equalsIgnoreCase("visualizar")) {
             
+            
         }else if (acao.equalsIgnoreCase("alterar")) {
             
         }else if (acao.equalsIgnoreCase("excluir")) {

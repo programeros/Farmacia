@@ -1,3 +1,4 @@
+<%@page import="br.sp.senac.programeros.dao.CompraDAO"%>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- 
     Document   : compras
@@ -11,45 +12,48 @@
 <%@page import="br.sp.senac.programeros.dao.ProdutoDAO"%>
 <%@page import="br.sp.senac.programeros.connection.ConexaoBD"%>
 <%@page import="br.sp.senac.programeros.model.Compra" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="mysql"uri="http://java.sun.com/jstl/sql" %>
 
-<c:import url="../Formularios/head.jsp"></c:import>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>SGF</title>
+    </head>
+    <body>
+        <%
+            ConexaoBD conn = new ConexaoBD();
+            Connection conexao = conn.obterConexao();
+            CompraDAO dao = new CompraDAO(conexao);
+            List<Compra> compra = dao.listarCompras();
+            conn.fecharConexao();
+        %> 
 
+        <div class="cabecalho">
+            <img src="../images/logo_1.png" width="75" height="71" alt=""/>
+            <div class="pesquisa">
+                <label for="select">Pesquisar:</label>
+                <select name="select" id="select">
+                     		<option value="pedido">Pedido</option>
+                    <option value="cliente">Cliente</option>
+                </select>
+                <input type="text" name="textfield" id="textfield">
+                <label id="pesquisa"><img src="../images/search.png" width="15" height="11" alt=""/></label>
+            </div>
+        </div>
 
-    <!--<script type="text/javascript">
-        function multiplicacao() {
-            var quantidade = document.getElementById("qtd").value;
-            var unitario = document.getElementById("s2").value;
-            var subtotal = parseInt(s1) * parseInt(s2);
-            alert(s3);
-        }
-    </script> -->
-
-<c:import url="../Formularios/header.jsp"/>
-
-<c:import url="../Formularios/menuprincipal.jsp"/>
-
-
-<div class="menu col-md-2 menu-acoes">
-    
-    <p>
-        <input type="button" class="btn btn-primary btn-block" value="iIncluir" onclick="Incluir clicado" />
-    </p>
-    <p>
-        <input type="button" class="btn btn-primary btn-block" value="visualizar" onclick="Visualizar" />
-    </p>
-    <p>
-        <input type="button" class="btn btn-primary btn-block" value="alterar" onclick="Alterar clicado" />
-    </p>
-    <p>
-        <input type="button" class="btn btn-primary btn-block" value="excluir" onclick="Excluir" />
-    </p>
-</div>
-
-<div class="col-md-10 infCompras">
-    <table class="table table-hover text-primary">
-        <thead>
+        <div class="menu">
+            <p id="incluir">Incluir</p>
+            <p id="visualizar">Visualizar</p>
+            <p id="alterar">Alterar</p>
+            <p id="excluir">Excluir</p>
+        </div>
+        
+        
+        <table class="tblContatos">
+            <thead>
             <th id="col1" style="width: 20px">Status</th>
             <th id="col2" style="width: 30px">Pedido</th>
             <th id="col3" style="width: 30px">Cod. Fornecedor</th>
@@ -57,10 +61,24 @@
             <th id="col5" style="width: 30px">Data</th>
             <th id="col6" style="width: 30px">Valor</th>               
         </thead>
-        
-        <tbody>
-            
-        </tbody>
-    </table>
 
-<c:import url="../Formularios/footer.jsp" />
+        <tbody>
+            <% for (Compra c: compra) {
+        %>
+        <tr onclick="selecionar(this)">
+            <td><%= c.getNumero()%></td>
+            <td><%= c.getCondicao()%></td>
+            <td><%= c.getFornecedor()%></td>
+            <td><%= c.getNumero()%></td>
+            <td><%=c.getValor()%></td>
+            
+        
+        
+        
+        <%}%> 
+        </tbody>
+
+
+    </table>
+</body>
+</html>
