@@ -25,7 +25,7 @@ public class TransferenciaDAO implements br.sp.senac.programeros.interfaces.Tran
     public void inserir(Transferencia transferencia) {
         //Comando do banco
         String sql = "INSERT INTO transferencias"
-                + "(data, produto, origem, destino, quantidate, usuario) VALUES "
+                + "(data, produto, origem, destino, quantidade, usuario) VALUES "
                 + "(?,?,?,?,?,?)";
         PreparedStatement p;
         try {

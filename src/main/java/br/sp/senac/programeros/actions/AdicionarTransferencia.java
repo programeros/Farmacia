@@ -20,18 +20,18 @@ public class AdicionarTransferencia extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Variaveis
-        String produto = request.getParameter("produto");
-        String qtde = request.getParameter("quantidade");
+        String produto = request.getParameter("produto");        
         String almOri = request.getParameter("almOri");
         String almDes = request.getParameter("almDes");
+        String qtde = request.getParameter("quantidade");
         String usuario = request.getParameter("usuario");
         
         //Objeto e valores
         Transferencia novo = new Transferencia();
-        novo.setProduto(Integer.parseInt(produto));
-        novo.setQuantidade(Float.parseFloat(qtde));
+        novo.setProduto(Integer.parseInt(produto));        
         novo.setOrigem(Integer.parseInt(almOri));
         novo.setDestino(Integer.parseInt(almDes));
+        novo.setQuantidade(Float.parseFloat(qtde));
         novo.setUsuario(Integer.parseInt(usuario));
         
         //Comando do banco
