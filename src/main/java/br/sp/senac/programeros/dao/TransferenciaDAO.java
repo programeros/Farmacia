@@ -21,7 +21,8 @@ public class TransferenciaDAO implements br.sp.senac.programeros.interfaces.Tran
         this.conexao = conexao;
     }
     //Inserir
-    public void transferencia(Transferencia transferencia) {
+    @Override
+    public void inserir(Transferencia transferencia) {
         //Comando do banco
         String sql = "INSERT INTO transferencias"
                 + "(data, produto, origem, destino, quantidate, usuario) VALUES "
@@ -50,19 +51,18 @@ public class TransferenciaDAO implements br.sp.senac.programeros.interfaces.Tran
         try {
             //Comando do banco
             String sql = "UPDATE tranferencias"
-                    + " SET data = ?, produto = ?, origem = ?, destino = ?,quantidade = ?, usuario = ?"
+                    + " SET produto = ?, origem = ?, destino = ?,quantidade = ?, usuario = ?"
                     + " WHERE chave = ?";
 
             PreparedStatement p;
             //Setando valores
-            p = this.conexao.prepareStatement(sql);
-            p.setDate(1, new java.sql.Date(System.currentTimeMillis()));
-            p.setInt(2, tranferencia.getProduto());
-            p.setInt(3, tranferencia.getOrigem());
-            p.setInt(4, tranferencia.getDestino());                      
-            p.setFloat(5, tranferencia.getQuantidade());  
-            p.setInt(6, tranferencia.getUsuario());
-            p.setInt(7, tranferencia.getChave());
+            p = this.conexao.prepareStatement(sql);            
+            p.setInt(1, tranferencia.getProduto());
+            p.setInt(2, tranferencia.getOrigem());
+            p.setInt(3, tranferencia.getDestino());                      
+            p.setFloat(4, tranferencia.getQuantidade());  
+            p.setInt(5, tranferencia.getUsuario());
+            p.setInt(6, tranferencia.getChave());
 
             p.execute();
 
@@ -158,8 +158,8 @@ public class TransferenciaDAO implements br.sp.senac.programeros.interfaces.Tran
 
     }
 
-    @Override
-    public void inserir(Transferencia movimento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public void inserir(Transferencia movimento) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }

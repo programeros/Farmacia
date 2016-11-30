@@ -30,18 +30,18 @@
         <hr/>
         <form action ="AlterarCliente" method="post">
             <input type=hidden name="id" value="<%=cliente.getCodigo()%>" size="6" /><br/>                    
-            Nome: <input type="text" size="40" name="nome" value="<%=cliente.getNome()%>"/>
-            Endereço: <input type="text" size="30" name="endereco" value="<%=cliente.getEndereco()%>"/><br/><br/> 
-            Bairro: <input type="text" name="bairro" value="<%=cliente.getBairro()%>"/>
-            Cidade: <input type="text" name="cidade" value="<%=cliente.getCidade()%>"/>
-            Estado: <input type="text" name="estado" value="<%=cliente.getEstado()%>"/><br/><br/> 
-            CEP: <input type="text" name="cep" value="<%=cliente.getCep()%>" />
+            Nome: <input type="text" size="40" name="nome" maxlength="30" value="<%=cliente.getNome()%>"/>
+            Endereço: <input type="text" size="30" name="endereco" maxlength="30" value="<%=cliente.getEndereco()%>"/><br/><br/> 
+            Bairro: <input type="text" name="bairro" maxlength="25" value="<%=cliente.getBairro()%>"/>
+            Cidade: <input type="text" name="cidade" maxlength="20" value="<%=cliente.getCidade()%>"/>
+            Estado: <input type="text" name="estado" maxlength="2" value="<%=cliente.getEstado()%>"/><br/><br/> 
+            CEP: <input type="text" name="cep" maxlength="8" value="<%=cliente.getCep()%>" />
             Sexo: <select name="sexo" id="selectSexo">
                 <option value = "M">Masculino</option>
                 <option value = "F">Feminino</option>
             </select><br/><br/> 
-            Tel.: <input type="text" name="telefone" value="<%=cliente.getTelefone()%>"/>
-            Cel.: <input type="text" name="celular" value="<%=cliente.getCelular()%>"/><br/><br/>                       
+            Tel.: <input type="text" name="telefone" maxlength="11" value="<%=cliente.getTelefone()%>"/>
+            Cel.: <input type="text" name="celular" maxlength="11" value="<%=cliente.getCelular()%>"/><br/><br/>                       
             Ativo: <select name="ativo" id="selectAtivo">
                 <option value = "S">Sim</option>
                 <option value = "N">Não</option>

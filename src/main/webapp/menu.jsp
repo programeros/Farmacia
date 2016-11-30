@@ -34,7 +34,7 @@
                         <li><a href="PedidosCompras/compras.jsp">Compras</a></li>
                         <li><a href="#">Recebimentos</a></li>                    
                         <li><a href="#">Pagamentos</a></li>
-                        <li><a href="Transferencias/produtosTransferencia.jsp">Transferencias</a></li>	                
+                        <li><a href="Transferencias/transferencias.jsp">Transferencias</a></li>	                
                     </ul>
                 </li>
                 <li><a href="#">Relatorios</a>
