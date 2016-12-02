@@ -23,8 +23,8 @@ public class AlterarProduto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Variavel do id
-        String codigo = request.getParameter("id");
-        request.setAttribute("id", codigo);
+        String id = request.getParameter("id");
+        request.setAttribute("id", id);
         //Request diretorio
         request.getRequestDispatcher("Produtos/produtoAlterar.jsp").forward(request, response);  
     }
@@ -34,7 +34,7 @@ public class AlterarProduto extends HttpServlet {
             throws ServletException, IOException { 
         //Variaveis
         int codbar = Integer.parseInt(request.getParameter("id"));
-        String codigo = request.getParameter("codigo");
+        String codigo = request.getParameter("codigo");        
         String descricao = request.getParameter("descricao");
         String preco = request.getParameter("preco");
         String marca = request.getParameter("marca");
@@ -43,8 +43,8 @@ public class AlterarProduto extends HttpServlet {
         String ativo = request.getParameter("ativo");
         //Objeto e valores
         Produto novo = new Produto();
-        novo.setCodbar(codbar);
         novo.setCodigo(codigo);
+        novo.setCodbar(codbar);        
         novo.setDescricao(descricao);
         novo.setMarca(marca);
         novo.setCategoria(Integer.parseInt(categoria));
@@ -56,7 +56,7 @@ public class AlterarProduto extends HttpServlet {
         Connection conexao = conn.obterConexao();
         //Objeto
         ProdutoDAO dao = new ProdutoDAO(conexao);
-        dao.inserir(novo);
+        dao.alterar(novo);
 
         conn.fecharConexao();
         //Diretorio

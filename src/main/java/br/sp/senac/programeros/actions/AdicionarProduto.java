@@ -16,6 +16,7 @@ public class AdicionarProduto extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Variaveis
+        String codigoBar = request.getParameter("codigoBar");
         String codigo = request.getParameter("codigo");
         String descricao = request.getParameter("descricao");
         String preco = request.getParameter("preco");
@@ -25,6 +26,7 @@ public class AdicionarProduto extends HttpServlet {
         String ativo = "S";
         //Objetos e valores
         Produto novo = new Produto();
+        novo.setCodbar(Integer.parseInt(codigoBar));
         novo.setCodigo(codigo);
         novo.setDescricao(descricao);
         novo.setPreco(Float.parseFloat(preco)); 
