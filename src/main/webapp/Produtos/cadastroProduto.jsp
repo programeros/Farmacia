@@ -24,10 +24,11 @@
         <hr/>
         <h2>Dados do Produto</h2>
         <form action ="../AdicionarProduto" method="get">
-            Código: <input type="text" size="40" name="codigo" />
-            Descrição: <input type="text" size="60" name="descricao" /><br/><br/> 
-            Preço: <input type="float" placeholder="0.00" name="preco" />
-            Marca: <input type="text" size="40" name="marca" /><br/><br/>                     
+            Código de Barras: <input type="text" required="required" size="30" maxlength="10" name="codigoBar" /><br/><br/> 
+            Código do Produto: <input type="text" required="required" size="30" maxlength="15" name="codigo" />
+            Descrição: <input type="text" required="required" size="30" maxlength="30" name="descricao" /><br/><br/> 
+            Preço: <input type="float" required="required" size="30" placeholder="0.00" name="preco" />
+            Marca: <input type="text" required="required" size="30" maxlength="20" name="marca" /><br/><br/>                     
             Categoria: <select name="categoria"> 
                 <option>Selecione a categoria</option>
                 <%
