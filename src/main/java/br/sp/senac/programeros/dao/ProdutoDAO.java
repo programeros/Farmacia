@@ -24,22 +24,23 @@ Connection conexao;
     public void inserir(Produto produto) {
         //Comando do banco
         String sql = "insert into produtos "
-            + "(codigo, descricao, preco, marca, categoria,"
+            + "(codbar, codigo, descricao, preco, marca, categoria,"
             + " fornecedor, ativo, deletado) "
-            + " VALUES (?, ?, ?, ?, ?, ?, ?, '')";
+            + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, '')";
         
         PreparedStatement p;
                      
         try {
             //Setando valores
-            p = this.conexao.prepareStatement(sql);           
-            p.setString(1, produto.getCodigo());            
-            p.setString(2, produto.getDescricao());
-            p.setFloat(3, produto.getPreco());            
-            p.setString(4, produto.getMarca());
-            p.setInt(5, produto.getCategoria());
-            p.setInt(6, produto.getFornecedor());
-            p.setString(7, "S");
+            p = this.conexao.prepareStatement(sql); 
+            p.setInt(1, produto.getCodbar());
+            p.setString(2, produto.getCodigo());            
+            p.setString(3, produto.getDescricao());
+            p.setFloat(4, produto.getPreco());            
+            p.setString(5, produto.getMarca());
+            p.setInt(6, produto.getCategoria());
+            p.setInt(7, produto.getFornecedor());
+            p.setString(8, "S");
             
             p.execute();
             
@@ -56,7 +57,7 @@ Connection conexao;
             //Comando do banco
             String sql = "UPDATE produtos "
                 + " SET codigo = ?, descricao = ?, preco = ?, marca = ?,"
-                + " categoria = ?, fornecedor = ?, ativo = ?,"
+                + " categoria = ?, fornecedor = ?, ativo = ?"
                 + " WHERE codbar = ?";
 
             PreparedStatement p; 
