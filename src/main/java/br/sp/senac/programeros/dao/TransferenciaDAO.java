@@ -50,7 +50,7 @@ public class TransferenciaDAO implements br.sp.senac.programeros.interfaces.Tran
 
         try {
             //Comando do banco
-            String sql = "UPDATE tranferencias"
+            String sql = "UPDATE transferencias"
                     + " SET produto = ?, origem = ?, destino = ?,quantidade = ?, usuario = ?"
                     + " WHERE chave = ?";
 

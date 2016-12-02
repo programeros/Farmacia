@@ -56,7 +56,7 @@ public class AlterarTransferencia extends HttpServlet {
         Connection conexao = conn.obterConexao();
         //Objeto
         TransferenciaDAO dao = new TransferenciaDAO(conexao);
-        dao.inserir(novo);
+        dao.alterar(novo);
 
         conn.fecharConexao();
                           
