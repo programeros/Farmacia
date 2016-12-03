@@ -128,6 +128,18 @@
         <servlet-name>AlterarPagamento</servlet-name>
         <servlet-class>br.sp.senac.programeros.actions.AlterarPagamento</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdicionarRecebimento</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AdicionarRecebimento</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarRecebimento</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.AlterarRecebimento</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirRecebimento</servlet-name>
+        <servlet-class>br.sp.senac.programeros.actions.ExcluirRecebimento</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerificarUsuario</servlet-name>
         <url-pattern>/VerificarUsuario</url-pattern>
@@ -251,6 +263,18 @@
     <servlet-mapping>
         <servlet-name>AlterarPagamento</servlet-name>
         <url-pattern>/AlterarPagamento</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdicionarRecebimento</servlet-name>
+        <url-pattern>/AdicionarRecebimento</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarRecebimento</servlet-name>
+        <url-pattern>/AlterarRecebimento</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirRecebimento</servlet-name>
+        <url-pattern>/ExcluirRecebimento</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

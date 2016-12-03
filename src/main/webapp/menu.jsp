@@ -32,7 +32,7 @@
                     <ul>
                         <li><a href="PedidosVendas/pedidosdeVendas.jsp">Vendas</a></li>
                         <li><a href="PedidosCompras/compras.jsp">Compras</a></li>
-                        <li><a href="#">Recebimentos</a></li>                    
+                        <li><a href="ContasReceber/recebimentos.jsp">Recebimentos</a></li>                    
                         <li><a href="ContasPagar/pagamentos.jsp">Pagamentos</a></li>
                         <li><a href="Transferencias/transferencias.jsp">Transferencias</a></li>	                
                     </ul>

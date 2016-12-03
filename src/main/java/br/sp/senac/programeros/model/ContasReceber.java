@@ -13,6 +13,9 @@ public class ContasReceber {
     private Float valorBaixado;
     private Date dataBaixa;
     private int cliente;
+    private int pedido;
+    private int notasSaida;
+    private int usuario; 
     //Construtor
     public ContasReceber() {
     }
@@ -92,5 +95,30 @@ public class ContasReceber {
     public void setCliente(int cliente) {
         this.cliente = cliente;
     }
+
+    public int getPedido() {
+        return pedido;
+    }
+
+    public int getNotasSaida() {
+        return notasSaida;
+    }
+
+    public int getUsuario() {
+        return usuario;
+    }
+
+    public void setPedido(int pedido) {
+        this.pedido = pedido;
+    }
+
+    public void setNotasSaida(int notasSaida) {
+        this.notasSaida = notasSaida;
+    }
+
+    public void setUsuario(int usuario) {
+        this.usuario = usuario;
+    }
+    
 
 }
