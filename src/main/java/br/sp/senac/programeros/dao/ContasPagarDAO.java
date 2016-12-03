@@ -27,8 +27,8 @@ public class ContasPagarDAO implements br.sp.senac.programeros.interfaces.Contas
     public void ContasPagar(ContasPagar contasPagar) {
         //Comando do banco
         String sql = "INSERT INTO contaspagar"
-                + "(serie,titulo,parecela,fornecedor,dada_emissao,valor,valor_baixado,data_baixa) VALUES "
-                + "(?,?,?,?,?,?,?,?)";
+                + "(serie,titulo,parecela,fornecedor,dada_emissao,valor,valor_baixado,pedido,notasentrada_chave,baixa,usuario) VALUES "
+                + "(?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement p;
         try {
             //Setando os valores
@@ -40,7 +40,10 @@ public class ContasPagarDAO implements br.sp.senac.programeros.interfaces.Contas
             p.setDate(5, new java.sql.Date(System.currentTimeMillis())); 
             p.setFloat(6, contasPagar.getValor());
             p.setFloat(7, contasPagar.getValorBaixado());
-            p.setDate(8, new java.sql.Date(System.currentTimeMillis())); 
+            p.setInt(8, contasPagar.getPedido());
+            p.setInt(8, contasPagar.getNotasEntrada());
+            p.setDate(8, (Date) contasPagar.getDataBaixa()); 
+            p.setInt(8, contasPagar.getUsuario());
             
 
             p.execute();
@@ -59,7 +62,7 @@ public class ContasPagarDAO implements br.sp.senac.programeros.interfaces.Contas
             //Comando do banco
             String sql = "UPDATE contaspagar"
                     + " SET serie = ?, titulo = ?, parecela = ?, fornecedor = ?, dada_emissao = ?,"
-                    + "valor = ?, valor_baixado = ?, data_baixa = ?"
+                    + "valor = ?, valor_baixado = ?, pedido = ?, notasentrada_chave = ?, baixa = ?, usuario = ?"
                     + " WHERE chave = ?";
             //Setando os valores
             PreparedStatement p;
@@ -71,8 +74,11 @@ public class ContasPagarDAO implements br.sp.senac.programeros.interfaces.Contas
             p.setDate(5, new java.sql.Date(System.currentTimeMillis())); 
             p.setFloat(6, contasPagar.getValor());
             p.setFloat(7, contasPagar.getValorBaixado());
-            p.setDate(8, new java.sql.Date(System.currentTimeMillis()));
-            p.setInt(9, contasPagar.getChave());
+            p.setInt(8, contasPagar.getPedido());
+            p.setInt(9, contasPagar.getNotasEntrada());
+            p.setDate(10, (Date) contasPagar.getDataBaixa());
+            p.setInt(11, contasPagar.getUsuario());
+            p.setInt(12, contasPagar.getChave());
             p.execute();
 
         } catch (SQLException ex) {
@@ -87,7 +93,7 @@ public class ContasPagarDAO implements br.sp.senac.programeros.interfaces.Contas
         List<ContasPagar> contasPagar = new ArrayList<ContasPagar>();
         //Comando do banco
         try {
-            String sql = "SELECT * FROM contapagar WHERE deletado <> '*'";
+            String sql = "SELECT * FROM contaspagar WHERE deletado <> '*'";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             //Setando os valores
@@ -98,22 +104,27 @@ public class ContasPagarDAO implements br.sp.senac.programeros.interfaces.Contas
                 String serie = rs.getString("serie");
                 String titulo = rs.getString("titulo");
                 String parcela = rs.getString("parcela");
+                int fornecedor = rs.getInt("fornecedor");
                 Date dataEmissao = rs.getDate("data_emissao");
                 Float valor = rs.getFloat("valor");
                 Float valorBaixado = rs.getFloat("valor_baixado");
-                Date dataBaixa = rs.getDate("data_baixa");
-                int fornecedor = rs.getInt("fornecedor");
-                
+                int pedido = rs.getInt("pedido");
+                int notasEntrada = rs.getInt("notasentrada_chave");
+                Date dataBaixa = rs.getDate("baixa");
+                int usuario = rs.getInt("usuario");                
 
                 contaPagar.setChave(chave);
                 contaPagar.setSerie(serie);
                 contaPagar.setTitulo(titulo);
                 contaPagar.setParcela(parcela);
+                contaPagar.setFornecedor(fornecedor);
                 contaPagar.setDataEmissao(dataEmissao);
                 contaPagar.setValor(valor);
                 contaPagar.setValorBaixado(valorBaixado);
+                contaPagar.setPedido(pedido);
+                contaPagar.setNotasEntrada(notasEntrada);
                 contaPagar.setDataBaixa(dataBaixa);
-                contaPagar.setFornecedor(fornecedor);
+                contaPagar.setUsuario(usuario);
 
                 contasPagar.add(contaPagar);
             }
@@ -137,15 +148,18 @@ public class ContasPagarDAO implements br.sp.senac.programeros.interfaces.Contas
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
             //Setando os valores
-                contasPagar.setChave(chave);
-                contasPagar.setSerie(rs.getString("serie"));
-                contasPagar.setTitulo(rs.getString("titulo"));
-                contasPagar.setParcela(rs.getString("parcela"));
-                contasPagar.setDataEmissao(rs.getDate("data_emissao"));
-                contasPagar.setValor(rs.getFloat("valor"));
-                contasPagar.setValorBaixado(rs.getFloat("valor_baixado"));
-                contasPagar.setDataBaixa(rs.getDate("data_baixa"));
-                contasPagar.setFornecedor(rs.getInt("fornecedor"));
+                contasPagar.setChave(chave);                
+                String serie = rs.getString("serie");
+                String titulo = rs.getString("titulo");
+                String parcela = rs.getString("parcela");
+                int fornecedor = rs.getInt("fornecedor");
+                Date dataEmissao = rs.getDate("data_emissao");
+                Float valor = rs.getFloat("valor");
+                Float valorBaixado = rs.getFloat("valor_baixado");
+                int pedido = rs.getInt("pedido");
+                int notasEntrada = rs.getInt("notasentrada_chave");
+                Date dataBaixa = rs.getDate("baixa");
+                int usuario = rs.getInt("usuario");
 
         } catch (Exception e) {
             e.printStackTrace();

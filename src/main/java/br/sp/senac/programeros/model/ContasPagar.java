@@ -12,6 +12,9 @@ public class ContasPagar{
     private Float valor;
     private Float valorBaixado;
     private Date dataBaixa;
+    private int pedido;
+    private int notasEntrada;
+    private int usuario;    
     private Compra compra;
     private int fornecedor;
     
@@ -103,4 +106,29 @@ public class ContasPagar{
     public void setFornecedor(int fornecedor) {
         this.fornecedor = fornecedor;
     }
+
+    public int getPedido() {
+        return pedido;
+    }
+
+    public int getNotasEntrada() {
+        return notasEntrada;
+    }
+
+    public int getUsuario() {
+        return usuario;
+    }
+
+    public void setPedido(int pedido) {
+        this.pedido = pedido;
+    }
+
+    public void setNotasEntrada(int notasEntrada) {
+        this.notasEntrada = notasEntrada;
+    }
+
+    public void setUsuario(int usuario) {
+        this.usuario = usuario;
+    }
+    
 }
