@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
     <head>         
-        <title>Cadastro de Produtos</title>
+        <title>Alteração de Produto</title>
     </head>  
     <body>
         <%

@@ -42,8 +42,8 @@
                     List<Fornecedores> fornecedores = daoF.listarFornecedores();
 
                     conn.fecharConexao();
-                   
-                    for (Categoria c : categorias) {                   
+
+                    for (Categoria c : categorias) {
                 %>
                 <option value="<%=c.getCodigo()%>"><%=c.getDescricao()%></option>
                 <%}%>
@@ -60,8 +60,6 @@
             <br/><br/><input type="submit" value="Gravar" />
             <input type="reset" value="Limpar" />                    
             <input type="button" value="Voltar" onClick="history.go(-1)"> 
-        </form>
-    </div>
-</aside>  
-</body>
+        </form>    
+    </body>
 </html>
