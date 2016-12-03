@@ -53,9 +53,9 @@
                     <th id="col6">Data de Emissão</th>
                     <th id="col7">Valor</th> 
                     <th id="col8">Valor Baixado</th> 
-                    <th id="col9">Pedido_Cod</th> 
-                    <th id="col10">Notas Entrada_Cod</th> 
-                    <th id="col11">Data de Baixa</th> 
+                    <th id="col9">Data de Baixa</th>
+                    <th id="col10">Pedido_Cod</th> 
+                    <th id="col11">Notas Entrada_Cod</th>                      
                     <th id="col12">Usuario_Cod</th> 
                 </thread>
 
@@ -71,9 +71,9 @@
                     <td><%= p.getDataEmissao()%></td>
                     <td><%= p.getValor()%></td>
                     <td><%= p.getValorBaixado()%></td>
-                    <td><%= p.getPedido()%></td>
-                    <td><%= p.getNotasEntrada()%></td>
                     <td><%= p.getDataBaixa()%></td>
+                    <td><%= p.getPedido()%></td>
+                    <td><%= p.getNotasEntrada()%></td>                    
                     <td><%= p.getUsuario()%></td>                    
                 </tr>              
                 <%}%> 

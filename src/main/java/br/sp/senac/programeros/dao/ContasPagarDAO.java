@@ -41,9 +41,9 @@ public class ContasPagarDAO implements br.sp.senac.programeros.interfaces.Contas
             p.setFloat(6, contasPagar.getValor());
             p.setFloat(7, contasPagar.getValorBaixado());
             p.setInt(8, contasPagar.getPedido());
-            p.setInt(8, contasPagar.getNotasEntrada());
-            p.setDate(8, (Date) contasPagar.getDataBaixa()); 
-            p.setInt(8, contasPagar.getUsuario());
+            p.setInt(9, contasPagar.getNotasEntrada());
+            p.setDate(10, (Date) contasPagar.getDataBaixa()); 
+            p.setInt(11, contasPagar.getUsuario());
             
 
             p.execute();
@@ -93,7 +93,7 @@ public class ContasPagarDAO implements br.sp.senac.programeros.interfaces.Contas
         List<ContasPagar> contasPagar = new ArrayList<ContasPagar>();
         //Comando do banco
         try {
-            String sql = "SELECT * FROM contaspagar WHERE deletado <> '*'";
+            String sql = "SELECT * FROM contaspagar";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             //Setando os valores
@@ -141,7 +141,7 @@ public class ContasPagarDAO implements br.sp.senac.programeros.interfaces.Contas
         ContasPagar contasPagar = new ContasPagar();
         ConexaoBD conn = new ConexaoBD();
         //Comando do banco
-        String sql = "SELECT * FROM contaspagar WHERE deletado <> '*' AND chave= " + chave;
+        String sql = "SELECT * FROM contaspagar WHERE chave= " + chave;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
@@ -149,17 +149,17 @@ public class ContasPagarDAO implements br.sp.senac.programeros.interfaces.Contas
             rs.next();
             //Setando os valores
                 contasPagar.setChave(chave);                
-                String serie = rs.getString("serie");
-                String titulo = rs.getString("titulo");
-                String parcela = rs.getString("parcela");
-                int fornecedor = rs.getInt("fornecedor");
-                Date dataEmissao = rs.getDate("data_emissao");
-                Float valor = rs.getFloat("valor");
-                Float valorBaixado = rs.getFloat("valor_baixado");
-                int pedido = rs.getInt("pedido");
-                int notasEntrada = rs.getInt("notasentrada_chave");
-                Date dataBaixa = rs.getDate("baixa");
-                int usuario = rs.getInt("usuario");
+                contasPagar.setSerie(rs.getString("serie"));
+                contasPagar.setTitulo(rs.getString("titulo"));
+                contasPagar.setParcela(rs.getString("parcela"));
+                contasPagar.setFornecedor(rs.getInt("fornecedor"));
+                contasPagar.setDataEmissao(rs.getDate("data_emissao"));
+                contasPagar.setValor(rs.getFloat("valor"));
+                contasPagar.setValorBaixado(rs.getFloat("valor_baixado"));
+                contasPagar.setPedido(rs.getInt("pedido"));
+                contasPagar.setNotasEntrada(rs.getInt("notasentrada_chave"));
+                contasPagar.setDataBaixa(rs.getDate("baixa"));
+                contasPagar.setUsuario(rs.getInt("usuario"));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -173,7 +173,7 @@ public class ContasPagarDAO implements br.sp.senac.programeros.interfaces.Contas
     @Override
     public ContasPagar Remove(int codigo) {
         //Comando do banco
-        String sql = "UPDATE contaspagar set deletado = '*' WHERE chave = ?";
+        String sql = "DELETE contaspagar WHERE chave = ?";
 
         PreparedStatement p;
         try {
