@@ -27,8 +27,8 @@ public class ContasReceberDAO implements br.sp.senac.programeros.interfaces.Cont
     public void ContasReceber(ContasReceber contasReceber) {
         //Comando do banco
         String sql = "INSERT INTO contasreceber"
-                + "(serie,titulo,parecela,cliente,dada_emissao,valor,valor_baixado,data_baixa) VALUES "
-                + "(?,?,?,?,?,?,?,?)";
+                + "(serie,titulo,parcela,cliente,dada_emissao,valor,valor_baixado,data_baixa,pedido,notassaida_chave,usuario) VALUES "
+                + "(?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement p;
         try {
             //Setando os valores
@@ -40,15 +40,16 @@ public class ContasReceberDAO implements br.sp.senac.programeros.interfaces.Cont
             p.setDate(5, new java.sql.Date(System.currentTimeMillis())); 
             p.setFloat(6, contasReceber.getValor());
             p.setFloat(7, contasReceber.getValorBaixado());
-            p.setDate(8, new java.sql.Date(System.currentTimeMillis())); 
-            
+            p.setDate(8, (Date) contasReceber.getDataBaixa()); 
+            p.setInt(9, contasReceber.getPedido());
+            p.setInt(10, contasReceber.getNotasSaida());
+            p.setInt(11, contasReceber.getUsuario());
 
             p.execute();
 
         } catch (SQLException ex) {
             Logger.getLogger(ContasReceberDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     //Alterar
@@ -57,9 +58,9 @@ public class ContasReceberDAO implements br.sp.senac.programeros.interfaces.Cont
 
         try {
             //Comando do banco
-            String sql = "UPDATE contareceber"
+            String sql = "UPDATE contasreceber"
                     + " SET serie = ?, titulo = ?, parecela = ?, cliente = ?, dada_emissao = ?,"
-                    + "valor = ?, valor_baixado = ?, data_baixa = ?"
+                    + "valor = ?, valor_baixado = ?, data_baixa = ?, pedido = ?, notassaida_chave = ?, usuario = ?"
                     + " WHERE chave = ?";
             //Setando os valores
             PreparedStatement p;
@@ -71,8 +72,11 @@ public class ContasReceberDAO implements br.sp.senac.programeros.interfaces.Cont
             p.setDate(5, new java.sql.Date(System.currentTimeMillis())); 
             p.setFloat(6, contasReceber.getValor());
             p.setFloat(7, contasReceber.getValorBaixado());
-            p.setDate(8, new java.sql.Date(System.currentTimeMillis()));
-            p.setInt(9, contasReceber.getChave());
+            p.setDate(8, (Date) contasReceber.getDataBaixa());
+            p.setInt(9, contasReceber.getPedido());
+            p.setInt(10, contasReceber.getNotasSaida());
+            p.setInt(11, contasReceber.getUsuario());
+            p.setInt(12, contasReceber.getChave());
             p.execute();
 
         } catch (SQLException ex) {
@@ -87,7 +91,7 @@ public class ContasReceberDAO implements br.sp.senac.programeros.interfaces.Cont
         List<ContasReceber> contasReceber = new ArrayList<ContasReceber>();
         //Comando do banco
         try {
-            String sql = "SELECT * FROM contasreceber WHERE deletado <> '*'";
+            String sql = "SELECT * FROM contasreceber";
             java.sql.Statement stmt = conexao.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             //Setando os valores
@@ -98,22 +102,27 @@ public class ContasReceberDAO implements br.sp.senac.programeros.interfaces.Cont
                 String serie = rs.getString("serie");
                 String titulo = rs.getString("titulo");
                 String parcela = rs.getString("parcela");
+                int cliente = rs.getInt("cliente");
                 Date dataEmissao = rs.getDate("data_emissao");
                 Float valor = rs.getFloat("valor");
                 Float valorBaixado = rs.getFloat("valor_baixado");
                 Date dataBaixa = rs.getDate("data_baixa");
-                int cliente = rs.getInt("cliente");
-                
+                int pedido = rs.getInt("pedido");
+                int notasSaida = rs.getInt("notassaida_chave");                
+                int usuario = rs.getInt("usuario");                  
 
                 contaReceber.setChave(chave);
                 contaReceber.setSerie(serie);
                 contaReceber.setTitulo(titulo);
                 contaReceber.setParcela(parcela);
+                contaReceber.setCliente(cliente);
                 contaReceber.setDataEmissao(dataEmissao);
                 contaReceber.setValor(valor);
                 contaReceber.setValorBaixado(valorBaixado);
                 contaReceber.setDataBaixa(dataBaixa);
-                contaReceber.setCliente(cliente);
+                contaReceber.setPedido(pedido);
+                contaReceber.setNotasSaida(notasSaida);                
+                contaReceber.setUsuario(usuario);                
 
                 contasReceber.add(contaReceber);
             }
@@ -130,7 +139,7 @@ public class ContasReceberDAO implements br.sp.senac.programeros.interfaces.Cont
         ContasReceber contasReceber = new ContasReceber();
         ConexaoBD conn = new ConexaoBD();
         //Comando do banco
-        String sql = "SELECT * FROM contasreceber WHERE deletado <> '*' AND chave= " + chave;
+        String sql = "SELECT * FROM contasreceber WHERE chave= " + chave;
 
         try {
             Statement stmt = (Statement) conn.obterConexao().createStatement();
@@ -141,11 +150,14 @@ public class ContasReceberDAO implements br.sp.senac.programeros.interfaces.Cont
                 contasReceber.setSerie(rs.getString("serie"));
                 contasReceber.setTitulo(rs.getString("titulo"));
                 contasReceber.setParcela(rs.getString("parcela"));
+                contasReceber.setCliente(rs.getInt("cliente"));
                 contasReceber.setDataEmissao(rs.getDate("data_emissao"));
                 contasReceber.setValor(rs.getFloat("valor"));
                 contasReceber.setValorBaixado(rs.getFloat("valor_baixado"));
                 contasReceber.setDataBaixa(rs.getDate("data_baixa"));
-                contasReceber.setCliente(rs.getInt("cliente"));
+                contasReceber.setPedido(rs.getInt("pedido"));
+                contasReceber.setNotasSaida(rs.getInt("notassaida_chave"));
+                contasReceber.setUsuario(rs.getInt("usuario"));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -159,7 +171,7 @@ public class ContasReceberDAO implements br.sp.senac.programeros.interfaces.Cont
     @Override
     public ContasReceber Remove(int chave) {
         //Comando do banco
-        String sql = "UPDATE contasreceber set deletado = '*' WHERE chave = ?";
+        String sql = "DELETE contasreceber WHERE chave = ?";
 
         PreparedStatement p;
         try {
